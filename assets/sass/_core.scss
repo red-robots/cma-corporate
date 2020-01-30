@@ -1753,3 +1753,18 @@ body.scrolled {
 #content {
     margin-top: 80px;
 }
+body.logged-in.admin-bar {
+    .site-header {
+        top: 32px;
+    }
+    @media screen and (max-width: 782px) {
+        .site-header {
+            top: 46px;
+        }
+        #wpadminbar {
+            position: fixed!important;
+            top: 0;
+            left: 0;
+        }
+    }
+}
