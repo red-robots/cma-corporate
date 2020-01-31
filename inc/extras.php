@@ -147,13 +147,7 @@ function email_obfuscator($string) {
 }
 
 function get_social_links() {
-    $social_types = array(
-        'facebook'  => 'fab fa-facebook-square',
-        'twitter'   => 'fab fa-twitter-square',
-        'instagram' => 'fab fa-instagram',
-        'snapchat'  => 'fab fa-snapchat-ghost',
-        'youtube'   => 'fab fa-youtube'
-    );
+    $social_types = social_icons();
     $social = array();
     foreach($social_types as $k=>$icon) {
         $value = get_field($k,'option');
@@ -162,6 +156,18 @@ function get_social_links() {
         }
     }
     return $social;
+}
+
+function social_icons() {
+    $social_types = array(
+        'facebook'  => 'fab fa-facebook-f',
+        'twitter'   => 'fab fa-twitter',
+        'linkedin'  => 'fab fa-linkedin-in',
+        'instagram' => 'fab fa-instagram',
+        'snapchat'  => 'fab fa-snapchat-ghost',
+        'youtube'   => 'fab fa-youtube'
+    );
+    return $social_types;
 }
 
 /* removing WP version generator */

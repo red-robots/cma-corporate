@@ -308,7 +308,7 @@ button.menu-toggle {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 5px;
+    top: 0;
     right: 15px;
     border-radius: 4px;
     z-index: 100002
@@ -341,7 +341,7 @@ button.menu-toggle {
     display: block;
     width: 29px;
     height: 4px;
-    background-color: #db1c2b;
+    background-color: $primary;
     outline: 1px solid transparent;
     -webkit-transition-property: background-color, -webkit-transform;
     transition-property: background-color, -webkit-transform;
@@ -383,7 +383,7 @@ button.menu-toggle {
 
 .burger.clicked span:after,
 .burger.clicked span:before {
-    background-color: #db1c2b
+    background-color: $primary
 }
 
 .burger:hover {
@@ -395,7 +395,7 @@ button.menu-toggle {
     margin-left: -45px;
     margin-top: 13px;
     font-size: 15px;
-    font-weight: 700
+    font-weight: 400
 }
 
 nav.mobilemenu {
@@ -647,6 +647,34 @@ nav.mobilemenu ul.sub li a {
 nav.mobilemenu ul.sub li a:hover {
     color: #ff0
 }
+.site-header .mobilemenu {
+    top: 65px;
+    min-height: 400px;
+    .mobilemain > li.menu-item-has-children > a {
+        font-weight: 600;
+        font-size: 16px;
+    }
+    @media screen and (max-width: $mwidth) {
+        height: 80vh!important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .mobilemain > li {
+            text-align: center;
+        }
+        .mobilemain > li.menu-item-has-children {
+            width: 100%;
+            float: left;
+            margin: 0 0 15px;
+        }
+        .mobilemain > li.menu-item-has-children > a {
+            font-size: 20px;
+        }
+        .mobilemain > li.menu-item-has-children ul a {
+            font-size: 16px;
+        }
+    }
+}
+
 
 .overlayz {
     position: fixed;
@@ -740,7 +768,7 @@ pre {
     display: block;
     font-size: 14px;
     font-size: .875rem;
-    font-weight: 700;
+    font-weight: 500;
     height: auto;
     left: 5px;
     line-height: normal;
@@ -773,20 +801,13 @@ a,
 a:active,
 a:hover,
 a:visited {
-    color: #db1c2b
+    color: $primary
 }
 
-@font-face {
-    font-family: open_sanslight;
-    src: url(fonts/opensans-light-webfont.woff2) format("woff2"), url(fonts/opensans-light-webfont.woff) format("woff");
-    font-weight: 400;
-    font-style: normal
-}
-
-body,
-html {
+body,html {
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    font-family: open_sanslight
+    font-weight: 300;
 }
 
 a,
@@ -806,7 +827,7 @@ a:hover {
 }
 
 .cma-header-logo {
-    font-family: open_sanslight, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 2.25rem
 }
 
@@ -814,18 +835,14 @@ a:hover {
     text-decoration: none
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: open_sanslight, sans-serif
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
 
 .cma-main-body {
     background-color: #f2f2f2;
-    padding: 10px
+    padding: 20px 10px
 }
 
 .service-title {
@@ -849,13 +866,13 @@ h6 {
 .cma-paragraph-white {
     color: #fff;
     font-size: 18px;
-    font-family: open_sanslight
+    font-family: 'Open Sans', sans-serif
 }
 
 .cma-paragraph-white p {
     color: #fff;
     font-size: 18px;
-    font-family: open_sanslight
+    font-family: 'Open Sans', sans-serif
 }
 
 .cma-icon-holder {
@@ -863,15 +880,15 @@ h6 {
 }
 
 .cma-sub-title {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
-    font-family: open_sanslight;
+    font-family: 'Open Sans', sans-serif;
     margin: 5px 0
 }
 
 .cma-title-dark {
     color: #222;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
     margin: 5px 0
 }
@@ -889,14 +906,14 @@ h6 {
 }
 
 .cma-title-red {
-    color: #db1c2b
+    color: $primary
 }
 
 a.cma-solid-bottom:hover {
-    color: #db1c2b;
+    color: $primary;
     background: 0 0;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     border-bottom: 4px solid #000;
     padding: 0 0 3px 0;
     font-size: 18px
@@ -906,10 +923,10 @@ a.cma-solid-bottom:hover {
 .gform_button {
     background: 0 0;
     border: none;
-    font-weight: 700;
+    font-weight: 600;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    border-bottom: 4px solid #db1c2b;
+    border-bottom: 4px solid $primary;
     padding: 0 0 3px 0;
     font-size: 18px;
     cursor: pointer;
@@ -919,7 +936,7 @@ a.cma-solid-bottom:hover {
 input[type=submit]:hover {
     background: 0 0;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     border-bottom: 4px solid #000;
@@ -927,7 +944,7 @@ input[type=submit]:hover {
     font-size: 18px;
     cursor: pointer;
     margin: 0 auto;
-    color: #db1c2b
+    color: $primary
 }
 
 .gform_wrapper .gform_footer {
@@ -942,8 +959,8 @@ input[type=submit]:hover {
     color: #000;
     background: 0 0;
     border: none;
-    font-weight: 700;
-    border-bottom: 4px solid #db1c2b;
+    font-weight: 500;
+    border-bottom: 4px solid $primary;
     padding: 0 0 3px 0;
     font-size: 18px
 }
@@ -1009,7 +1026,7 @@ input[type=submit]:hover {
     padding: 10px 20px;
     width: 200px;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0 auto
 }
 
@@ -1018,7 +1035,7 @@ input[type=submit]:hover {
 }
 
 .text-bold {
-    font-weight: 700
+    font-weight: 500
 }
 
 .list-group-item a {
@@ -1026,7 +1043,7 @@ input[type=submit]:hover {
 }
 
 .text-dark {
-    font-weight: 700
+    font-weight: 600
 }
 
 .cma-logo {
@@ -1107,7 +1124,9 @@ input[type=submit]:hover {
     vertical-align: top;
     margin-right: 20px;
     margin-top: 10px;
-    width: 135px
+    margin-left: 0;
+    margin-right: 0;
+    width: 22%;
 }
 
 .mobilemain .menu-item-has-children a {
@@ -1125,11 +1144,11 @@ input[type=submit]:hover {
 
 .mobilemain .sub-menu a:hover {
     font-weight: 400;
-    color: #db1c2b
+    color: $primary
 }
 
 .list-group-item a:hover {
-    color: #db1c2b
+    color: $primary
 }
 
 .main_menu_top {
@@ -1141,7 +1160,7 @@ input[type=submit]:hover {
     position: relative;
     top: 0;
     color: #fff;
-    font-weight: 700;
+    font-weight: 500;
     left: 45px
 }
 
@@ -1189,7 +1208,7 @@ input[type=submit]:hover {
         position: relative;
         top: 0;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 45px
     }
     .social_media_desktop {
@@ -1204,7 +1223,7 @@ input[type=submit]:hover {
 }
 
 .sitemap404 .menu-item a {
-    color: #db1c2b
+    color: $primary
 }
 
 .sitemap404 .menu-item-has-children {
@@ -1217,7 +1236,7 @@ input[type=submit]:hover {
 }
 
 .sitemap404 .menu-item-has-children a {
-    font-weight: 700
+    font-weight: 500
 }
 
 .sitemap404 .sub-menu a {
@@ -1231,7 +1250,9 @@ input[type=submit]:hover {
 }
 
 .mobilemenu {
-    display: none
+    display: none;
+    background-image: -webkit-linear-gradient(210deg, rgba(2, 2, 204, .6), rgba(255, 0, 0, .8));
+    background-image: linear-gradient(-120deg, rgba(2, 2, 204, .6), rgba(255, 0, 0, .8));
 }
 
 .featured_image {
@@ -1247,8 +1268,6 @@ input[type=submit]:hover {
 
 @media screen and (max-width: $midwidth - 1px) {
     .mobilemenu {
-        background-image: -webkit-linear-gradient(210deg, rgba(5, 5, 255, .4), rgba(255, 0, 0, .5));
-        background-image: linear-gradient(-120deg, rgba(5, 5, 255, .4), rgba(255, 0, 0, .5));
         position: absolute;
         margin-top: 15px;
         right: 0;
@@ -1274,7 +1293,7 @@ input[type=submit]:hover {
         position: relative;
         top: 0;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 13px;
         overflow-y: auto;
         padding-bottom: 10px
@@ -1306,7 +1325,7 @@ input[type=submit]:hover {
 //         position: relative;
 //         top: -252px;
 //         color: #fff;
-//         font-weight: 700;
+//         font-weight: 500;
 //         left: 180px;
 //         padding-bottom: 10px
 //     }
@@ -1333,8 +1352,6 @@ input[type=submit]:hover {
         display: none
     }
     .mobilemenu {
-        background-image: -webkit-linear-gradient(210deg, rgba(5, 5, 255, .4), rgba(255, 0, 0, .5));
-        background-image: linear-gradient(-120deg, rgba(5, 5, 255, .4), rgba(255, 0, 0, .5));
         position: absolute;
         right: 0;
         width: 100%;
@@ -1348,20 +1365,19 @@ input[type=submit]:hover {
         display: inline-block;
         top: 0;
         vertical-align: top;
-        margin-right: 5px;
-        margin-top: 10px;
-        width: 130px
+        width: 24%;
+        margin: 0 0;
     }
     .header_location {
         width: 150px;
         position: relative;
         top: -266px;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 588px
     }
     .cma-title-red {
-        color: #db1c2b;
+        color: $primary;
         font-size: 28px;
         padding: 10px
     }
@@ -1374,7 +1390,7 @@ input[type=submit]:hover {
     .cma-paragraph-white p {
         color: #fff;
         font-size: 16px;
-        font-family: open_sanslight
+        font-family: 'Open Sans', sans-serif
     }
     .cma-paragraph-normal {
         font-size: 16px;
@@ -1398,16 +1414,16 @@ input[type=submit]:hover {
         color: #000;
         background: 0 0;
         border: none;
-        font-weight: 700;
-        border-bottom: 4px solid #db1c2b;
+        font-weight: 500;
+        border-bottom: 4px solid $primary;
         padding: 0 0 3px 0;
         font-size: 16px
     }
     a.cma-solid-bottom:hover {
-        color: #db1c2b;
+        color: $primary;
         background: 0 0;
         border: none;
-        font-weight: 700;
+        font-weight: 500;
         border-bottom: 4px solid #000;
         padding: 0 0 3px 0;
         font-size: 16px
@@ -1415,10 +1431,10 @@ input[type=submit]:hover {
     .gform_button {
         background: 0 0;
         border: none;
-        font-weight: 700;
+        font-weight: 500;
         font-smoothing: antialiased;
         -webkit-font-smoothing: antialiased;
-        border-bottom: 4px solid #db1c2b;
+        border-bottom: 4px solid $primary;
         padding: 0 0 3px 0;
         font-size: 18px;
         cursor: pointer;
@@ -1427,7 +1443,7 @@ input[type=submit]:hover {
     input[type=submit]:hover {
         background: 0 0;
         border: none;
-        font-weight: 700;
+        font-weight: 500;
         font-smoothing: antialiased;
         -webkit-font-smoothing: antialiased;
         border-bottom: 4px solid #000;
@@ -1435,7 +1451,7 @@ input[type=submit]:hover {
         font-size: 18px;
         cursor: pointer;
         margin: 0 auto;
-        color: #db1c2b
+        color: $primary
     }
     .cma-logo img {
         height: 100px;
@@ -1487,7 +1503,7 @@ input[type=submit]:hover {
         position: relative;
         top: -285px;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 530px
     }
 }
@@ -1515,7 +1531,7 @@ input[type=submit]:hover {
         position: relative;
         top: -251px;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 136px
     }
 }
@@ -1543,7 +1559,7 @@ input[type=submit]:hover {
         position: relative;
         top: 0;
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         left: 13px
     }
 }
@@ -1557,7 +1573,7 @@ input[type=submit]:hover {
 }
 
 h1.n2-ss-item-content {
-    font-family: open_sanslight, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 2.25rem
 }
 
@@ -1702,7 +1718,7 @@ a.team_cma_link {
 }
 
 a.team_cma_link:hover {
-    color: #db1c2b;
+    color: $primary;
     text-decoration: none;
     border-bottom: none
 }
@@ -1711,7 +1727,7 @@ a.team_cma_link:hover {
     color: #fff;
     background: 0 0;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     border-bottom: 4px solid #000;
     padding: 0 0 3px 0;
     font-size: 18px
@@ -1721,7 +1737,7 @@ a.team_cma_link:hover {
     color: #000;
     background: 0 0;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     border-bottom: 4px solid #fff;
     padding: 0 0 3px 0;
     font-size: 18px
@@ -1753,6 +1769,9 @@ body.scrolled {
 #content {
     margin-top: 80px;
 }
+body .font-weight-bold {
+    font-weight: 500!important;
+}
 body.logged-in.admin-bar {
     .site-header {
         top: 32px;
@@ -1765,6 +1784,83 @@ body.logged-in.admin-bar {
             position: fixed!important;
             top: 0;
             left: 0;
+        }
+    }
+}
+.cma-footer {
+    .officeAddress {
+        margin-top: 8px;
+    }
+    .copyright {
+        font-size: 13px;
+    }
+    @media screen and (max-width: $tabwidth) {
+        .cma-title-red,
+        .request-info,
+        .copyright {
+            text-align: center;
+        }
+    }
+}
+.social-media-links {
+    margin-bottom: 10px;
+    ul {
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        li {
+            display: inline-block;
+        }
+    }
+    a {
+        display: inline-block;
+        font-size: 30px;
+        color: $primary;
+        width: 48px;
+        height: 48px;
+        position: relative;
+        border: 1px solid $primary;
+        @include flexgroup-center();
+        @include flexbox-justify(center);
+        i {
+            position: relative;
+            font-size: 22px;
+        }
+        &:hover {
+            background: $primary;
+            color: #FFF;
+        }
+    }
+    @media screen and (max-width: $tabwidth) {
+        text-align: center;
+        margin-top: 45px;
+        ul {
+            display: inline-block;
+            li {
+                margin:2px;
+            }
+        }
+    }
+}
+.featured-video {
+    background: #FFF;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include desk {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    iframe {
+        width: 100%!important;
+        height: 30vh!important;
+        @include tab {
+            height: 50vh!important;
+        }
+        @include mid {
+            height: 60vh!important;
+        }
+        @include desk {
+            height: 70vh!important;
         }
     }
 }

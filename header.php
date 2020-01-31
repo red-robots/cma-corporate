@@ -7,6 +7,8 @@
 	<?php if( is_singular() && pings_open( get_queried_object() )): ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif;  ?>	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">	
 	<?php wp_head(); ?>
 </head>
@@ -16,7 +18,7 @@
 		<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
 
-		 <header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header" role="banner">
 		 	<div id="right-full-screen-menu-container" class="custom-top-wrap">
 		 		<div class="custom-top">
 		 			<div class="wrapper main_menu_top">
@@ -48,48 +50,19 @@
 
 
 		 			</div><!-- wrapper -->
-		 			<div class="mobilemenu">		 					
-		 					<?php 
-		 					
-		 					wp_nav_menu( array( 
-		 						'menu'		=> 'Top Menu',
-		 						'container' => 'ul',		 						
-		 						'menu_class'     => 'mobilemain',
-		 					)); ?>
-
-		 					<div class="header_location">
-		 						<div class="header_location_title">LOCATION</div>
-		 						<ul class="list-group">
-				              <?php
-				                    $post_type = 'location';
-				                    $args = array(
-				                        'posts_per_page'   => -1,
-				                        'orderby'          => 'date',
-				                        'order'            => 'DESC',
-				                        'post_type'        => $post_type,
-				                        'post_status'      => 'publish',
-				                        //'paged'            => $paged
-				                    );
-				                    $posts = new WP_Query($args);
-
-				                    if ( $posts->have_posts() ) {
-
-				                          while ( $posts->have_posts() ) : $posts->the_post(); 
-
-				                  ?>
-				                      <li class="list-group-item"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></li>
-				                <?php     endwhile; wp_reset_postdata();
-				                      }
-				                 ?>
-				                </ul>
-		 					</div>
-							
-		 				</div>
+	 				<div class="mobilemenu">		 					
+	 					<?php 
+	 					wp_nav_menu( array( 
+	 						'menu'		=> 'Top Menu',
+	 						'container' => 'ul',		 						
+	 						'menu_class'     => 'mobilemain',
+	 					)); ?>
+	 				</div>
 		 		</div>
 
 		 		
 
 		 	</div>
-		 </header><!-- #masthead -->
+		</header><!-- #masthead -->
 
-		 <div id="content" class="site-content ">
+		<div id="content" class="site-content ">

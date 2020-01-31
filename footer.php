@@ -6,7 +6,6 @@
     $company_phone      = get_field('phone', 'option');
     $company_bldg_name  = get_field('building_name', 'option');
     $company_address    = get_field('building_address', 'option');
-
     $request_info       = get_field('request_information_text', 'option');
     $request_info_url   = get_field('request_information_url', 'option');
   ?>
@@ -23,45 +22,16 @@
           <div>
             P: <?php echo ($company_phone) ? $company_phone : ''; ?> | E: <a href="mailto:<?php echo ($company_email) ? antispambot($company_email, 1) : ''; ?>"><?php echo ($company_email) ? antispambot($company_email) : ''; ?></a>
           </div>
-          <div class="mb-5">
+          <div class="mb-5 officeAddress">
             <div><?php echo ($company_bldg_name) ? $company_bldg_name : ''; ?></div>
             <div class="company_address"><?php echo ($company_address) ? $company_address : ''; ?></div>
           </div>
-
-
-          <div class="pt-5 mt-5 justify-content-left social_media_desktop fadeInLeft wow" data-wow-delay="0.7s">
-            <div class="">
-                  <ul class="list-group d-flex flex-row">
-                    <?php
-                      $social_media = get_field('social_media', 'option');
-
-                      if($social_media){
-                        foreach($social_media as $social){
-                          $icon = $social['icon'];
-                          $link = $social['link'];
-                    ?>
-                    <li class="list-group-item ">
-                      <a href="<?php echo $link; ?>" target="_blank">
-                        <?php if($icon): ?>
-                        <img src="<?php echo $icon['url']; ?>" alt="">
-                      <?php endif; ?>
-                      </a>
-                    </li>
-                    <?php } // foreach($social_media as $social)
-                    } // if($social_media) ?>               
-                  </ul>
-                </div>
-                <div class="small mt-2">
-                  Copyright <?php echo date('Y'); ?> <?php echo bloginfo('name'); ?>. All Rights Reserved.
-                </div>
-          </div>
-          
-      </div>
+        </div>
 
       
 
       <div class="col-md-5  fadeInRight wow" data-wow-delay="0.5s">
-        <div class=" mb-3" >
+        <div class="mb-3 request-info">
           <a href="<?php echo ($request_info_url) ?  $request_info_url : ''; ?>" class="cma-solid-bottom"><?php echo ($request_info) ? $request_info : '';  ?></a>
         </div>
         <div class="row">
@@ -133,36 +103,48 @@
 
 
       </div> <!-- row -->
-      
-      <div class="social_media_mobile">
-        <div class="pt-5 mt-5 justify-content-center text-center  fadeInLeft wow" data-wow-delay="0.7s">
-            <div class="">
-                  <ul class="list-group d-flex flex-row justify-content-center">
-                    <?php
-                      $social_media = get_field('social_media', 'option');
 
-                      if($social_media){
-                        foreach($social_media as $social){
-                          $icon = $social['icon'];
-                          $link = $social['link'];
-                    ?>
-                    <li class="list-group-item ">
-                      <a href="<?php echo $link; ?>" target="_blank">
-                        <?php if($icon): ?>
-                        <img src="<?php echo $icon['url']; ?>" alt="">
-                      <?php endif; ?>
-                      </a>
-                    </li>
-                    <?php } // foreach($social_media as $social)
-                    } // if($social_media) ?>               
-                  </ul>
-                </div>
-                <div class="small mt-2">
-                  Copyright <?php echo date('Y'); ?> <?php echo bloginfo('name'); ?>. All Rights Reserved.
-                </div>
+      <?php  
+      $socialOptions = social_icons();
+      $socialMedia = get_field('social_media', 'option');
+      ?>
+      
+      <div class="colophon cf fadeIn wow" data-wow-delay="0.6s">
+
+        <?php if ($socialMedia) { ?>
+        <div class="social-media-links">
+          <ul class="smLinks">
+            <?php
+            foreach( $socialMedia as $s ) { 
+              $socialLink = $s['link'];
+              $socialIcon = '';
+              $socialName = '';
+              if($socialLink) {
+                $parts = parse_url($socialLink);
+                $host = $parts['host'];
+                foreach($socialOptions as $k=>$iconClass) {
+                  if (strpos($host, $k) !== false) {
+                    $socialIcon = $iconClass;
+                    $socialName = $k;
+                    break;
+                  }
+                }
+              } ?>
+
+              <?php if ($socialLink && $socialIcon) { ?>
+              <li class="social-<?php echo $socialName;?>">
+                <a href="<?php echo $link; ?>" target="_blank"><i class="social-icon <?php echo $socialIcon ?>" aria-hidden="true"></i><span style="display:none;"><?php echo $socialName ?></span></a>
+              </li>
+              <?php } ?>
+            <?php } ?>
+          </ul>
+        </div>
+        <?php } ?>
+
+        <div class="copyright">
+          Copyright <?php echo date('Y'); ?> <?php echo bloginfo('name'); ?>. All Rights Reserved.
         </div>
       </div>
-      
 
     </div>
   </footer>

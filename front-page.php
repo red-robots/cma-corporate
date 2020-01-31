@@ -3,7 +3,7 @@
 <?php //if( have_posts() ): ?>
     <?php //while ( have_posts() ) : the_post();  ?>
             <!-- Slider -->
-            <div class="mb-5">
+            <div id="sliderWrapper" class="mb-5">
                 <?php
                     echo do_shortcode('[smartslider3 slider=2]');
                 ?>
@@ -174,6 +174,16 @@
 
                 </div>
             </section>
+
+            <!-- VIDEO SECTION -->
+            <?php $video_embed = get_field("video_embed"); ?>
+            <?php if ($video_embed) { ?>
+            <section class="featured-video cf">
+                <div class="container">
+                    <?php echo $video_embed; ?>
+                </div>
+            </section>
+            <?php } ?>
 
             <!--  Why CMA  -->
             <?php
