@@ -133,7 +133,7 @@
 
               <?php if ($socialLink && $socialIcon) { ?>
               <li class="social-<?php echo $socialName;?>">
-                <a href="<?php echo $link; ?>" target="_blank"><i class="social-icon <?php echo $socialIcon ?>" aria-hidden="true"></i><span style="display:none;"><?php echo $socialName ?></span></a>
+                <a href="<?php echo $socialLink; ?>" target="_blank"><i class="social-icon <?php echo $socialIcon ?>" aria-hidden="true"></i><span style="display:none;"><?php echo $socialName ?></span></a>
               </li>
               <?php } ?>
             <?php } ?>
