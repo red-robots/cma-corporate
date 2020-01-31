@@ -181,12 +181,35 @@
             $videoTitle = get_field("video_title");
             $videoCTALabel = get_field("videoCTALabel");
             $videoCTALink = get_field("videoCTALink");
+            $youtubeLink = get_field("youtube_video_link");
+            $autoplay = ( get_field("autoplay") ) ? true : false;
+            $mute = ( get_field("mute") ) ? true : false;
+            $embedURL = '';
+            $video_atts = '';
+            if($youtubeLink) {
+                $url_components = parse_url($youtubeLink); 
+                parse_str($url_components['query'], $params); 
+                if( isset($params['v']) && $params['v'] ) {
+                    $embedURL = 'https://www.youtube.com/embed/' . $params['v'];
+                }
+            }
+            if($autoplay || $mute){
+                $video_atts = '?';
+                $delimiter = ($autoplay && $mute) ? '&':'';
+                if($autoplay) {
+                    $video_atts .= 'autoplay=1';
+                }
+                $video_atts .= $delimiter;
+                if($mute) {
+                    $video_atts .= 'mute=1';
+                }
+            }
             ?>
-            <?php if ($video_embed) { ?>
+            <?php if ($embedURL) { ?>
             <section class="featured-video cf">
                 <div class="container fadeIn wow" data-wow-delay="0.5s">
                     <div class="video-iframe">
-                    <?php echo $video_embed; ?>
+                        <iframe width="560" height="315" src="<?php echo $embedURL . $video_atts;?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <?php if ($videoTitle && ($videoCTALabel && $videoCTALink) ) { ?>
                     <div class="videoDescription text-center">
