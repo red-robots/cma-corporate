@@ -176,11 +176,26 @@
             </section>
 
             <!-- VIDEO SECTION -->
-            <?php $video_embed = get_field("video_embed"); ?>
+            <?php 
+            $video_embed = get_field("video_embed"); 
+            $videoTitle = get_field("video_title");
+            $videoCTALabel = get_field("videoCTALabel");
+            $videoCTALink = get_field("videoCTALink");
+            ?>
             <?php if ($video_embed) { ?>
             <section class="featured-video cf">
-                <div class="container">
+                <div class="container fadeIn wow" data-wow-delay="0.5s">
+                    <div class="video-iframe">
                     <?php echo $video_embed; ?>
+                    </div>
+                    <?php if ($videoTitle && ($videoCTALabel && $videoCTALink) ) { ?>
+                    <div class="videoDescription text-center">
+                        <p style="margin-top:0;margin-bottom:15px"><?php echo $videoTitle ?></p>
+                        <div class="btndiv">
+                            <a href="<?php echo $videoCTALink ?>" target="_blank" class="cma-solid-bottom"><?php echo $videoCTALabel; ?></a>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
             </section>
             <?php } ?>
