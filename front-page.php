@@ -38,7 +38,7 @@
             ?>
             <div class="mb-5 " >
                     <div class=" cma-main-body ">
-                          <div class="justify-content-center fadeInUp wow" data-wow-delay="1s">
+                          <div class="justify-content-center fadeIn wow" data-wow-delay="1s">
                             <div class="col-md-8 mb-4 mt-4" style="margin: 0 auto">
                                 <h1  class="text-center">
                                     <?php echo ($row2_title) ? esc_html($row2_title) : ''; ?>
@@ -47,7 +47,7 @@
                           </div>
 
                             <div class="container">
-                                <div class="row p-5 fadeInUp wow" data-wow-delay="1s">
+                                <div class="row p-5 fadeIn wow" data-wow-delay="1s">
 
                                     <?php
                                         $post_type = 'services';
@@ -286,27 +286,24 @@
                 $row6_text      = get_field('description'); 
                 $final_content =  email_obfuscator($row6_text);
                 $row6_icon      = get_field('logo'); 
-                $row6_small     = get_field('small_captions');              
+                $row6_small     = get_field('small_captions');   
+                $buttonName6 = get_field("buttonName6");           
+                $buttonLink6 = get_field("buttonLink6");           
             ?>
             <section class="pt-5 pb-4 mb-5" id="request_information">
                 <div class="container text-center">
-                    <div class="col-md-8 cma-center">
-                        <div class="cma-logo fadeInUp wow" data-wow-delay="0.5s">
-                            <?php if($row6_icon): ?>
-                            <img src="<?php echo esc_url($row6_icon['url']); ?>" alt="">
-                            <?php endif; ?>
-                        </div>
-                        <h1 class="cma-title-normal fadeInUp wow" data-wow-delay="0.7s">
+                    <div class="col-md-8 cma-center fadeIn wow" data-wow-delay="0.7s">
+                        <h1 class="cma-title-normal">
                             <?php echo ($row6_title) ? esc_html($row6_title) : ''; ?>
                         </h1>
-                        <div class="cma-paragraph-normal fadeInUp wow" data-wow-delay="1s">
+                        <div class="cma-paragraph-normal">
                             <?php  echo ($row6_text) ? $final_content : ''; ?>
                         </div>
-
-                        <div class="cma-contact-form col-md-8 cma-center fadeInUp wow" data-wow-delay="1s">
-                            <?php gravity_form('Request Information', false, false, false, '', false); ?>
-                            
-                        </div>
+                        <?php if ($buttonName6 && $buttonLink6) { ?>
+                        <div class="btndiv">
+                            <a href="<?php echo $buttonLink6 ?>" class="cma-solid-bottom"><?php echo $buttonName6 ?></a>
+                        </div>  
+                        <?php } ?>
                     </div>
                 </div>
             </section>

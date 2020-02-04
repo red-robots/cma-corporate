@@ -1,15 +1,4 @@
-a,
-div,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-p,
-span,
-strong {
+a,div,h1,h2,h3,h4,h5,h6,li,p,span,strong {
     overflow-wrap: normal;
     word-wrap: normal;
     -ms-word-break: normal;
@@ -22,8 +11,7 @@ strong {
     page-break-inside: avoid
 }
 
-.cf:after,
-.cf:before {
+.cf:after, .cf:before {
     content: " ";
     display: table
 }

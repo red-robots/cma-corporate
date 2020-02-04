@@ -7,6 +7,12 @@
  * @package bellaworks
  */
 
+// ini_set('display_errors','Off');
+// ini_set('error_reporting', E_ALL );
+// define('WP_DEBUG', false);
+// define('WP_DEBUG_DISPLAY', false);
+// $obj = get_queried_object();
+// print_r($obj);
 ?>
 
 <div class="row">
@@ -20,11 +26,6 @@
 		<div class="entry-content">
 			<?php
 				the_content();
-
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'bellaworks' ),
-					'after'  => '</div>',
-				) );
 			?>
 		</div><!-- .entry-content -->
 		
