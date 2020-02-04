@@ -847,8 +847,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .cma-bg-mixed {
-    background-image: -webkit-linear-gradient(210deg, #333486, #d22030);
-    background-image: linear-gradient(-120deg, #333486, #d22030)
+    @include multicolorbg();
 }
 
 .cma-paragraph-white {
@@ -1865,6 +1864,28 @@ body.logged-in.admin-bar {
             &:hover {
                 color: $primary;
             }
+        }
+    }
+}
+.innerpad {
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+.content-area.default {
+    .site-main {
+        min-height: 25em;
+    }
+}
+.multicolorBg,
+.cma-bg-red.multicolorBg {
+    @include multicolorbg();
+    .cma-solid-bottom-white {
+        color: #FFF;
+        border-bottom-color: #FFF;
+        &:hover {
+            color: #fb8893;
+            border-bottom-color: #fb8893;
+            // opacity: 0.45;
         }
     }
 }

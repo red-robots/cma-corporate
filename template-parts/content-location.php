@@ -149,8 +149,8 @@
             $row_6_link_text    = get_field('row_6_link_text');
             $row_6_link_url     = get_field('row_6_link_url');
         ?>
-      <div class="cma-bg-red">
-        <div class=" cma-bg-red ">
+      <div class="cma-bg-red multicolorBg">
+        <div class="innerpad cf">
           <div class="justify-content-center">
             <div class="col-md-8 mt-4" style="margin: 0 auto">
                 <div class="fadeInUp wow" data-wow-delay="0.8s">

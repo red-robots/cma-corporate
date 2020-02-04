@@ -916,3 +916,8 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 }.featured-video .videoDescription{margin-top:20px}
 .featured-video .btndiv a.cma-solid-bottom{display:inline-block;color:#000}
 .featured-video .btndiv a.cma-solid-bottom:hover{color:#db1c2b}
+.innerpad{padding-top:15px;padding-bottom:25px}
+.content-area.default .site-main{min-height:25em}
+.multicolorBg,.cma-bg-red.multicolorBg{background-image:-webkit-linear-gradient(210deg,#333486,#d22030);background-image:linear-gradient(-120deg,#333486,#d22030)}
+.multicolorBg .cma-solid-bottom-white,.cma-bg-red.multicolorBg .cma-solid-bottom-white{color:#FFF;border-bottom-color:#FFF}
+.multicolorBg .cma-solid-bottom-white:hover,.cma-bg-red.multicolorBg .cma-solid-bottom-white:hover{color:#fb8893;border-bottom-color:#fb8893}
