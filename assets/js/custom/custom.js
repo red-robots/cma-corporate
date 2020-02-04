@@ -49,9 +49,64 @@ jQuery(document).ready(function ($) {
 	function navigation_dropdown() {
 		var sliderHeight = $(".n2-section-smartslider").outerHeight();
 		$(".mobilemenu").css("height",sliderHeight+"px");
-		console.log(sliderHeight);
 	}
 	
+	// $.fn.isInViewport = function() {
+	//   var elementTop = $(this).offset().top;
+	//   var elementBottom = elementTop + $(this).outerHeight();
+
+	//   var viewportTop = $(window).scrollTop();
+	//   var viewportBottom = viewportTop + $(window).height();
+
+	//   return elementBottom > viewportTop && elementTop < viewportBottom;
+	// };
+
+	// var isPlaying = false;
+	// $(window).on('resize scroll', function() {
+	//     var iframeID = $("#video-placeholder");
+	//     var autoPlay = $('.videoSection').attr("data-autoplay");
+	//     if ( $('.videoSection').isInViewport() ) {
+	//         //player.playVideo();
+	//         isPlaying = true;
+	//     } else {
+	//         //player.pauseVideo();
+	//         isPlaying = false;
+	//     }
+
+	//     console.log(isPlaying);
+	// });
+
+
+	// $(window).on('resize scroll', function() {
+	//   $('.videoSection').each(function() {
+	// 		var autoPlay = $(this).attr("data-autoplay");
+	// 		var iframeID = $("#video-placeholder");
+	// 		var iframeSrc = iframeID.attr("src");
+	// 		var hasParam = '';
+	// 		if (iframeSrc.indexOf("?") > -1) {
+	// 			hasParam = '&';
+	// 		}
+
+			
+			 
+
+	//     if ($(this).isInViewport()) {
+	//     	if(autoPlay) {
+	// 			var newURL = iframeSrc + hasParam + 'autoplay=1';
+	// 			iframeID.attr("src",newURL);
+	// 		}
+
+	//       //$('#fixed-' + activeColor).addClass(activeColor + '-active');
+	//       //console.log("IN VIEWPORT");
+	      	
+	//     } else {
+	//     	//iframeID.attr("src",iframeSrc);
+	//     	//console.log("PASSED!");
+	//       //$('#fixed-' + activeColor).removeClass(activeColor + '-active');
+	//     }
+	//   });
+	// });
+
 
 	
 

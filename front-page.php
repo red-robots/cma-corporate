@@ -186,30 +186,32 @@
             $mute = ( get_field("mute") ) ? true : false;
             $embedURL = '';
             $video_atts = '';
+            $videoId = '';
             if($youtubeLink) {
                 $url_components = parse_url($youtubeLink); 
                 parse_str($url_components['query'], $params); 
                 if( isset($params['v']) && $params['v'] ) {
+                    $videoId = $params['v'];
                     $embedURL = 'https://www.youtube.com/embed/' . $params['v'];
                 }
             }
-            if($autoplay || $mute){
-                $video_atts = '?';
-                $delimiter = ($autoplay && $mute) ? '&':'';
-                if($autoplay) {
-                    $video_atts .= 'autoplay=1';
-                }
-                $video_atts .= $delimiter;
-                if($mute) {
-                    $video_atts .= 'mute=1';
-                }
-            }
+            // if($autoplay || $mute){
+            //     $video_atts = '?';
+            //     $delimiter = ($autoplay && $mute) ? '&':'';
+            //     if($autoplay) {
+            //         $video_atts .= 'autoplay=1';
+            //     }
+            //     $video_atts .= $delimiter;
+            //     if($mute) {
+            //         $video_atts .= 'mute=1';
+            //     }
+            // }
             ?>
-            <?php if ($embedURL) { ?>
-            <section class="featured-video cf">
+            <?php if ($videoId) { ?>
+            <section class="featured-video videoSection cf" data-vid="<?php echo $videoId ?>" data-autoplay="<?php echo ($autoplay) ? 'true':'' ?>" data-mute="<?php echo ($mute) ? 'true':'' ?>">
                 <div class="container fadeIn wow" data-wow-delay="0.5s">
                     <div class="video-iframe">
-                        <iframe width="560" height="315" src="<?php echo $embedURL . $video_atts;?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div id="video-placeholder"></div>
                     </div>
                     <?php if ($videoTitle && ($videoCTALabel && $videoCTALink) ) { ?>
                     <div class="videoDescription text-center">
@@ -219,6 +221,9 @@
                         </div>
                     </div>
                     <?php } ?>
+                    <a href="#" id="play" class="cma-solid-bottom" style="display:none">PLAY VIDEO</a>
+                    <a href="#" id="pause" class="cma-solid-bottom" style="display:none">PAUSE VIDEO</a>
+                    <a href="#" id="mute-toggle" class="cma-solid-bottom" style="display:none">MUTE VIDEO</a>
                 </div>
             </section>
             <?php } ?>
@@ -306,6 +311,10 @@
     <?php //endwhile; // End of the loop. ?>
 
 <?php //endif; // End of IF statement. ?>
+
+
+
+
 
 <?php
 get_footer();

@@ -11,6 +11,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">	
 	<?php wp_head(); ?>
+	<script src="https://www.youtube.com/iframe_api"></script>
+
+<!-- Start of cmainc Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,n){var t,o,d,s,i,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),s=r.contentWindow,i=s.document;try{o=i}catch(e){t=document.domain,r.src='javascript:var d=document.open();d.domain="'+t+'";void(0);',o=i}o.open()._l=function(){var e=this.createElement("script");t&&(this.domain=t),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="cmainc.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}("{{zendeskFrameworkUrl}}","{{zendeskHost}}");
+/*]]>*/</script>
+<!-- End of cmainc Zendesk Widget script -->
+
 </head>
 
 <body <?php body_class(); ?>>

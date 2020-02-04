@@ -149,7 +149,15 @@
     </div>
   </footer>
 </div><!-- #page -->
-
 <?php wp_footer(); ?>
+
+
+
+<?php if ( is_front_page() || is_home() ) { ?>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="<?php echo get_bloginfo("template_url") ?>/assets/js/youtube.js"></script>
+<?php } ?>
+
+
 </body>
 </html>
