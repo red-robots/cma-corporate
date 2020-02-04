@@ -195,23 +195,26 @@
                     $embedURL = 'https://www.youtube.com/embed/' . $params['v'];
                 }
             }
-            // if($autoplay || $mute){
-            //     $video_atts = '?';
-            //     $delimiter = ($autoplay && $mute) ? '&':'';
-            //     if($autoplay) {
-            //         $video_atts .= 'autoplay=1';
-            //     }
-            //     $video_atts .= $delimiter;
-            //     if($mute) {
-            //         $video_atts .= 'mute=1';
-            //     }
-            // }
+            if($autoplay || $mute){
+                $video_atts = '?';
+                $delimiter = ($autoplay && $mute) ? '&':'';
+                if($autoplay) {
+                    $video_atts .= 'autoplay=1';
+                }
+                $video_atts .= $delimiter;
+                if($mute) {
+                    $video_atts .= 'mute=1';
+                }
+            }
+            $embedURL .= $video_atts;
             ?>
             <?php if ($videoId) { ?>
             <section class="featured-video videoSection cf" data-vid="<?php echo $videoId ?>" data-autoplay="<?php echo ($autoplay) ? 'true':'' ?>" data-mute="<?php echo ($mute) ? 'true':'' ?>">
                 <div class="container fadeIn wow" data-wow-delay="0.5s">
                     <div class="video-iframe">
-                        <div id="video-placeholder"></div>
+                        <iframe id="video-placeholder" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="390" src="<?php echo $embedURL?>"></iframe>
+
+                        <!-- <div id="video-placeholder"></div> -->
                     </div>
                     <?php if ($videoTitle && ($videoCTALabel && $videoCTALink) ) { ?>
                     <div class="videoDescription text-center">
