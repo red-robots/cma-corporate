@@ -4,7 +4,6 @@ var player,
 var youtubeVideoId = $(".videoSection").attr('data-vid');
 var muteVideo = $(".videoSection").attr('data-mute');
 var autoPlayVideo = $(".videoSection").attr('data-autoplay');
-console.log(muteVideo);
 
 if( youtubeVideoId ) {
 
@@ -201,35 +200,7 @@ if( youtubeVideoId ) {
             $('#pause').trigger("click");
             //player.pauseVideo();
           }
-          //isPlaying = false;
       }
-    // $('.videoSection').each(function() {
-    //    var autoPlay = $(this).attr("data-autoplay");
-    //    var iframeID = $("#video-placeholder");
-    //    var iframeSrc = iframeID.attr("src");
-    //    var hasParam = '';
-    //    if (iframeSrc.indexOf("?") > -1) {
-    //        hasParam = '&';
-    //    }
-
-          
-           
-
-    //   if ($(this).isInViewport()) {
-    //    if(autoPlay) {
-    //        var newURL = iframeSrc + hasParam + 'autoplay=1';
-    //        iframeID.attr("src",newURL);
-    //    }
-
-    //     //$('#fixed-' + activeColor).addClass(activeColor + '-active');
-    //     //console.log("IN VIEWPORT");
-          
-    //   } else {
-    //    //iframeID.attr("src",iframeSrc);
-    //    //console.log("PASSED!");
-    //     //$('#fixed-' + activeColor).removeClass(activeColor + '-active');
-    //   }
-    // });
   });
 
 }
