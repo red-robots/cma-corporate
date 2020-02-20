@@ -15,7 +15,7 @@
     <footer class="cma-footer" id="colophon" role="contentinfo">
     <div class="container text-left">
       <div class="row">
-        <div class="col-md-7 fadeInLeft wow" data-wow-delay="0.5s">
+        <div class="col-md-7 ftcol1 fadeInLeft wow" data-wow-delay="0.5s">
           <h4 class="cma-title-red text-bold">
             <?php echo ($company_name) ? $company_name : ''; ?>
           </h4>
@@ -30,7 +30,7 @@
 
       
 
-      <div class="col-md-5  fadeInRight wow" data-wow-delay="0.5s">
+      <div class="col-md-5 ftcol2 fadeInRight wow" data-wow-delay="0.5s">
         <div class="mb-3 request-info">
           <a href="<?php echo ($request_info_url) ?  $request_info_url : ''; ?>" class="cma-solid-bottom"><?php echo ($request_info) ? $request_info : '';  ?></a>
         </div>
@@ -62,7 +62,7 @@
 
        
 
-          <div class="col-sm-4 col-6">       
+          <div class="col-sm-4 col-6 ftcol3">       
 
             <div class="footer_locations">
               <div class="mb-2 text-dark">
