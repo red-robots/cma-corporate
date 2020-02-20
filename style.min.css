@@ -890,7 +890,6 @@ h1.n2-ss-item-content{text-shadow:2px 2px #333}
 .site{position:relative;overflow-x:hidden;overflow-y:auto}
 .site-header{position:fixed;top:0;left:0;z-index:200;width:100%;height:80px;background:#FFF;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 body.scrolled .site-header{box-shadow:0 -2px 16px -1px rgba(0,0,0,0.15)}
-#content{margin-top:80px}
 body .font-weight-bold{font-weight:500 !important}
 body.logged-in.admin-bar .site-header{top:32px}
 @media screen and (max-width:782px){body.logged-in.admin-bar .site-header{top:46px}
@@ -923,10 +922,10 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 .multicolorBg .cma-solid-bottom-white,.cma-bg-red.multicolorBg .cma-solid-bottom-white{color:#FFF;border-bottom-color:#FFF}
 .multicolorBg .cma-solid-bottom-white:hover,.cma-bg-red.multicolorBg .cma-solid-bottom-white:hover{color:#fb8893;border-bottom-color:#fb8893}
 .multicolored{background-image:-webkit-linear-gradient(210deg,#333486,#d22030);background-image:linear-gradient(-120deg,#333486,#d22030)}
+.multicolored h1,.multicolored p,.multicolored a,.multicolored *{color:#FFF !important}
 .text-white,.text-white *{color:#FFF !important}
 .hero-wrapper{height:300px;position:relative;left:0;right:0}
-@media(min-width:375px){.hero-wrapper{height:450px}
-}@media(min-width:820px){.hero-wrapper{height:500px}
+@media(min-width:820px){.hero-wrapper{height:500px}
 }.hero-wrapper .hero-image{width:100%;height:100%;background-repeat:no-repeat;background-size:cover;background-position:center center;background-attachment:fixed}
 .hero-wrapper .hero-caption{width:100%;height:100%;position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .hero-wrapper .hero-caption .caption{width:100%;padding:0 30px;text-shadow:0 2px 5px rgba(0,0,0,0.9);font-size:4.5vw;font-weight:500;color:#FFF;line-height:1.2;text-align:center;margin-top:80px}
@@ -941,4 +940,7 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 a.link-white{color:#FFF;display:inline-block;border-bottom:4px solid #FFF;font-size:18px;font-weight:600;padding-bottom:3px}
 a.link-white:hover{opacity:.5}
 @media screen and (max-width:767px){.cma-footer .ftcol1{text-align:center}
-}
+}.row1Images{margin-top:40px}
+.row1Images .rowImg{max-width:200px;width:auto;display:inline-block;margin:5px 10px}
+.row1Images .rowImg a{display:block;width:100%}
+.row1Images .rowImg img{width:100%;height:auto}

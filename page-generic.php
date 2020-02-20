@@ -7,12 +7,13 @@ get_header(); ?>
 
 	<div id="primary" class="content-area-full cf">
 		<?php while ( have_posts() ) : the_post(); ?>
+
+			<h1 class="page-title" style="display:none;"><?php the_title(); ?></h1>
 		
 			<?php  
 			$row1_title = get_field("temp_row1_title");
 			$row1_text = get_field("temp_row1_text");
 			?>
-
 			<?php if ($row1_title || $row1_text) { ?>
 			<section class="temp-row1 cf">
 				<div class="wrapper">

@@ -47,8 +47,16 @@ jQuery(document).ready(function ($) {
 	    navigation_dropdown();
 	}, false);
 	function navigation_dropdown() {
-		var sliderHeight = $(".n2-section-smartslider").outerHeight();
-		$(".mobilemenu").css("height",sliderHeight+"px");
+		
+		if( $(".hero-wrapper").length > 0 ) {
+			var sliderHeight = $(".hero-wrapper").outerHeight();
+			var headerHeight = $("#masthead").outerHeight();
+			var navHeight = sliderHeight-headerHeight;
+			$(".mobilemenu").css("height",navHeight+"px");
+		} else {
+			var sliderHeight = $(".n2-section-smartslider").outerHeight();
+			$(".mobilemenu").css("height",sliderHeight+"px");
+		}
 	}
 	
 	// $.fn.isInViewport = function() {

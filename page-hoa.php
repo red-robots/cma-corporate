@@ -50,10 +50,11 @@ get_header(); ?>
 
   <!-- 2nd row -->
   <?php
-        $row_2_title     = get_field('row_2_title');
-        $row_2_text      = get_field('row_2_text');        
-    ?>
-  <div class="">
+    $row_2_title     = get_field('row_2_title');
+    $row_2_text      = get_field('row_2_text');        
+  ?>
+  <?php if ($row_2_title || $row_2_text) { ?>
+  <div class="row-two-section cf">
     <div class=" cma-main-body pb-5">
       <div class="justify-content-center">
         <div class="mb-2 mt-4 col-md-7" style="margin: 0 auto;" >
@@ -71,14 +72,13 @@ get_header(); ?>
               <div class="fadeInUp wow" data-wow-delay="1.5s">
                   <?php echo ($row_2_text) ? $row_2_text : '';  ?>
               </div>
-              
           </div>
-
         </div> <!-- row -->
       </div> <!-- container -->
 
     </div>
   </div>
+  <?php } ?>
 
   <!-- 3rd row -->
   <?php  
@@ -87,18 +87,21 @@ get_header(); ?>
   	$row_3_text      = get_field('row_3_text');
   	$row_3_offers    = get_field('row_3_offers');
   ?>
-
-  <div class="text-center header_image_section fadeIn wow" data-wow-delay="0.5s">        
-            <div class="featured_image " style="background-image: url('<?php echo $row_3_image['url'];  ?>');" >       
-            </div>     
-            <div class="header_image_text fadeIn wow" data-wow-delay="0.7s">
-              <h1 class=" align-middle">
-                <?php echo ($row_3_image_text) ? $row_3_image_text : '';  ?>
-              </h1> 
-            </div>      
+  
+  <?php if ($row_3_image_text || $row_3_image) { ?>
+  <div class="text-center header_image_section fadeIn wow" data-wow-delay="0.5s">    
+      <div class="featured_image " style="background-image: url('<?php echo $row_3_image['url'];  ?>');" >       
+      </div>     
+      <div class="header_image_text fadeIn wow" data-wow-delay="0.7s">
+        <h1 class=" align-middle">
+          <?php echo ($row_3_image_text) ? $row_3_image_text : '';  ?>
+        </h1> 
+      </div>      
   </div>
+  <?php } ?>
 
-
+  
+  <?php if ($row_3_text || $row_3_offers) { ?>
   <div class=" mb-5">
     <div class="container text-center">
       <div class="justify-content-center">
@@ -146,6 +149,7 @@ get_header(); ?>
       
     </div>
   </div>
+  <?php } ?>
 
   <!-- 4th row -->
   <?php
@@ -153,53 +157,56 @@ get_header(); ?>
   	$row_4_text 		= get_field('row_4_text');
   	$row_4_services 	= get_field('row_4_services');
   ?>
+
+  <?php if ($row_4_title || $row_4_text || $row_4_services) { ?>
   <div class="cma-bg-red mb-5">
     <div class=" cma-bg-red ">
+
+      <?php if ($row_4_title) { ?>
       <div class="justify-content-center">
         <div class="col-md-8 mb-4 mt-4" style="margin: 0 auto">
         	<div class="fadeInUp wow" data-wow-delay="0.7s">
-        		<h1  class="text-center">
-	            	<?php echo ($row_4_title) ? $row_4_title : ''; ?>
-	          	</h1>
+        		<h1  class="text-center"><?php echo $row_4_title ?></h1>
         	</div>
         </div>
       </div>
+      <?php } ?>
       
       <div class="container">
-        <div class="">
-
+        <div class="contentInner cf">
+        
+          <?php if ($row_4_text) { ?>
           <div class="col-md-10 cma-center text-center ">
               <div class="fadeInUp wow" data-wow-delay="1s">
-                  <?php echo ($row_4_text) ? $row_4_text : '';  ?>
+                <?php echo $row_4_text ?>
               </div>
-              
           </div>
-
+          <?php } ?>
+        
+          <?php if($row_4_services) { ?> 
           <div class="row_images  mt-4 col-md-10 " style="margin: 0 auto;">
-
-            <div class=" row " >
-				<?php if($row_4_services): $x = 0; ?>	
-					<?php foreach($row_4_services as $service): ?>
-						<?php
-							$x++;
-							$service_icon 	= $service['service_image'];
-							$service_title 	= $service['service_title'];
-						?>
-		              <div class="col-md-3 mb-5 col-6 fadeInUp wow" data-wow-delay="<?php echo ($x / 5) . 's'; ?>">
-		                <div class="text-center">
-		                	<?php if($service_icon): ?>
-		                  		<img src="<?php echo $service_icon['url']; ?>" alt="" class="img-circle">
-		                  	<?php endif; ?>
-		                  <div class="mt-2">
-		                    <span class="font-weight-bold service-title"><?php echo ($service_title) ? $service_title : ''; ?></span>
-		                  </div>
-		                </div>
-		               </div> <!-- col-md-3 -->
-		           	<?php endforeach; ?>
-           		<?php endif; ?>
-              
+            <div class="row">
+					   <?php $x = 0; foreach($row_4_services as $service) { ?>
+  						<?php
+  							$x++;
+  							$service_icon 	= $service['service_image'];
+  							$service_title 	= $service['service_title'];
+  						?>
+              <div class="col-md-3 mb-5 col-6 fadeInUp wow" data-wow-delay="<?php echo ($x / 5) . 's'; ?>">
+                <div class="text-center">
+                	<?php if($service_icon): ?>
+                  		<img src="<?php echo $service_icon['url']; ?>" alt="" class="img-circle">
+                  	<?php endif; ?>
+                  <div class="mt-2">
+                    <span class="font-weight-bold service-title"><?php echo ($service_title) ? $service_title : ''; ?></span>
+                  </div>
+                </div>
+              </div> <!-- col-md-3 -->
+		          <?php } ?>
             </div>
           </div> <!-- row -->
+          <?php } ?>
+
         </div> 
       </div> <!-- container -->
       
@@ -207,6 +214,7 @@ get_header(); ?>
 
     </div>
   </div>
+  <?php } ?>
 
   <!-- 5th row -->
   <?php
@@ -214,19 +222,23 @@ get_header(); ?>
   	$row_5_text 		= get_field('row_5_text');
   	$row_5_monitoring 	= get_field('row_5_monitoring');
   ?>
+
+  <?php if ($row_5_title || $row_5_text) { ?>
   <div class=" pb-4" id="why_cma">
     <div class="container text-center">
       <div class="col-md-8 cma-center">
-      	<div class="fadeInUp wow" data-wow-delay="0.7s">
-      		<h1 class="cma-title-red">
-          		<?php echo ($row_5_title) ? $row_5_title : ''; ?>
-        	</h1>
-      	</div>
-        <div class="mt-4 mb-4 fadeInUp wow" data-wow-delay="0.9s">
-          <p class="cma-paragraph-why">
-            <?php echo ($row_5_text) ? $row_5_text : ''; ?>
-          </p>
+      	
+        <?php if ($row_5_title) { ?>
+        <div class="fadeInUp wow" data-wow-delay="0.7s">
+          <h1 class="cma-title-red"><?php echo $row_5_title ?></h1>
         </div>
+        <?php } ?>
+
+        <?php if ($row_5_text) { ?>
+        <div class="mt-4 mb-4 fadeInUp wow" data-wow-delay="0.9s">
+          <p class="cma-paragraph-why"><?php echo $row_5_text ?></p>
+        </div>
+        <?php } ?>
         
       </div>
 
@@ -253,6 +265,7 @@ get_header(); ?>
 
     </div>
   </div>
+  <?php } ?>
 
   <!-- 6th row -->
   <?php
@@ -261,39 +274,49 @@ get_header(); ?>
   		$row_6_certificates = get_field('row_6_certificates');
   		$row_6_button_title = get_field('row_6_button_title');
   		$row_6_button_link 	= get_field('row_6_button_link');
+      $row6Contents = array($row_6_title,$row_6_text,$row_6_certificates);
+      $isMulticolored = ($row6Contents && array_filter($row6Contents)) ? '':'multicolored';
   ?>
+
+  <?php if ($row_6_title || $row_6_text || $row_6_certificates) { ?>
   <div class=" cma-bg-mixed">
     <div class="container text-center pb-5 ">
       <div class="col-md-8 cma-center  pt-5">
+
+        <?php if($row_6_title) { ?>
       	<div class="fadeInUp wow" data-wow-delay="0.7s">
-      		<h1 class="cma-title-white pb-4">
-          		<?php echo ($row_6_title) ? $row_6_title : ''; ?>
-        	</h1>
+      		<h1 class="cma-title-white pb-4"><?php echo $row_6_title ?></h1>
       	</div>
+        <?php } ?>
+        
+        <?php if($row_6_text) { ?>
         <div class="fadeInUp wow" data-wow-delay="1s">
-          <p class="cma-paragraph-white text-white">
-            <?php echo ($row_6_text) ? $row_6_text : ''; ?>
-          </p>
+          <p class="cma-paragraph-white text-white"><?php echo $row_6_text ?></p>
         </div>
-
+        <?php } ?>
+        
+        <?php if($row_6_certificates) { ?>
         <div class="text-center text-white cert_lists mt-3 fadeInUp wow" data-wow-delay="1.2s">
-        	<?php if($row_6_certificates): $x = 0; ?>
 	          <ul class="list-group">
-	          	<?php foreach($row_6_certificates as $certificate):  $x++; ?>
+	          	<?php foreach($row_6_certificates as $x=>$certificate) { ?>
 	            <li class="list-group-item"><?php echo ($certificate['certificate_title']) ? $certificate['certificate_title'] : ''; ?></li>
-	            <?php endforeach; ?>	            
+	            <?php } ?>	            
 	          </ul>
-          	<?php endif; ?>
         </div>
-
+        <?php } ?>
+        
+        <?php if ($row_6_button_link && $row_6_button_title) { ?>
         <div class="mt-4 fadeInUp wow" data-wow-delay="1s">
-          <a href="<?php echo ($row_6_button_link)  ? $row_6_button_link : '#'; ?>" class="btn-gray"><?php echo ($row_6_button_title) ? $row_6_button_title : 'Read More'; ?></a>
+          <a href="<?php echo $row_6_button_link; ?>" class="btn-gray"><?php echo $row_6_button_title; ?></a>
         </div>
+        <?php } ?>
+        
 
       </div>
 
     </div>
   </div>
+  <?php } ?>
 
   
   <!-- 7th row -->
@@ -303,28 +326,34 @@ get_header(); ?>
   	$row_7_button_text 	= get_field('row_7_button_text');
   	$row_7_button_link 	= get_field('row_7_button_link');
   ?>
-  <div class="pt-3 pb-5" id="request_information">
+
+  <?php if ($row_7_title || $row_7_text) { ?>
+  <div class="pt-3 pb-5 <?php echo $isMulticolored ?>" id="request_information">
     <div class="container text-center">
       <div class="col-md-8 cma-center">  
-      	<div class="fadeInUp wow" data-wow-delay="0.9s">     
-	        <h1 class="cma-title-normal">
-	          <?php echo ($row_7_title) ? $row_7_title : ''; ?>
-	        </h1>
-    	</div>
+
+        <?php if ($row_7_title) { ?>
+        <div class="fadeInUp wow" data-wow-delay="0.9s">     
+          <h1 class="cma-title-normal"><?php echo $row_7_title; ?></h1>
+        </div>
+        <?php } ?>
+      	
+        <?php if ($row_7_text) { ?>
         <div class="cma-paragraph-normal fadeInUp wow" data-wow-delay="1s">
-          <?php echo ($row_7_text) ? $row_7_text : ''; ?>
+          <?php echo $row_7_text; ?>
         </div>
-
-        <div class="fadeInUp wow" data-wow-delay="1.2s">
-          <a href="<?php echo ($row_7_button_link) ? $row_7_button_link : '#'; ?>" class="cma-solid-bottom">
-            <?php echo ($row_7_button_text) ? $row_7_button_text : 'Read More'; ?>
-          </a>
-        </div>
-
+        <?php } ?>
         
+        <?php if ($row_7_button_text && $row_7_button_text) { ?>
+        <div class="fadeInUp wow" data-wow-delay="1.2s">
+          <a href="<?php echo $row_7_button_link; ?>" class="cma-solid-bottom"><?php echo $row_7_button_text; ?></a>
+        </div>
+        <?php } ?>
+
       </div>
     </div>
   </div>
+  <?php } ?>
 
 <?php
 get_footer();

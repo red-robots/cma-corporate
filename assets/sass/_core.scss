@@ -1748,9 +1748,9 @@ body.scrolled {
         box-shadow: 0 -2px 16px -1px rgba(0,0,0,0.15);
     }
 }
-#content {
-    margin-top: 80px;
-}
+// #content {
+//     margin-top: 80px;
+// }
 body .font-weight-bold {
     font-weight: 500!important;
 }
@@ -1885,6 +1885,9 @@ body.logged-in.admin-bar {
 }
 .multicolored {
     @include multicolorbg();
+    h1,p,a, * {
+        color: #FFF!important;
+    }
 }
 .text-white,
 .text-white * {
@@ -1895,9 +1898,6 @@ body.logged-in.admin-bar {
     position: relative;
     left: 0;
     right: 0;
-    @include xs {
-        height: 450px;
-    }
     @include tab {
         height: 500px;
     }
@@ -1978,6 +1978,23 @@ a.link-white {
 .cma-footer .ftcol1 {
     @media screen and (max-width:767px) {
         text-align: center;
+    }
+}
+.row1Images {
+    margin-top: 40px;
+    .rowImg {
+        max-width: 200px;
+        width: auto;
+        display: inline-block;
+        margin: 5px 10px;
+        a {
+            display: block;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
 
