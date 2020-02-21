@@ -867,6 +867,8 @@ input[type=submit]:hover{background:0;border:0;font-weight:500;font-smoothing:an
 }.cma-bg-red{background-color:#d02030}
 .cma-bg-red p{color:#fff}
 h1.n2-ss-item-content{font-family:'Open Sans',sans-serif;font-size:2.25rem}
+#sliderWrapper{background:#efefef}
+#sliderWrapper .n2-ss-layer h1{max-width:1200px;width:100%;margin:0 auto;line-height:1.2;text-shadow:0 2px 5px rgba(0,0,0,0.9) !important}
 .n2-section-smartslider{position:relative;width:100%}
 .featured_image:after{content:'';position:absolute;display:block;background-color:rgba(0,0,0,0.3);top:0;left:0;bottom:0;right:0}
 .header_image_section{position:relative}
@@ -940,6 +942,7 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 .temp-bottom .btndiv{margin-top:20px}
 a.link-white{color:#FFF;display:inline-block;border-bottom:4px solid #FFF;font-size:18px;font-weight:600;padding-bottom:3px}
 a.link-white:hover{opacity:.5}
+div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 @media screen and (max-width:767px){.cma-footer .ftcol1{text-align:center}
 }.row1Images{margin-top:40px}
 .row1Images .rowImg{max-width:200px;width:auto;display:inline-block;margin:5px 10px}

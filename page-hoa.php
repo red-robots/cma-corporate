@@ -275,7 +275,7 @@ get_header(); ?>
   		$row_6_button_title = get_field('row_6_button_title');
   		$row_6_button_link 	= get_field('row_6_button_link');
       $row6Contents = array($row_6_title,$row_6_text,$row_6_certificates);
-      $isMulticolored = ($row6Contents && array_filter($row6Contents)) ? '':'multicolored';
+      $isMulticolored = ($row6Contents && array_filter($row6Contents)) ? 'whiteBg':'multicolored';
   ?>
 
   <?php if ($row_6_title || $row_6_text || $row_6_certificates) { ?>
@@ -323,7 +323,7 @@ get_header(); ?>
   <?php
   	$row_7_title 		= get_field('row_7_title');
   	$row_7_text 		= get_field('row_7_text');
-  	$row_7_button_text 	= get_field('row_7_button_text');
+  	$row_7_button_text 	= get_field('row_7_button_title');
   	$row_7_button_link 	= get_field('row_7_button_link');
   ?>
 
@@ -344,12 +344,11 @@ get_header(); ?>
         </div>
         <?php } ?>
         
-        <?php if ($row_7_button_text && $row_7_button_text) { ?>
-        <div class="fadeInUp wow" data-wow-delay="1.2s">
-          <a href="<?php echo $row_7_button_link; ?>" class="cma-solid-bottom"><?php echo $row_7_button_text; ?></a>
+        <?php if ($row_7_button_text && $row_7_button_link) { ?>
+        <div class="btndiv fadeIn wow animated" data-wow-delay="0.65s" >
+          <a href="<?php echo $row_7_button_link; ?>" class="link-white"><?php echo $row_7_button_text; ?></a>
         </div>
         <?php } ?>
-
       </div>
     </div>
   </div>
