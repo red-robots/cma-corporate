@@ -780,7 +780,7 @@ input[type=submit]:hover{background:0;border:0;font-smoothing:antialiased;-webki
 .text-dark{font-weight:600}
 .cma-logo{margin-bottom:20px}
 .cma-title-normal{margin:20px 0}
-.img-circle{width:140px;height:140px;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;-o-border-radius:50%}
+.img-circle{width:140px;height:140px;border-radius:100%}
 .cma-title{margin-bottom:0;font-size:2rem;font-weight:400}
 .cma-description{font-size:1.1rem;color:#999}
 @media(min-width:40em){.cma-title{font-size:3.5rem}
@@ -935,6 +935,7 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 .temp-row1{text-align:center;padding-top:50px;padding-bottom:55px}
 .temp-row1 h1.cma-title-red{margin:0 0 20px}
 .temp-row1 .row-text p:last-child{margin-bottom:0}
+.temp-row1 ul,.temp-row1 ol{display:inline-block;text-align:left}
 .temp-bottom{padding-top:50px;padding-bottom:55px}
 .temp-bottom .btndiv{margin-top:20px}
 a.link-white{color:#FFF;display:inline-block;border-bottom:4px solid #FFF;font-size:18px;font-weight:600;padding-bottom:3px}
@@ -944,3 +945,6 @@ a.link-white:hover{opacity:.5}
 .row1Images .rowImg{max-width:200px;width:auto;display:inline-block;margin:5px 10px}
 .row1Images .rowImg a{display:block;width:100%}
 .row1Images .rowImg img{width:100%;height:auto}
+#team_cma .moreInfo{margin-top:12px}
+#team_cma .moreInfo a{color:#333;border-bottom:1px solid #333}
+#team_cma .moreInfo a:hover{color:#db1c2b;border-bottom-color:#db1c2b}

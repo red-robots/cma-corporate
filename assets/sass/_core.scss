@@ -1038,10 +1038,7 @@ input[type=submit]:hover {
 .img-circle {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%
+    border-radius: 100%;
 }
 
 .cma-title {
@@ -1956,6 +1953,10 @@ body.page-template-page-generic #content {
             margin-bottom: 0;
         }
     }
+    ul,ol {
+        display: inline-block;
+        text-align: left;
+    }
 }
 .temp-bottom {
     padding-top: 50px;
@@ -1994,6 +1995,20 @@ a.link-white {
         img {
             width: 100%;
             height: auto;
+        }
+    }
+}
+
+#team_cma {
+    .moreInfo {
+        margin-top:12px;
+        a {
+            color: #333;
+            border-bottom: 1px solid #333;
+            &:hover {
+                color: $primary;
+                border-bottom-color: $primary;
+            }
         }
     }
 }
