@@ -143,12 +143,7 @@ function email_obfuscator($string,$noFilter=null) {
                     $rep2 = $em.'</a>';
                     $new2 = antispambot($em).'</a>';
                     $string = str_replace($rep2, $new2, $string);
-                } else {
-                    // $new_mailto = '<a href="mailto:'.antispambot($em,1).'">'.antispambot($em).'</a>';
-                    // $string = str_replace($em, $new_mailto, $string);
-                }
-
-                
+                } 
             }
         }
         if($noFilter) {
