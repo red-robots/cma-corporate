@@ -84,9 +84,6 @@
                   $email = get_field("team_email",$id);
                   $teamFname = ( isset($nameArrs[0]) && $nameArrs[0] ) ? $nameArrs[0]:'';
                   $pagelink = get_permalink($id);
-                  if($altTextTrim) {
-                    $altText = email_obfuscator($altText,true);
-                  }
                   $teamInfo = ($altTextTrim) ? $altText : $name;
               ?>
               <div class="col-md-6 mt-5">
