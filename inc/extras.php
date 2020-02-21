@@ -131,6 +131,7 @@ function extract_emails_from($string){
 
 function email_obfuscator($string,$noFilter=null) {
     $output = '';
+    $newString = '';
     if($string) {
         $emails_matched = ($string) ? extract_emails_from($string) : '';
         if($emails_matched) {
@@ -143,11 +144,15 @@ function email_obfuscator($string,$noFilter=null) {
                     $rep2 = $em.'</a>';
                     $new2 = antispambot($em).'</a>';
                     $string = str_replace($rep2, $new2, $string);
-                } 
+                } else {
+                    $new_mailto = '<a href="mailto:'.antispambot($em,1).'">'.antispambot($em).'</a>';
+                    $newString .= str_replace($em, $new_mailto, $string);
+                }
             }
         }
+
         if($noFilter) {
-            $output = $string;
+            $output = $newString;
         } else {
             $output = apply_filters('the_content',$string);
         }
