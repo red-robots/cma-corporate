@@ -7,11 +7,10 @@ get_header(); ?>
   <?php while ( have_posts() ) : the_post(); ?>
 
     <?php  
-      $row1_title = get_field("row1_title");
-      $row1_text = get_field("row1_text");
-      $row1Images = get_field("row1_images");
-      ?>
-    <?php if ($row1_title || $row1_text || $row1Images) { ?>
+    $row1_title = get_field("row1_title");
+    $row1_text = get_field("row1_text");
+    $row1Images = get_field("row1_images");
+    if ($row1_title || $row1_text || $row1Images) { ?>
     <section class="temp-row1 cf">
       <div class="wrapper">
         <?php if ($row1_title) { ?>
@@ -45,7 +44,87 @@ get_header(); ?>
     </section>
     <?php } ?>
 
+
+    <?php  
+    $row2_title = get_field("row2_title");
+    $row2_text = get_field("row2_text");
+    if ($row2_title || $row2_text ) { ?>
+    <section class="temp-row2 cma-main-body cf">
+      <div class="container text-center">
+        <div class="col-md-12 cma-center">
+        
+        <?php if ($row2_title) { ?>
+          <h1 class="text-center"><?php echo $row2_title ?></h1>
+        <?php } ?>
+
+        <?php if ($row2_text) { ?>
+          <div class="row-text"><?php echo $row2_text ?></div>
+        <?php } ?>
+
+        </div>
+      </div>
+    </section>
+    <?php } ?>
+
+
+    <?php  
+    $row3Image = get_field("row3Image");
+    $row3ImageCaption = get_field("row3ImageCaption");
+    if($row3Image) { ?>
+    <div class="text-center header_image_section fadeIn wow animated" data-wow-delay="0.5s">    
+        <div class="featured_image " style="background-image: url('<?php echo $row3Image['url'] ?>');">       
+        </div>     
+        <div class="header_image_text">
+          <h1 class=" align-middle"><?php echo $row3ImageCaption ?></h1> 
+        </div>      
+    </div>
+    <?php } ?>
+
+
   <?php endwhile; ?>
+  
+  <!-- TEAM -->
+  <?php  
+    $args = array(
+      'posts_per_page'   => -1,
+      'post_type'        => 'teams',
+      'post_status'      => 'publish',
+    );
+    $teams = new WP_Query($args);
+    $placeholder = THEMEURI . 'images/photo-coming-soon.png';
+
+  if ( $teams->have_posts() ) {  ?>
+  <div class="cma-main-body teampage" id="team_cma">
+    <div class="container text-center">
+      <div class="col-md-10 cma-center">
+        
+        <div class="row  mb-4 fadeIn wow" data-wow-delay="0.5s">
+          <?php while ( $teams->have_posts() ) : $teams->the_post();  
+            $photo = get_field("team_photo",$id);
+          ?>
+          <div class="col-md-3 team-info">
+            <div class="text-center mb-3">
+              <div class="text-center mb-3 teamPhoto">
+                <a href="<?php echo get_permalink(); ?>">
+                <?php if ($photo) { ?>
+                  <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['title']; ?>" class="img-circle">
+                <?php } else { ?>
+                  <img src="<?php echo $placeholder; ?>" alt="Photo Coming Soon" class="img-circle">
+                <?php } ?>
+                </a>
+              </div>
+               <div class="text-bold teamName"><?php echo get_the_title(); ?></div>
+               <div class="moreinfo"><a href="<?php echo get_permalink(); ?>">Read Bio</a></div>
+            </div>
+          </div>
+          <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+
 </div>
 <?php
 get_footer();

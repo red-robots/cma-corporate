@@ -1968,6 +1968,10 @@ body.page-template-page-generic #content {
         text-align: left;
     }
 }
+.temp-row2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 .temp-bottom {
     padding-top: 50px;
     padding-bottom: 55px;
@@ -2029,3 +2033,27 @@ div.whiteBg {
     }
 }
 
+#team_cma.teampage.cma-main-body {
+    padding-top: 50px;
+    .team-info {
+        padding: 20px;
+    }
+    .teamPhoto {
+        a {
+            display: block;
+        }
+    }
+    .teamName {
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    .moreinfo {
+        a {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1;
+            display: inline-block;
+            text-decoration: underline;
+        }
+    }
+}

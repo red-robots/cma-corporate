@@ -938,6 +938,7 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0}
 .temp-row1 h1.cma-title-red{margin:0 0 20px}
 .temp-row1 .row-text p:last-child{margin-bottom:0}
 .temp-row1 ul,.temp-row1 ol{display:inline-block;text-align:left}
+.temp-row2{padding-top:50px;padding-bottom:50px}
 .temp-bottom{padding-top:50px;padding-bottom:55px}
 .temp-bottom .btndiv{margin-top:20px}
 a.link-white{color:#FFF;display:inline-block;border-bottom:4px solid #FFF;font-size:18px;font-weight:600;padding-bottom:3px}
@@ -951,3 +952,8 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 #team_cma .moreInfo{margin-top:12px}
 #team_cma .moreInfo a{color:#333;border-bottom:1px solid #333}
 #team_cma .moreInfo a:hover{color:#db1c2b;border-bottom-color:#db1c2b}
+#team_cma.teampage.cma-main-body{padding-top:50px}
+#team_cma.teampage.cma-main-body .team-info{padding:20px}
+#team_cma.teampage.cma-main-body .teamPhoto a{display:block}
+#team_cma.teampage.cma-main-body .teamName{font-size:.9rem;font-weight:500}
+#team_cma.teampage.cma-main-body .moreinfo a{font-size:13px;font-weight:500;line-height:1;display:inline-block;text-decoration:underline}
