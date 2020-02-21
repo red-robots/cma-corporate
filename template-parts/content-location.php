@@ -88,13 +88,15 @@
                     if (strpos($altTextTrim, 'mailto') !== false) {
                       $altText = email_obfuscator($altText,true);
                     } else {
+                      $altTextnew = '';
                       $parts = preg_replace('/\s+/',' ',$altText);
                       $checkEmails = extract_emails_from($parts);
                       if($checkEmails){
                         foreach($checkEmails as $em) {
-                          $altText = str_replace($em,'<a href="mailto:'.antispambot($em,1).'">'.antispambot($em,).'</a>',$altText);
+                          $altTextnew = str_replace($em,' <a href="mailto:'.antispambot($em,1).'">'.antispambot($em,).'</a> ',$altText);
                         }
                       }
+                      $altText = $altTextnew;
                     }
                   }
                   $teamInfo = ($altTextTrim) ? $altText : $name;
