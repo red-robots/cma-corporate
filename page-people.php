@@ -101,6 +101,7 @@ get_header(); ?>
         <div class="row  mb-4 fadeIn wow" data-wow-delay="0.5s">
           <?php while ( $teams->have_posts() ) : $teams->the_post();  
             $photo = get_field("team_photo",$id);
+            $jobTitle = get_field("team_title",$id);
           ?>
           <div class="col-md-3 team-info">
             <div class="text-center mb-3">
@@ -113,7 +114,12 @@ get_header(); ?>
                 <?php } ?>
                 </a>
               </div>
-               <div class="text-bold teamName"><?php echo get_the_title(); ?></div>
+               <div class="text-bold teamName">
+                <div class="name"><?php echo get_the_title(); ?></div> 
+                <?php if ($jobTitle) { ?>
+                <div class="jobtitle"><?php echo $jobTitle ?></div> 
+                <?php } ?>
+              </div>
                <div class="moreinfo"><a href="<?php echo get_permalink(); ?>">Read Bio</a></div>
             </div>
           </div>
