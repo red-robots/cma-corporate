@@ -146,7 +146,7 @@ function email_obfuscator($string,$noFilter=null) {
                     $string = str_replace($rep2, $new2, $string);
                 } else {
                     $new_mailto = '<a href="mailto:'.antispambot($em,1).'">'.antispambot($em).'</a>';
-                    $newString .= str_replace($em, $new_mailto, $string);
+                    $newString = str_replace($em, $new_mailto, $string);
                 }
             }
         }
