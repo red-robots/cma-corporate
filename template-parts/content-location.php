@@ -99,10 +99,12 @@
                   
                   <div class="text-bold teamName"><?php echo $teamInfo ?></div>
                   
-                  <?php if ($email) { ?>
-                  <div class="mb-3 teamEmail text-bold">
-                    <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email); ?></a>
-                  </div>
+                  <?php if ( empty($altTextTrim) ) { ?>
+                    <?php if ($email) { ?>
+                    <div class="mb-3 teamEmail text-bold">
+                      <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email); ?></a>
+                    </div>
+                    <?php } ?>
                   <?php } ?>
 
                   <?php if ($teamFname) { ?>
