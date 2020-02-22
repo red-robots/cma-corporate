@@ -125,4 +125,12 @@ jQuery(document).ready(function ($) {
 	------------------------------------*/
 	new WOW().init();	
 
+	/* Stop Hash from showing on the browser URL */
+	$("ul.mobilemain a").on("click",function(e){
+		var link = $(this).attr("href");
+		if(link=='#') {
+			e.preventDefault();
+		}
+	});
+
 });// END #####################################    END

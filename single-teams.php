@@ -51,6 +51,19 @@ get_header(); ?>
 
 			</div>
 
+			<?php  
+			/* Go to People Page */
+			$peopleId = 78;
+			$pageLink = get_permalink($peopleId);
+			$pageTitle = get_the_title($peopleId);
+			if($pageTitle) { ?>
+			<div class="fwleft">
+				<div class="wrapper button-bottom">
+					<a href="<?php echo $pageLink; ?>" class="redLink"><i class="fas fa-chevron-left"></i> <?php echo $pageTitle; ?></a>
+				</div>
+			</div>
+			<?php } ?>
+
 		<?php endwhile; ?>
 
 		</main><!-- #main -->

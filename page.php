@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	
-	<div id="primary" class="content-area default mt-5 mb-4">
+	<div id="primary" class="content-area default-template">
 		<main id="main" class="site-main container" role="main">
 			
 			<?php
