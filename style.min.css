@@ -1000,8 +1000,43 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 .default-template .entry-content h1,.default-template .entry-content h2,.default-template .entry-content h3,.default-template .entry-content h4,.default-template .entry-content h5,.default-template .entry-content h6{margin-top:1.2em;margin-bottom:5px}
 .default-template .entry-content ul,.default-template .entry-content ol{margin-top:15px}
 .default-template .entry-content ul li,.default-template .entry-content ol li{font-size:16px;line-height:1.5;margin-bottom:5px}
+.default-template .entry-content ul{list-style-type:disc;list-style-position:inside}
+.default-template .entry-content ol{list-style-type:decimal;list-style-position:inside}
+.default-template .entry-content ul ul,.default-template .entry-content ol ul{list-style-type:circle;list-style-position:inside;margin-left:0}
+.default-template .entry-content ol ol,.default-template .entry-content ul ol{list-style-type:lower-latin;list-style-position:inside;margin-left:0;margin-top:4px;margin-bottom:10px}
 .default-template .entry-content p{margin-top:0;margin-bottom:1.2em;font-size:16px;line-height:1.5}
 .default-template .entry-content a{display:inline-block;position:relative;text-decoration:none}
 .default-template .entry-content a:after{content:"";display:block;width:100%;border-bottom:1px solid #db1c2b;position:relative;top:-2px;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 .default-template .entry-content a:hover{color:#333486}
 .default-template .entry-content a:hover:after{border-bottom-color:#333486}
+body.page-sitemap #primary{margin-top:50px}
+body.page-sitemap .entry-header{margin-bottom:45px}
+body.page-sitemap .hentry{width:100%}
+@media screen and (max-width:820px){body.page-sitemap .hentry{padding-left:30px;padding-right:30px}
+}body.page-sitemap #primaryNav{margin:0;padding:0;position:relative}
+body.page-sitemap #primaryNav a{margin-right:0;position:relative;z-index:10;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+body.page-sitemap #primaryNav a:after{display:none}
+body.page-sitemap #primaryNav #home{margin-bottom:0}
+body.page-sitemap #primaryNav li{margin-bottom:0;position:relative}
+body.page-sitemap #primaryNav li a{background-image:none;background-color:#db1c2b;border:0;color:#FFF;font-weight:600}
+body.page-sitemap #primaryNav li a:hover{background-color:#f34957}
+body.page-sitemap #primaryNav li[class*='menu-item']{padding-left:20px}
+body.page-sitemap #primaryNav ul.sub-menu{margin-top:0;margin-left:0;padding-left:0}
+body.page-sitemap #primaryNav ul.sub-menu li{padding-left:20px;padding-right:20px}
+body.page-sitemap #primaryNav ul.sub-menu a{background-color:#434191;border:0}
+body.page-sitemap #primaryNav ul.sub-menu a:hover{background-color:#6a67c1}
+@media screen and (max-width:820px){body.page-sitemap #primaryNav{padding-bottom:0 !important;margin-bottom:0 !important}
+body.page-sitemap #primaryNav li,body.page-sitemap #primaryNav #home{background-image:none !important}
+body.page-sitemap #primaryNav #home{margin-bottom:0 !important;padding-bottom:0 !important}
+body.page-sitemap #primaryNav.col4>li{width:100%;margin-top:0}
+body.page-sitemap #primaryNav.col4>li[class*='menu-item']{padding-left:45px}
+body.page-sitemap #primaryNav.col4>li[class*='menu-item']:before{content:"";display:block;width:35px;height:2px;background:#8c8c8c;position:absolute;top:52px;left:15px}
+body.page-sitemap #primaryNav.col4>li[class*='menu-item']:after{content:"";display:block;width:2px;height:100%;background:#8c8c8c;position:absolute;top:0;left:15px}
+body.page-sitemap #primaryNav.col4>li[class*='menu-item']:last-child{margin-bottom:0;padding-bottom:0}
+body.page-sitemap #primaryNav.col4>li[class*='menu-item']:last-child:after{height:54px}
+body.page-sitemap #primaryNav ul.sub-menu{padding-left:0;margin-left:0}
+body.page-sitemap #primaryNav ul.sub-menu li{padding-top:16px;padding-left:6%;padding-right:6%}
+body.page-sitemap #primaryNav ul.sub-menu li a{position:relative;z-index:5}
+body.page-sitemap #primaryNav ul.sub-menu li:before{display:none}
+body.page-sitemap #primaryNav ul.sub-menu li:after{content:"";display:block;width:2px;height:18px;background:#8c8c8c;position:absolute;top:0;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}
+}

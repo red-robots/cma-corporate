@@ -18,6 +18,12 @@ define('THEMEURI',get_template_directory_uri() . '/');
 
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.
+
+    global $post;
+    if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+
     if ( is_multi_author() ) {
         $classes[] = 'group-blog';
     }
