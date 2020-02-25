@@ -17,10 +17,14 @@
 
 <div class="row">
 	
+	<?php 
+		$customTitle = get_field("custom_page_title"); 
+		$pagetitle = ($customTitle) ? $customTitle : get_the_title();
+	?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title cma-title-red">', '</h1>' ); ?>
+			<h1 class="entry-title cma-title-red"><?php echo $pagetitle ?></h1>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
