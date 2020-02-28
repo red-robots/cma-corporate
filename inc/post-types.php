@@ -9,6 +9,14 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'properties',
+            'menu_name' => 'Properties',
+            'plural'    => 'Properties',
+            'single'    => 'Property',
+            'menu_icon' => 'dashicons-admin-multisite',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
             'post_type' => 'services',
             'menu_name' => 'Services',
             'plural'    => 'Services',
