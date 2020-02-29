@@ -1041,6 +1041,18 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 .default-template .entry-content .pagination a:before,.default-template .entry-content .pagination a:after,.pagination a:before,.pagination a:after{display:none !important}
 .default-template .entry-content .pagination a:hover,.pagination a:hover{color:#FFF;background:#e97780}
 .default-template .entry-content .pagination a.next,.default-template .entry-content .pagination a.prev,.pagination a.next,.pagination a.prev{font-size:20px}
+.cma-footer .searchCol{margin-bottom:15px}
+@media(min-width:820px){.cma-footer .searchCol{margin-bottom:0}
+}.footerSearchForm{width:100%;float:left;color:#333}
+.footerSearchForm .form-group-search{padding:0;width:100%;float:left;margin-bottom:10px}
+.footerSearchForm form *{font-size:14px;font-weight:400}
+.footerSearchForm label{display:block;width:100%;font-size:13px;font-weight:500;margin:0}
+.footerSearchForm select.search-selector{width:100%;height:33px;line-height:33px;background:#FFF}
+.footerSearchForm input.search-field{height:33px;line-height:33px;-webkit-appearance:none;border:1px solid #b7b7b7;border-radius:4px;padding:2px 8px;width:100%}
+.footerSearchForm select,.footerSearchForm input.search-field{font-size:14px;border:1px solid #a7a7a7}
+.footerSearchForm select:focus,.footerSearchForm input.search-field:focus{border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,0.25)}
+.footerSearchForm .srchBtn{-webkit-appearance:none;box-shadow:none;border-radius:4px;border:0;height:32px;line-height:32px;background:#db1c2b;color:#FFF;font-size:14px;font-weight:400;padding:0 15px}
+.footerSearchForm .srchBtn:hover{background:#e6606b}
 body.page-sitemap #primary{margin-top:50px}
 body.page-sitemap .entry-header{margin-bottom:45px}
 body.page-sitemap .hentry{width:100%}

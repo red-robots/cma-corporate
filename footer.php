@@ -37,37 +37,55 @@
           <div class="row">
 
             <?php 
-
-              $menu_items = wp_get_nav_menu_items('Footer Menu');
+            // if(has_nav_menu('footer')) {
+            //   $menu_items = wp_get_nav_menu_items('Footer Menu');
               
-              $menu   = array();
-              $ar_list   = array();
-              foreach($menu_items as $key => $value){ 
-                $menu['url']    = $value->url;
-                $menu['title']  = $value->title;
-                $ar_list[] = $menu;               
-              }
-              $rows = ceil(count($ar_list) / 2);
-              $lists  = array_chunk($ar_list, $rows);
+            //   $menu   = array();
+            //   $ar_list   = array();
+            //   foreach($menu_items as $key => $value){ 
+            //     $menu['url']    = $value->url;
+            //     $menu['title']  = $value->title;
+            //     $ar_list[] = $menu;               
+            //   }
+            //   $rows = ceil(count($ar_list) / 2);
+            //   $lists  = array_chunk($ar_list, $rows);
 
-              foreach ( $lists as $column) {
-                  echo '<div class="col-md-4 col-6"><ul class="list-group">';
-                  foreach ($column as $item) {
-                      echo '<li class="list-group-item"><a href="'. $item['url'] .'">' . $item['title'] . '</a></li>';
-                  }
-                  echo '</ul></div>';
-              }
+            //   foreach ( $lists as $column) {
+            //       echo '<div class="col-md-4 col-6"><ul class="list-group">';
+            //       foreach ($column as $item) {
+            //           echo '<li class="list-group-item"><a href="'. $item['url'] .'">' . $item['title'] . '</a></li>';
+            //       }
+            //       echo '</ul></div>';
+            //   }
+            // }
 
             ?>
 
-         
+            <div class="col-md-6 searchCol">
+              <div class="mb-2 text-dark">ASSOCIATION SEARCH</div>
+              <div class="footerSearchForm">
+                <?php $actionURL = get_permalink(108); /* Association Search page */ ?>
+                <form action="<?php echo $actionURL ?>" method="get">
+                    <div class="form-group-search searchby">
+                        <label for="custom-search-selector">Search by:</label>
+                        <select name="selector" class="search-selector" id="custom-search-selector">
+                            <option value="address">Location</option>
+                            <option value="community_name">Name</option>
+                        </select>
+                    </div>
+                    <div class="form-group-search inputfield">
+                        <input type="text" name="search_text" class="search-field" placeholder="zip, address, or city" value="">
+                    </div>
+                    <div class="form-group-search submitbtn">
+                        <button type="submit" class="srchBtn">Search</button>
+                    </div>
+                </form>
+              </div>
+            </div>
 
-            <div class="col-sm-4 col-6 ftcol3">       
-
+            <div class="col-md-6 locationCol">       
               <div class="footer_locations">
-                <div class="mb-2 text-dark">
-                    LOCATIONS
-                </div>
+                <div class="mb-2 text-dark">LOCATIONS</div>
                 <ul class="list-group">
                 <?php
                       $wp_query = null;
