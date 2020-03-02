@@ -7,6 +7,19 @@
  * @package bellaworks
  */
 
+
+// Add Google Map API
+function my_acf_google_map_api( $api ){
+	
+	$api['key'] = 'AIzaSyBW8ieE1YvFCvk792K2rPfErHL6ALcb9lU';
+	
+	return $api;
+	
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
 /*-------------------------------------
 	Custom client login, link and title.
 ---------------------------------------*/
