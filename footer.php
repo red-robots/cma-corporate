@@ -64,7 +64,11 @@
             <div class="col-md-6 searchCol">
               <div class="mb-2 text-dark">ASSOCIATION SEARCH</div>
               <div class="footerSearchForm">
-                <?php $actionURL = get_permalink(108); /* Association Search page */ ?>
+                <?php 
+                $actionURL = get_permalink(108); /* Association Search page */ 
+                $footsearch = get_field("footer_search","option");
+                ?>
+
                 <form action="<?php echo $actionURL ?>" method="get">
                     <div class="form-group-search searchby">
                         <label for="custom-search-selector">Search by:</label>
