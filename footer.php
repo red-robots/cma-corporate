@@ -67,23 +67,9 @@
                 <?php 
                 $actionURL = get_permalink(108); /* Association Search page */ 
                 $footsearch = get_field("footer_search","option");
-                ?>
-
-                <form action="<?php echo $actionURL ?>" method="get">
-                    <div class="form-group-search searchby">
-                        <label for="custom-search-selector">Search by:</label>
-                        <select name="selector" class="search-selector" id="custom-search-selector">
-                            <option value="address">Location</option>
-                            <option value="community_name">Name</option>
-                        </select>
-                    </div>
-                    <div class="form-group-search inputfield">
-                        <input type="text" name="search_text" class="search-field" placeholder="zip, address, or city" value="">
-                    </div>
-                    <div class="form-group-search submitbtn">
-                        <button type="submit" class="srchBtn">Search</button>
-                    </div>
-                </form>
+                if($footsearch && do_shortcode($footsearch)) { ?>
+                  <?php print_r($footsearch); ?>
+                <?php } ?>
               </div>
             </div>
 

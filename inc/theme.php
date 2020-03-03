@@ -9,14 +9,13 @@
 
 
 // Add Google Map API
-function my_acf_google_map_api( $api ){
-	
-	$api['key'] = 'AIzaSyBW8ieE1YvFCvk792K2rPfErHL6ALcb9lU';
-	
-	return $api;
-	
+function gmap_api_key() {
+  return 'AIzaSyBW8ieE1YvFCvk792K2rPfErHL6ALcb9lU';
 }
-
+function my_acf_google_map_api( $api ){	
+	$api['key'] = gmap_api_key();
+	return $api;	
+}
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 
