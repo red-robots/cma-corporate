@@ -60,16 +60,20 @@
             // }
 
             ?>
+          
+          <?php 
+            $footsearch = get_field("footer_search","option");
+            $foot_shortcode_title = get_field("footer_shortcode_title","option");
+          ?>
 
             <div class="col-md-6 searchCol">
-              <div class="mb-2 text-dark">ASSOCIATION SEARCH</div>
+              <?php if ($foot_shortcode_title) { ?>
+              <div class="mb-2 text-dark"><?php echo $foot_shortcode_title; ?></div>
+              <?php } ?>
               <div class="footerSearchForm">
-                <?php 
-                $actionURL = get_permalink(108); /* Association Search page */ 
-                $footsearch = get_field("footer_search","option");
-                if($footsearch && do_shortcode($footsearch)) { ?>
-                  <?php print_r($footsearch); ?>
-                <?php } ?>
+              <?php if($footsearch) { ?>
+                <?php echo do_shortcode($footsearch); ?>
+              <?php } ?>
               </div>
             </div>
 
@@ -94,14 +98,10 @@
                       $wp_query = new WP_Query($args);
 
                       if ( $wp_query->have_posts() ) {
-
-                            while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
-
-                    ?>
+                      while ( $wp_query->have_posts() ) : $wp_query->the_post();  ?>
                         <li class="list-group-item"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></li>
-                  <?php     endwhile; wp_reset_postdata();
-                        }
-                   ?>
+                      <?php endwhile; wp_reset_postdata();
+                      } ?>
                   </ul>
               </div>
             </div>

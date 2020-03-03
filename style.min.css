@@ -1047,6 +1047,7 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 @media(min-width:820px){.cma-footer .searchCol{margin-bottom:0}
 }.footerSearchForm{width:100%;float:left;color:#333}
 .footerSearchForm .form-group-search{padding:0;width:100%;float:left;margin-bottom:10px}
+.footerSearchForm .custom-search-container form{padding:0;border:0;margin:5px 0 0}
 .footerSearchForm form *{font-size:14px;font-weight:400}
 .footerSearchForm label{display:block;width:100%;font-size:13px;font-weight:500;margin:0}
 .footerSearchForm select.search-selector{width:100%;height:33px;line-height:33px;background:#FFF}

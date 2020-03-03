@@ -2513,6 +2513,13 @@ div.whiteBg {
         float: left;
         margin-bottom: 10px;
     }
+    .custom-search-container {
+        form {
+            padding: 0 0;
+            border: none;
+            margin: 5px 0 0;
+        }
+    }
     form * {
         font-size: 14px;
         font-weight: 400;
