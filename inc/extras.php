@@ -208,3 +208,72 @@ function cma_remove_meta_version(){
     return '';
 }
 add_filter( 'the_generator', 'cma_remove_meta_version' );
+
+
+/* Display Vendor Information via Ajax */
+add_action( 'wp_ajax_nopriv_vendor_details', 'vendor_details' );
+add_action( 'wp_ajax_vendor_details', 'vendor_details' );
+function vendor_details() {
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $post_id = ($_POST['post_id']) ? $_POST['post_id'] : 0;
+        $html = get_vendor_info_html($post_id);
+        $response['title'] = ($post_id>0) ? get_the_title($post_id):'';
+        $response['content'] = $html;
+        echo json_encode($response);
+    }
+    else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+
+function get_vendor_info_html($id) {
+    $content = '';
+    $post = get_post($id);
+    if($post) {
+        ob_start();  ?>
+        <div class="vendor-detatils-wrap">
+            <?php 
+            $id = $post->ID;
+            $logo = get_field("vendor_logo",$id); 
+            $address = get_field("vendor_address",$id); 
+            $phone = get_field("vendor_phone",$id); 
+            $email = get_field("vendor_email",$id); 
+            $website = get_field("vendor_website",$id); 
+            $webdomain = '';
+            if($website) {
+                $web = parse_url($website);
+                $host = $web['host'];
+                $host = str_replace('www','',$host);
+                $webdomain = 'www.'.$host;
+            }
+            ?>
+            <div class="inner <?php echo ($logo) ? 'half':'full'; ?>">
+                <?php if ($logo) { ?>
+                <div class="logodiv">
+                    <span><img src="<?php echo $logo['url'] ?>" alt="<?php echo $logo['title'] ?>" class="vendor-logo"></span>
+                </div>
+                <?php } ?>
+                <div class="info">
+                    <h2 class="name"><?php echo $post->post_title; ?></h2>
+                    <?php if ($address) { ?>
+                    <div class="data address"><span class="icon"><i class="fas fa-map-marker-alt"></i></span> <?php echo $address ?></div>
+                    <?php } ?>
+                    <?php if ($phone) { ?>
+                    <div class="data phone"><span class="icon"><i class="fas fa-phone-alt"></i></span> <?php echo $phone ?></div>
+                    <?php } ?>
+                    <?php if ($email) { ?>
+                    <div class="data email"><span class="icon"><i class="fas fa-envelope"></i></span> <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email) ?></a></div>
+                    <?php } ?>
+                    <?php if ($website) { ?>
+                    <div class="data website"><span class="icon"><i class="fas fa-globe-americas"></i></span> <a href="<?php echo $website ?>" target="_blank"><?php echo $webdomain ?></a></div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <?php
+        $content = ob_get_contents();
+        ob_end_clean();
+    }
+    return $content;
+}

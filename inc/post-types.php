@@ -31,6 +31,14 @@ function js_custom_init() {
             'single'    => 'Location',
             'menu_icon' => 'dashicons-location',
             'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'vendors-type',
+            'menu_name' => 'Vendors',
+            'plural'    => 'Vendors',
+            'single'    => 'Vendor',
+            'menu_icon' => 'dashicons-category',
+            'supports'  => array('title','editor')
         )
     );
     
@@ -100,6 +108,13 @@ function ii_custom_taxonomies() {
                 'single'    => 'Leadership',
                 'taxonomy'  => 'leadershiptax'
             ),
+            array(
+                'post_type' => 'vendors-type',
+                'menu_name' => 'Vendors Types',
+                'plural'    => 'Vendors Types',
+                'single'    => 'Vendors Type',
+                'taxonomy'  => 'vendorscat'
+            ),
         );
     
     if($posts) {
@@ -156,6 +171,15 @@ function set_custom_cpt_columns($columns) {
         $columns['photo'] = __( 'Team Photo', 'bellaworks' );
         $columns['taxonomy-leadershiptax'] = __( 'Leadership', 'bellaworks' );
     }
+
+    if($post_type=='vendors-type') {
+        unset( $columns['title'] );
+        unset( $columns['date'] );
+        unset( $columns['taxonomy-vendorscat'] );
+        $columns['title'] = __( 'Vendor Name', 'bellaworks' );
+        $columns['vendor_logo'] = __( 'Team Photo', 'bellaworks' );
+        $columns['taxonomy-vendorscat'] = __( 'Type', 'bellaworks' );
+    }
     
     return $columns;
 }
@@ -188,9 +212,32 @@ function custom_post_column( $column, $post_id ) {
                 break;
         }
     }
+
+    if($post_type=='vendors-type') {
+        switch ( $column ) {
+            case 'vendor_logo' :
+                $img = get_field('vendor_logo',$post_id);
+                $img_src = ($img) ? $img['sizes']['medium'] : '';
+                if($img_src) {
+                   $the_photo .= '<img src="'.$img_src.'" alt="" style="width:80px;height:auto" />';
+                } else {
+                    $the_photo .= '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;position:relative;"><i class="dashicons dashicons-format-image" style="font-size:25px;position:absolute;top:13px;left:13px;opacity:0.3;"></i></span>';
+                }
+                echo $the_photo;
+                break;
+        }
+    }
     
 }
 
-
+function bella_post_type_styles() { ?>
+    <style>
+        td.column-vendor_logo {
+            vertical-align: middle;
+        }
+    </style>
+<?php
+}
+add_action( 'admin_head', 'bella_post_type_styles' );
 
 

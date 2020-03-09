@@ -76,4 +76,61 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
+	if( $(".custom-search-container select.search-selector").length > 0 ) {
+		$(document).on('change','select.search-selector',function(){
+			var dform = $(this).parents(".custom-search-container form");
+			var selected = $(this).find('option:selected').val();
+			if(selected=='community_name') {
+				dform.find("input.search-field").attr('placeholder','name...');
+			} else {
+				dform.find("input.search-field").attr('placeholder','zip, address, or city');
+			}
+		});
+	}
+
+	if( $(".vendorInfoPopUp").length > 0 ) {
+		$(document).on("click",".vendorInfoPopUp",function(e){
+			e.preventDefault();
+			var id = $(this).attr("data-id");
+			$.ajax({
+				url : frontajax.ajaxurl,
+				type : 'post',
+				dataType : "json",
+				data : {
+					action : 'vendor_details',
+					post_id : id
+				},
+				beforeSend:function(){
+					//$(".ml-loader-wrap").show();
+				},
+				success : function( response ) {
+					if(response.content) {
+						var htmlContent = response.content;
+						var pagetitle = response.title;
+						$.dialog({
+						    title: pagetitle,
+						    theme: "material",
+						    content: htmlContent,
+						    draggable: false,
+						    backgroundDismiss: true,
+						    columnClass: 'col-md-6',
+						    onOpenBefore: function () {
+						    	$(".jconfirm").addClass('vendor');
+						    }
+						});
+					}
+				}
+			});
+
+		});
+	}
+
+
+	$("#expandable .xtitle").on('click',function(e){
+		e.preventDefault();
+		$(this).parents('.panels').toggleClass('open');
+		$(this).next('.xtext').slideToggle();
+	});
+
+
 });// END #####################################    END

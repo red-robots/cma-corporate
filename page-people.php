@@ -89,12 +89,21 @@ get_header(); ?>
       'posts_per_page'   => -1,
       'post_type'        => 'teams',
       'post_status'      => 'publish',
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'leadershiptax',
+              'terms' => 5, /*  Executive Leadership */
+              'include_children' => false 
+          ),
+      ),
     );
     $teams = new WP_Query($args);
+    $total = $teams->found_posts;
     $placeholder = THEMEURI . 'images/photo-coming-soon.png';
+    $numcols = array(6,9);
 
   if ( $teams->have_posts() ) {  ?>
-  <div class="cma-main-body teampage" id="team_cma">
+  <div class="cma-main-body teampage total-items-<?php echo $total; ?>" id="team_cma">
     <div class="container text-center">
       <div class="col-md-10 cma-center">
         
@@ -102,8 +111,9 @@ get_header(); ?>
           <?php while ( $teams->have_posts() ) : $teams->the_post();  
             $photo = get_field("team_photo",$id);
             $jobTitle = get_field("team_title",$id);
+            $grid = ( in_array($total,$numcols) ) ? 'col-md-4':'col-md-3';
           ?>
-          <div class="col-md-3 team-info">
+          <div class="team-info <?php echo $grid ?>">
             <div class="text-center mb-3">
               <div class="text-center mb-3 teamPhoto">
                 <a href="<?php echo get_permalink(); ?>">
