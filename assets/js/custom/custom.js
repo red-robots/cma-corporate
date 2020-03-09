@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
 					post_id : id
 				},
 				beforeSend:function(){
-					//$(".ml-loader-wrap").show();
+					$("#spinner").addClass("show");
 				},
 				success : function( response ) {
 					if(response.content) {
@@ -116,9 +116,15 @@ jQuery(document).ready(function ($) {
 						    columnClass: 'col-md-6',
 						    onOpenBefore: function () {
 						    	$(".jconfirm").addClass('vendor');
+						    },
+						    onOpen:function(){
+						    	$("#spinner").removeClass("show");
 						    }
 						});
 					}
+				},
+				complete:function(){
+
 				}
 			});
 

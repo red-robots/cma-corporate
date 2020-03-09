@@ -39,7 +39,11 @@ get_header(); ?>
             ?>
             <div class="panels expand-info">
               <h3 class="xtitle"><?php echo $xtitle ?> <span class="arrow"><i class="fas fa-chevron-right"></i></span></h3>
-              <div class="xtext"><?php echo $xtext ?></div>
+              <div class="xtext">
+                <?php 
+                  echo ($xtext) ? email_obfuscator($xtext) : '';
+                ?>
+              </div>
             </div>
            <?php } ?>
         </div>

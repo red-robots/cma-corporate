@@ -157,6 +157,10 @@
       </div>
   </footer>
 </div><!-- #page -->
+
+<div id="spinner">
+  <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
 <?php wp_footer(); ?>
 
 
