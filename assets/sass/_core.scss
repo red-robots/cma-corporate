@@ -2836,27 +2836,56 @@ body.page-sitemap {
 .vendors-information {
     padding-top: 20px;
     padding-bottom: 30px;
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
     .flexbox {
         @include flexgroup();
         @include flexbox-align-items(center);
         @include flexbox-justify(center);
         position: relative;
+        margin-left: -20px;
+        margin-right: -20px;
     }
     .fbox {
         width: 100%;
         position: relative;
+        // @include xs {
+        //     width: 50%;
+        // }
+        // @include tab {
+        //     width: 20%;
+        // }
+        * {
+            transition: all ease-out .3s;
+        }
         @include xs {
             width: 50%;
         }
         @include tab {
             width: 25%;
         }
-        * {
-            transition: all ease-out .3s;
+        @include mid {
+            width: 16%;
         }
+        
     }
+    // &.posts-6, &.posts-9 {
+    //     .fbox {
+    //         width: 100%;
+    //         @include xs {
+    //             width: 50%;
+    //         }
+    //         @include tab {
+    //             width: 25%;
+    //         }
+    //         @include mid {
+    //             width: 16%;
+    //         }
+    //     }
+    // }
     .inside {
-        padding: 25px;
+        padding: 10px;
     }
     .spanlogo {
         display: block;
@@ -2910,7 +2939,7 @@ body.page-sitemap {
         font-size: 16px;
         width: 100%;
         float: left;
-        padding: 20px;
+        padding: 20px 20px 5px;
     }
     h2.name {
         font-size: 23px;
@@ -2940,25 +2969,7 @@ body.page-sitemap {
             }
         }
     }
-    .inner {
-        // &.half {
-        //     .rightcol {
-        //         width: 100%;
-        //         float: left;
-        //         @include tab {
-        //             width: 60%;
-        //         }
-        //     }
-        //     .leftcol {
-        //         width: 100%;
-        //         float: left;
-        //         @include tab {
-        //             width: 33%;
-        //             float: right;
-        //         }
-        //     }
-        // }
-    }
+
     .logodiv {
         width: 100%;
         float: left;
@@ -2970,7 +2981,7 @@ body.page-sitemap {
             border: 1px solid #CCC;
         }
         img {
-            max-width: 300px!important;
+            max-width: 200px!important;
             width: 100%;
             height: auto;
         }

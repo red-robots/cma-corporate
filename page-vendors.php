@@ -175,11 +175,9 @@ get_header(); ?>
     <div class=" cma-bg-red ">
 
       <?php if ($row_4_title) { ?>
-      <div class="justify-content-center">
+      <div class="justify-content-center fadeIn wow" data-wow-delay="0.7s">
         <div class="col-md-8 mb-4 mt-4" style="margin: 0 auto">
-        	<div class="fadeIn wow" data-wow-delay="0.7s">
-        		<h1  class="text-center"><?php echo $row_4_title ?></h1>
-        	</div>
+        	<h1 class="text-center"><?php echo $row_4_title ?></h1>
         </div>
       </div>
       <?php } ?>
@@ -188,10 +186,8 @@ get_header(); ?>
         <div class="contentInner cf">
         
           <?php if ($row_4_text) { ?>
-          <div class="col-md-10 cma-center text-center ">
-              <div class="fadeIn wow" data-wow-delay=".8s">
-                <?php echo $row_4_text ?>
-              </div>
+          <div class="col-md-10 cma-center text-center fadeIn wow" data-wow-delay=".8s">
+              <?php echo $row_4_text ?>
           </div>
           <?php } ?>
         

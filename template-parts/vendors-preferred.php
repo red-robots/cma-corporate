@@ -12,8 +12,9 @@
     ),
   );
   $partnerVendors = new WP_Query($pv1);
-  if ( $partnerVendors->have_posts() ) { ?>
-  <div class="col-md-10 cma-center text-center vendors-information fadeIn wow" data-wow-delay=".8s">
+  if ( $partnerVendors->have_posts() ) { 
+  $total = $partnerVendors->found_posts;  ?>
+  <div class="text-center vendors-information posts-<?php echo $total;?> fadeIn wow" data-wow-delay=".8s">
     <div class="flexbox">
     <?php while ( $partnerVendors->have_posts() ) : $partnerVendors->the_post();  
       $vendorLogo = get_field("vendor_logo");

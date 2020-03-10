@@ -1306,13 +1306,14 @@ body.page-sitemap #primaryNav ul.sub-menu li:after{content:"";display:block;widt
 .expandablesWrap .xtext ol{list-style-type:decimal}
 .vendor-page-content .row-1{padding-top:50px;padding-bottom:10px}
 .vendor-page-content .row-1 .cmatextdiv p:last-child{margin-bottom:0}
-.vendors-information{padding-top:20px;padding-bottom:30px}
-.vendors-information .flexbox{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative}
+.vendors-information{padding-top:20px;padding-bottom:30px;max-width:1300px;width:90%;margin:0 auto}
+.vendors-information .flexbox{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative;margin-left:-20px;margin-right:-20px}
 .vendors-information .fbox{width:100%;position:relative}
+.vendors-information .fbox *{-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 @media(min-width:375px){.vendors-information .fbox{width:50%}
 }@media(min-width:820px){.vendors-information .fbox{width:25%}
-}.vendors-information .fbox *{-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
-.vendors-information .inside{padding:25px}
+}@media(min-width:1025px){.vendors-information .fbox{width:16%}
+}.vendors-information .inside{padding:10px}
 .vendors-information .spanlogo{display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-size:85%;background-position:center;background-repeat:no-repeat}
 .vendors-information a.popupInfo{display:block;background-color:white;position:relative;overflow:hidden}
 .vendors-information a.popupInfo:hover{box-shadow:0 0 15px 0 rgba(0,0,0,0.4);-webkit-transform:scale(1.06);-ms-transform:scale(1.06);transform:scale(1.06)}
@@ -1322,7 +1323,7 @@ body.page-sitemap #primaryNav ul.sub-menu li:after{content:"";display:block;widt
 .jconfirm.vendor .jconfirm-box-container .jconfirm-title-c{display:none !important}
 .jconfirm.vendor .jconfirm-box-container .jconfirm-box{border-top:10px solid #333486}
 .jconfirm.vendor .jconfirm-box-container .jconfirm-closeIcon{font-weight:500}
-.jconfirm.vendor .jconfirm-box-container .vendor-detatils-wrap{font-weight:400;font-size:16px;width:100%;float:left;padding:20px}
+.jconfirm.vendor .jconfirm-box-container .vendor-detatils-wrap{font-weight:400;font-size:16px;width:100%;float:left;padding:20px 20px 5px}
 .jconfirm.vendor .jconfirm-box-container h2.name{font-size:23px;font-weight:600;line-height:1.1;margin:0 0 15px;text-align:center}
 .jconfirm.vendor .jconfirm-box-container a{color:#333;text-decoration:none}
 .jconfirm.vendor .jconfirm-box-container a:hover{color:#db1c2b}
@@ -1332,7 +1333,7 @@ body.page-sitemap #primaryNav ul.sub-menu li:after{content:"";display:block;widt
 .jconfirm.vendor .jconfirm-box-container .data.website a:hover{opacity:.8}
 .jconfirm.vendor .jconfirm-box-container .logodiv{width:100%;float:left;text-align:center;margin-bottom:30px}
 .jconfirm.vendor .jconfirm-box-container .logodiv span{display:inline-block;padding:10px;border:1px solid #CCC}
-.jconfirm.vendor .jconfirm-box-container .logodiv img{max-width:300px !important;width:100%;height:auto}
+.jconfirm.vendor .jconfirm-box-container .logodiv img{max-width:200px !important;width:100%;height:auto}
 .jconfirm.vendor .jconfirm-box-container .info{width:100%;float:left}
 .jconfirm.vendor .jconfirm-box-container img.vendor-logo{width:100%;height:auto}
 #spinner{position:fixed;top:0;left:0;z-index:4000;background:rgba(0,0,0,0.85);width:100%;height:100%;display:none}
