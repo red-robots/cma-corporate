@@ -212,8 +212,7 @@
             <section class="featured-video videoSection cf" data-vid="<?php echo $videoId ?>" data-autoplay="<?php echo ($autoplay) ? 'true':'' ?>" data-mute="<?php echo ($mute) ? 'true':'' ?>">
                 <div class="container fadeIn wow" data-wow-delay="0.5s">
                     <div class="video-iframe">
-                        <iframe id="video-placeholder" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="390" src="<?php echo $embedURL?>"></iframe>
-
+                        <iframe id="video-placeholder" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="390" src="<?php echo $embedURL?>&rel=0&version=3&controls=1&loop=1&showinfo=0&playlist=<?php echo $videoId?>"></iframe>
                         <!-- <div id="video-placeholder"></div> -->
                     </div>
                     <?php if ($videoTitle && ($videoCTALabel && $videoCTALink) ) { ?>
