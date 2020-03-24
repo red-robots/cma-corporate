@@ -3091,6 +3091,7 @@ body.page-sitemap {
 /* Home Video Hero */
 #masthead.site-header {
     position: relative;
+    z-index: 1000;
 }
 #masthead.site-header .wrapper {
     max-width: 95%;

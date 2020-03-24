@@ -1461,7 +1461,7 @@ body.page-sitemap #primaryNav ul.sub-menu li:after{content:"";display:block;widt
 to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 }@keyframes lds-roller{from{-webkit-transform:rotate(0);transform:rotate(0)}
 to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
-}#masthead.site-header{position:relative}
+}#masthead.site-header{position:relative;z-index:1000}
 #masthead.site-header .wrapper{max-width:95%;width:95%}
 @media(min-width:820px){#masthead.site-header .wrapper{width:90%}
 }body.hasvideo #masthead.site-header{position:fixed;background:transparent}
