@@ -8,6 +8,7 @@ $secondary: #333486;
 $font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font_pre: "Courier 10 Pitch", Courier, monospace;
 $font_primary: 'Open Sans', sans-serif;
+$font_secondary: 'Playfair Display', serif;
 
 $xswidth: 375px;
 $mwidth: 534px;
@@ -110,6 +111,11 @@ $main_wrapper: 1300px;
 	background-image: -webkit-linear-gradient(210deg, #333486, #d22030);
     background-image: linear-gradient(-120deg, #333486, #d22030)
 }
+
+@mixin multicolor_menu() {
+	background-image: -webkit-linear-gradient(210deg, rgba(2, 2, 204, .6), rgba(255, 0, 0, .8));
+    background-image: linear-gradient(-120deg, rgba(2, 2, 204, .6), rgba(255, 0, 0, .8));
+}	
 
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);

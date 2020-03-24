@@ -7,13 +7,49 @@
 
 jQuery(document).ready(function ($) {
 	
-	$(window).scroll(function() {    // this will work when your window scrolled.
-		var height = $(window).scrollTop();  //getting the scrolling height of window
-		if(height  > 100) {
+
+	var windowHeight = $(window).scrollTop();
+	if(windowHeight  > 100) {
+		$("body").addClass('scrolled');
+	}
+
+	$(window).scroll(function() {    
+		var wHeight = $(window).scrollTop();
+		if(wHeight  > 100) {
 			$("body").addClass('scrolled');
 		} else{
 			$("body").removeClass('scrolled');
 		}
+	});
+
+	/* Slideshow */
+	if( $("#slideshow").length > 0 ) {
+		var swiper = new Swiper('#slideshow', {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			effect: 'slide', /* "fade", "cube", "coverflow" or "flip" */
+			loop: true,
+			autoplay: {
+				delay: 4000,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+	    });
+	}
+
+	$("#slidePrev").on("click",function(e){
+		e.preventDefault();
+		$(".swiper-button-prev").trigger('click');
+	});
+	$("#slideNext").on("click",function(e){
+		e.preventDefault();
+		$(".swiper-button-next").trigger('click');
 	});
 
 	$('.gfield_html_formatted').css('padding-top', '20px');
@@ -27,7 +63,9 @@ jQuery(document).ready(function ($) {
 	$('.burger').on('click', function(){
 		$(this).toggleClass('clicked');
 		$('.mobilemenu').fadeToggle(500).toggleClass('show');
-		$('body').toggleClass("openMenu");		
+		$('body').toggleClass("openMenu");
+		var videoHeight = $(".video-wrapper").height();
+		$(".mobilemenu").css("height",videoHeight+"px");	
 	});
 
 
@@ -38,10 +76,11 @@ jQuery(document).ready(function ($) {
 	}, false);
 	function navigation_dropdown() {
 		
-		if( $(".hero-wrapper").length > 0 ) {
-			var sliderHeight = $(".hero-wrapper").outerHeight();
-			var headerHeight = $("#masthead").outerHeight();
-			var navHeight = sliderHeight-headerHeight;
+		if( $(".pageHero").length > 0 ) {
+			var sliderHeight = $(".pageHero").height();
+			//var headerHeight = $("#masthead").height();
+			//var navHeight = sliderHeight-headerHeight;
+			var navHeight = sliderHeight.toFixed(2);
 			$(".mobilemenu").css("height",navHeight+"px");
 		} else {
 			var sliderHeight = $(".n2-section-smartslider").outerHeight();

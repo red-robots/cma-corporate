@@ -6,14 +6,21 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php if( is_singular() && pings_open( get_queried_object() )) { ?><link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php }  ?>	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">	
 	<?php if( $mapAPI = gmap_api_key() ) { ?><script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $mapAPI ?>"></script><?php } ?>
 	<?php wp_head(); ?>
 	<script src="https://www.youtube.com/iframe_api"></script>
 <?php if( $customScripts = get_field("header_custom_scripts","option") ) { echo $customScripts; } ?>
 </head>
-
-<body <?php body_class(); ?>>
+<?php
+$hero_type = get_field("hero_type");
+$custom_class = '';
+if($hero_type=='video') {
+	$video = get_field("video");
+	$custom_class = (isset($video['mp4']) && $video['mp4']) ? 'hasvideo' : '';
+}  
+?>
+<body <?php body_class($custom_class); ?>>
 	<div id="page" class="site cf">
 		<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 

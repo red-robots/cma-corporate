@@ -277,3 +277,44 @@ function get_vendor_info_html($id) {
     }
     return $content;
 }
+
+//custom_send_mail();
+function do_custom_send_mail($to) {
+
+    // $to = "lisa.quiamco@yahoo.com";
+    // $subject = "This is a TEST MAIL!!!";
+
+    // $message = "<b>This is HTML message.</b>";
+    // $message .= "<h1>This is headline.</h1>";
+
+    // $header = "From:noreply@bellaworksdev.com \r\n";
+    // //$header .= "Cc:afgh@somedomain.com \r\n";
+    // $header .= "MIME-Version: 1.0\r\n";
+    // $header .= "Content-type: text/html\r\n";
+
+    // //$retval = mail ($to,$subject,$message,$header);
+    // $retval = wp_mail ($to,$subject,$message,$header);
+
+    // if( $retval == true ) {
+    // echo "Message sent successfully...";
+    // }else {
+    // echo "Message could not be sent...";
+    // }
+
+    //$to      = "lisa.quiamco@yahoo.com";
+    $subject = 'TEST MAIL ONLY!';
+    $message = '<h1>This is headline.</h1>';
+    $headers = 'From: Webdev <webmaster@lisqserver.com>' . "\r\n" .
+        'Reply-To: webmaster@lisqserver.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion() . "\r\n" .
+        "MIME-Version: 1.0\r\n" . 
+        "Content-type: text/html\r\n";
+
+
+    if( mail($to, $subject, $message, $headers) ) {
+        echo "Message sent successfully...";
+    } else {
+        echo "Message could not be sent...";
+    }
+
+}

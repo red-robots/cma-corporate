@@ -8,6 +8,7 @@
     $company_address    = get_field('building_address', 'option');
     $request_info       = get_field('request_information_text', 'option');
     $request_info_url   = get_field('request_information_url', 'option');
+    $contactlink        = get_field('contactlink', 'option');
   ?>
 
   
@@ -20,7 +21,7 @@
               <?php echo ($company_name) ? $company_name : ''; ?>
             </h4>
             <div>
-              P: <?php echo ($company_phone) ? $company_phone : ''; ?> | E: <a href="mailto:<?php echo ($company_email) ? antispambot($company_email, 1) : ''; ?>"><?php echo ($company_email) ? antispambot($company_email) : ''; ?></a>
+              P: <?php echo ($company_phone) ? $company_phone : ''; ?> | <?php echo ($contactlink) ? '<a href="'.$contactlink.'">Email Us</a>':''; ?> 
             </div>
             <div class="mb-5 officeAddress">
               <div><?php echo ($company_bldg_name) ? $company_bldg_name : ''; ?></div>
@@ -166,8 +167,33 @@
 
 
 <?php if ( is_front_page() || is_home() ) { ?>
-<!-- <script src="https://www.youtube.com/iframe_api"></script>
-<script src="<?php //echo get_bloginfo("template_url") ?>/assets/js/youtube.js"></script> -->
+<script type="text/javascript">
+/* Video Controls */
+window.onload = function() {
+
+  var video = document.getElementById("videoHero");
+  video.play();
+
+  // Buttons
+  var playButton = document.getElementById("play-pause");
+
+  // Event listener for the play/pause button
+  playButton.addEventListener("click", function() {
+    if (video.paused == true) {
+      video.play();
+      playButton.innerHTML = "Pause";
+      playButton.classList.add("pause");
+      playButton.classList.remove("play");
+    } else {
+      video.pause();
+      playButton.innerHTML = "Play";
+      playButton.classList.add("play");
+      playButton.classList.remove("pause");
+    }
+  });
+
+}
+</script> 
 <?php } ?>
 
 
