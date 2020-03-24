@@ -3131,10 +3131,12 @@ body.hasvideo {
     overflow: hidden;
     position: relative;
     top: 0;
+    left: 0;
+    max-height: 93vh;
     height: auto;
     float: left;
+    background-color: #CCC;
     @include desk {
-        height: 93vh;
         margin-bottom: 40px;
     }
     #videoHero {

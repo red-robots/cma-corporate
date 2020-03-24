@@ -1469,8 +1469,8 @@ body.hasvideo .burger_label{color:#FFF}
 body.hasvideo .burger span,body.hasvideo .burger span:after,body.hasvideo .burger span:before{background:#FFF}
 body.hasvideo .burger.clicked span{background:transparent}
 body.hasvideo .mobilemenu{position:fixed;top:0;right:0;margin:0;height:100%;padding-top:80px}
-.video-wrapper{width:100%;overflow:hidden;position:relative;top:0;height:auto;float:left}
-@media(min-width:1300px){.video-wrapper{height:93vh;margin-bottom:40px}
+.video-wrapper{width:100%;overflow:hidden;position:relative;top:0;left:0;max-height:93vh;height:auto;float:left;background-color:#CCC}
+@media(min-width:1300px){.video-wrapper{margin-bottom:40px}
 }.video-wrapper #videoHero{position:relative;min-width:100%;min-height:100%;width:100% !important;height:auto !important;float:left}
 .video-wrapper #video-controls{position:absolute;bottom:0;left:0;width:100%;z-index:20}
 .video-wrapper #play-pause{-webkit-appearance:none;box-shadow:none;text-shadow:none;width:36px;height:36px;float:left;border:0;background:rgba(0,0,0,0.3);font-size:0;color:transparent;position:relative;left:15px;bottom:15px;border-radius:100%}
