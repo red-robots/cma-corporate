@@ -376,7 +376,8 @@ function send_email_to_team() {
 
 function do_sendmail_to_team($a) {
     $userIP = get_user_ip();
-    $userCountry = get_user_country_by_ip($userIP);
+    //$userCountry = get_user_country_by_ip($userIP);
+    $userCountry = '';
 
     $senderName = $a['sender_name'];
     $senderEmail = $a['sender_email'];

@@ -72,7 +72,9 @@ jQuery(document).ready(function ($) {
 					$("#waiting").removeClass('show');
 				},
 				error: function (xhr, desc, err) {
-					//console.log(xhr);
+					console.log(xhr);
+					console.log(desc);
+					console.log(err);
 	                // console.log('An error occurred.');
 	                // console.log(data);
 	            },
