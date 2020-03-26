@@ -113,7 +113,7 @@ get_header(); ?>
 					if($pageTitle) { ?>
 					<div class="fwleft">
 						<div class="wrapper button-bottom">
-							<a href="<?php echo $pageLink; ?>" class="redLink"><i class="fas fa-chevron-left"></i> <?php echo $pageTitle; ?></a>
+							<a href="<?php echo $pageLink; ?>#leadership" class="redLink"><i class="fas fa-chevron-left"></i> <?php echo $pageTitle; ?></a>
 						</div>
 					</div>
 					<?php } 

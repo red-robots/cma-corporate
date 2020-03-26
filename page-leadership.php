@@ -103,6 +103,7 @@ get_header(); ?>
     $numcols = array(6,9);
 
   if ( $teams->have_posts() ) {  ?>
+  <div id="leadership" class="cf"></div>
   <div class="cma-main-body teampage total-items-<?php echo $total; ?>" id="team_cma">
     <div class="container text-center">
       <div class="col-md-10 cma-center">
