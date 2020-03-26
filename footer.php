@@ -129,7 +129,12 @@
                 $socialIcon = '';
                 $socialName = '';
                 if($socialLink) {
-                  $parts = parse_url($socialLink);
+                  if(strpos($socialLink, 'http') !== false) {
+                    $social_link = $socialLink;
+                  } else {
+                    $social_link = 'https://' . $socialLink;
+                  }
+                  $parts = parse_url($social_link);
                   $host = $parts['host'];
                   foreach($socialOptions as $k=>$iconClass) {
                     if (strpos($host, $k) !== false) {
@@ -140,9 +145,9 @@
                   }
                 } ?>
 
-                <?php if ($socialLink && $socialIcon) { ?>
+                <?php if ($social_link && $socialIcon) { ?>
                 <li class="social-<?php echo $socialName;?>">
-                  <a href="<?php echo $socialLink; ?>" target="_blank"><i class="social-icon <?php echo $socialIcon ?>" aria-hidden="true"></i><span style="display:none;"><?php echo $socialName ?></span></a>
+                  <a href="<?php echo $social_link; ?>" target="_blank"><i class="social-icon <?php echo $socialIcon ?>" aria-hidden="true"></i><span style="display:none;"><?php echo $socialName ?></span></a>
                 </li>
                 <?php } ?>
               <?php } ?>

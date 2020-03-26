@@ -404,7 +404,6 @@ function do_sendmail_to_team($a) {
         if($recipientName) {
             $message .= '<tr><td style="width:85px;vertical-align:top;">Attention</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$recipientName.'</strong></td></tr>';
         }
-        // $message .= '<tr><td colspan="3" style="width:85px;padding:15px 0 0;vertical-align:top;">Message:</td></tr>';
         $message .= '<tr><td colspan="3" style="padding:5px 0;"><p style="margin:10px 0px 5px 0px;"><strong>Message:</strong></p>'.$emailBody.'</td></tr>';
         $message .= '</table></td></tr>';
         $message .= '</tbody></table><br>';
