@@ -385,6 +385,7 @@ function do_sendmail_to_team($a) {
     $emailBody = $a['message'];
     $recipient = $a['recipient'];
     $recipient_id = $a['recipient_id'];
+    $recipientName = ($recipient_id) ? get_the_title($recipient_id) : '';
     $sentvia = $a['sentvia'];
     $isSent = false;
     if($recipient) {
@@ -400,8 +401,11 @@ function do_sendmail_to_team($a) {
         $message .= '<tr><td style="width:85px;vertical-align:top;">Sender Name</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$senderName.'</strong></td></tr>';
         $message .= '<tr><td style="width:85px;vertical-align:top;">Sender Email</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$senderEmail.'</strong></td></tr>';
         $message .= '<tr><td style="width:85px;vertical-align:top;">Subject</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$emailSubject.'</strong></td></tr>';
-        $message .= '<tr><td colspan="3" style="width:85px;vertical-align:top;padding-top:12px;">Message:</td></tr>';
-        $message .= '<tr><td colspan="3" style="padding:5px 0;">'.$emailBody.'</td></tr>';
+        if($recipientName) {
+            $message .= '<tr><td style="width:85px;vertical-align:top;">Attention</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$recipientName.'</strong></td></tr>';
+        }
+        // $message .= '<tr><td colspan="3" style="width:85px;padding:15px 0 0;vertical-align:top;">Message:</td></tr>';
+        $message .= '<tr><td colspan="3" style="padding:5px 0;"><p style="margin:10px 0px 5px 0px;"><strong>Message:</strong></p>'.$emailBody.'</td></tr>';
         $message .= '</table></td></tr>';
         $message .= '</tbody></table><br>';
         $message .= '<p>This email is sent via <a href="'.$sentvia.'" target="_blank"><i>'.$sentvia.'</i></a> <br>';

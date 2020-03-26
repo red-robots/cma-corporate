@@ -1562,4 +1562,5 @@ input[type=submit].submitbtn:hover{padding:0}
 .team-contact-form #response .alert{font-weight:600}
 .team-contact-form #response:focus{outline:0}
 .team-contact-form .form-control.error{border-color:#ea3636;background:#fff9f9}
-.teamform{font-weight:400;margin-top:35px;position:relative}
+.teamform{font-weight:400;margin-top:35px;position:relative;border:1px solid #CCC;padding:20px}
+.teamform label{font-weight:500}
