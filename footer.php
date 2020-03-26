@@ -170,27 +170,30 @@
 <script type="text/javascript">
 /* Video Controls */
 window.onload = function() {
+  if( $("#videoHero").length > 0 ) {
 
-  var video = document.getElementById("videoHero");
-  video.play();
+    var video = document.getElementById("videoHero");
+    video.play();
 
-  // Buttons
-  var playButton = document.getElementById("play-pause");
+    // Buttons
+    var playButton = document.getElementById("play-pause");
 
-  // Event listener for the play/pause button
-  playButton.addEventListener("click", function() {
-    if (video.paused == true) {
-      video.play();
-      playButton.innerHTML = "Pause";
-      playButton.classList.add("pause");
-      playButton.classList.remove("play");
-    } else {
-      video.pause();
-      playButton.innerHTML = "Play";
-      playButton.classList.add("play");
-      playButton.classList.remove("pause");
-    }
-  });
+    // Event listener for the play/pause button
+    playButton.addEventListener("click", function() {
+      if (video.paused == true) {
+        video.play();
+        playButton.innerHTML = "Pause";
+        playButton.classList.add("pause");
+        playButton.classList.remove("play");
+      } else {
+        video.pause();
+        playButton.innerHTML = "Play";
+        playButton.classList.add("play");
+        playButton.classList.remove("pause");
+      }
+    });
+
+  }
 
 }
 </script> 

@@ -1547,3 +1547,19 @@ body.hasvideo.scrolled.openMenu .burger span{background-color:transparent}
 #slideshow.swiper-container .customSlideNav a#slideNext span:before{-webkit-transform:rotate(40deg);-ms-transform:rotate(40deg);transform:rotate(40deg);top:-2px}
 #slideshow.swiper-container .customSlideNav a#slideNext span:after{-webkit-transform:rotate(-40deg);-ms-transform:rotate(-40deg);transform:rotate(-40deg);top:10px}
 #slideshow.swiper-container .customSlideNav a:hover{background:#af1622}
+.team-contact-info{margin-bottom:40px}
+#main .btnstyle{display:inline-block;text-decoration:none;padding:10px 25px;background:#db1c2b;font-size:16px;font-weight:500;line-height:20px;color:#FFF;margin-right:8px;border-radius:4px}
+#main .btnstyle:hover{background:#e6606b}
+#main .btnstyle.grey{background:#656565}
+#main .btnstyle.grey:hover{background:#939393}
+input[type=submit].submitbtn{-webkit-transform:none;-ms-transform:none;transform:none;border:0;padding:0}
+input[type=submit].submitbtn:hover{padding:0}
+.team-contact-form{position:relative}
+.team-contact-form #waiting{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.75);z-index:20;text-align:center}
+.team-contact-form #waiting.show{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.team-contact-form #waiting #wait{width:100%}
+.team-contact-form #waiting .lds-roller div:after{background:#db1c2b}
+.team-contact-form #response .alert{font-weight:600}
+.team-contact-form #response:focus{outline:0}
+.team-contact-form .form-control.error{border-color:#ea3636;background:#fff9f9}
+.teamform{font-weight:400;margin-top:35px;position:relative}

@@ -3580,3 +3580,78 @@ body.hasvideo.scrolled {
         }
     }
 }
+.team-contact-info {
+    margin-bottom: 40px;
+}
+#main .btnstyle {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 25px;
+    background: $primary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #FFF;
+    margin-right: 8px;
+    border-radius: 4px;
+    &:hover {
+        background: tint($primary,30%);
+    }
+    &.grey {
+        background: #656565;
+        &:hover {
+            background: tint(#656565,30%);
+        }
+    }
+}
+input[type=submit].submitbtn {
+    transform: none;
+    border: none;
+    padding: 0 0;
+    &:hover {
+        padding: 0 0;
+    }
+}
+.team-contact-form {
+    position: relative;
+    #waiting {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,.75);
+        z-index: 20;
+        text-align: center;
+        &.show {
+            @include flexgroup-center();
+        }
+        #wait {
+            width: 100%;
+        }
+        .lds-roller div:after {
+            background: $primary;
+        }
+    }
+    #response {
+        .alert {
+            font-weight: 600;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .form-control.error {
+        border-color: #ea3636;
+        background: #fff9f9;
+    }
+}
+.teamform {
+    font-weight: 400;
+    margin-top: 35px;
+    position: relative;
+    label {
+        
+    }
+}

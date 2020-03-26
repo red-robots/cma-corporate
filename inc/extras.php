@@ -278,43 +278,200 @@ function get_vendor_info_html($id) {
     return $content;
 }
 
-//custom_send_mail();
-function do_custom_send_mail($to) {
+/* Fixed issue on Options page when saving it goes to 404 page */
+add_action( 'init', 'mycustomadminscripts' );
+function mycustomadminscripts() {
+   wp_register_script( "myadminscripts", get_stylesheet_directory_uri().'/assets/js/custom-admin.js', array('jquery') );
+   wp_localize_script( 'myadminscripts', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
+   wp_enqueue_script( 'jquery' );
+   wp_enqueue_script( 'myadminscripts' );
+}
 
-    // $to = "lisa.quiamco@yahoo.com";
-    // $subject = "This is a TEST MAIL!!!";
+add_action( 'admin_head', 'admin_head_action_func' );
+function admin_head_action_func(){ ?>
+<script type='text/javascript'>
+    var wpAdminURL = '<?php echo get_admin_url(); ?>';
+</script>
+<?php
+}
 
-    // $message = "<b>This is HTML message.</b>";
-    // $message .= "<h1>This is headline.</h1>";
+add_action( 'footer_head', 'footer_head_action_func' );
+function footer_head_action_func(){ ?>
+<script type='text/javascript'>
+</script>
+<?php
+}
 
-    // $header = "From:noreply@bellaworksdev.com \r\n";
-    // //$header .= "Cc:afgh@somedomain.com \r\n";
-    // $header .= "MIME-Version: 1.0\r\n";
-    // $header .= "Content-type: text/html\r\n";
+add_action("wp_ajax_save_acfoptions", "save_acfoptions");
+add_action("wp_ajax_nopriv_save_acfoptions", "save_acfoptions_login");
+function save_acfoptions() {
 
-    // //$retval = mail ($to,$subject,$message,$header);
-    // $retval = wp_mail ($to,$subject,$message,$header);
-
-    // if( $retval == true ) {
-    // echo "Message sent successfully...";
-    // }else {
-    // echo "Message could not be sent...";
-    // }
-
-    //$to      = "lisa.quiamco@yahoo.com";
-    $subject = 'TEST MAIL ONLY!';
-    $message = '<h1>This is headline.</h1>';
-    $headers = 'From: Webdev <webmaster@lisqserver.com>' . "\r\n" .
-        'Reply-To: webmaster@lisqserver.com' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion() . "\r\n" .
-        "MIME-Version: 1.0\r\n" . 
-        "Content-type: text/html\r\n";
-
-
-    if( mail($to, $subject, $message, $headers) ) {
-        echo "Message sent successfully...";
-    } else {
-        echo "Message could not be sent...";
+    if ( !wp_verify_nonce( $_REQUEST['nonce'], "my_user_vote_nonce")) {
+        exit();
     }
 
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $result = json_encode($result);
+        echo $result;
+    }
+    else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+
+    die();
+
 }
+
+function save_acfoptions_login() {
+   echo "You must log in to vote";
+   die();
+}
+
+/* Ajax send email */
+/* Display Vendor Information via Ajax */
+add_action( 'wp_ajax_nopriv_send_email_to_team', 'send_email_to_team' );
+add_action( 'wp_ajax_send_email_to_team', 'send_email_to_team' );
+function send_email_to_team() {
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $post_id = ($_POST['post_id']) ? $_POST['post_id'] : 0;
+        $sentvia = ($_POST['sentvia']) ? $_POST['sentvia'] : '';
+        $senderName = ($_POST['fullname']) ? $_POST['fullname'] : '';
+        $senderEmail = ($_POST['email']) ? $_POST['email'] : '';
+        $subject = ($_POST['subject']) ? $_POST['subject'] : 'Team Contact Form';
+        $message = ($_POST['message']) ? $_POST['message'] : '';
+        $recipient = get_field("team_email",$post_id);
+        $emailTo = ($recipient) ? preg_replace('/\s+/','',$recipient) : '';
+        $emailTo = (filter_var($emailTo, FILTER_VALIDATE_EMAIL)) ? $emailTo : '';
+        $is_sent = '';
+        $response['success'] = '';
+        $response['message'] = '';
+        $args = array(
+            'sender_name'=>$senderName,
+            'sender_email'=>$senderEmail,
+            'subject'=>$subject,
+            'message'=>$message,
+            'recipient'=>$emailTo,
+            'recipient_id'=>$post_id,
+            'sentvia'=>$sentvia
+        );
+
+        ob_start();
+        echo do_sendmail_to_team($args);
+        $is_sent = ob_get_contents();
+        ob_end_clean();
+        if($is_sent) {
+            $response['success'] = 1;
+            $response['message'] = '<div class="alert alert-success">Thank you! Your email has been sent successfully.</div>';
+        } else {
+            $response['message'] = '<div class="alert alert-danger">Message failed to send. Please try again.</div>';
+        }
+
+        echo json_encode($response);
+    }
+    else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+
+function do_sendmail_to_team($a) {
+    $userIP = get_user_ip();
+    $userCountry = get_user_country_by_ip($userIP);
+
+    $senderName = $a['sender_name'];
+    $senderEmail = $a['sender_email'];
+    $emailSubject = $a['subject'];
+    $emailBody = $a['message'];
+    $recipient = $a['recipient'];
+    $recipient_id = $a['recipient_id'];
+    $sentvia = $a['sentvia'];
+    $isSent = false;
+    if($recipient) {
+        $to = $recipient;
+        $subject = $emailSubject;
+        $headers = 'From: Team Contact Form <webform@cmacommunities.com>' . "\r\n";
+        $headers .= 'Reply-To: '.$senderEmail . "\r\n";
+        $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+        $headers .= "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html" . "\r\n";
+        $message = '<table style="border-collapse: collapse;border:1px solid #98d5e2;max-width:700px;width:100%;font-size:14px;line-height:1.4;"><tbody>';
+        $message .= '<tr><td style="padding:10px;background:#f4fdff;"><table>';
+        $message .= '<tr><td style="width:85px;vertical-align:top;">Sender Name</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$senderName.'</strong></td></tr>';
+        $message .= '<tr><td style="width:85px;vertical-align:top;">Sender Email</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$senderEmail.'</strong></td></tr>';
+        $message .= '<tr><td style="width:85px;vertical-align:top;">Subject</td><td style="width:10px;vertical-align:top;">:</td><td style="vertical-align:top;"><strong>'.$emailSubject.'</strong></td></tr>';
+        $message .= '<tr><td colspan="3" style="width:85px;vertical-align:top;padding-top:12px;">Message:</td></tr>';
+        $message .= '<tr><td colspan="3" style="padding:5px 0;">'.$emailBody.'</td></tr>';
+        $message .= '</table></td></tr>';
+        $message .= '</tbody></table><br>';
+        $message .= '<p>This email is sent via <a href="'.$sentvia.'" target="_blank"><i>'.$sentvia.'</i></a> <br>';
+        $message .= '<span>User IP: '.$userIP.'</span><br>';
+        if($userCountry) {
+            $message .= '<span>User Country: '.$userCountry.'</span><br>';
+        }
+        $message .= '</p>';
+        if( mail($to, $subject, $message, $headers) ) {
+            $isSent = true;
+            /* insert to wp_posts */
+            $postArgs = array(
+                'sender_name'=>$senderName,
+                'sender_email'=>$senderEmail,
+                'subject'=>$emailSubject,
+                'message'=>$emailBody,
+                'recipient'=>$recipient,
+                'recipient_id'=>$recipient_id,
+                'sentvia'=>$sentvia,
+                'sender_ip'=>$userIP
+            );
+            $new_entry_id = insert_user_email_content($postArgs);
+        } 
+    }
+    return $isSent;
+}
+
+
+function insert_user_email_content($a) {
+    $new_post = array(
+        'post_title'  => $a['sender_name'],
+        'post_content'=> $a['message'],
+        'post_status' => 'publish',
+        'post_type'   => 'teamcontactform'
+    );
+    $post_id = wp_insert_post($new_post);
+    /* add post meta */
+    if($post_id) {
+        $metas = array(
+            'teamcontactform_email_subject'=>$a['subject'],
+            'teamcontactform_sender_email'=>$a['sender_email'],
+            'teamcontactform_sender_ip'=>$a['sender_ip'],
+            'teamcontactform_recipient'=>$a['recipient'],
+            'teamcontactform_team_post_id'=>$a['recipient_id'],
+        );
+        foreach($metas as $key=>$val) {
+            if ( !add_post_meta( $post_id, $key, $val, true ) ) { 
+               update_post_meta ( $post_id, $key, $val );
+            }
+        }
+    }
+    return $post_id;
+}
+
+
+function get_user_ip() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+function get_user_country_by_ip($ip) {
+    if($ip) {
+        $xml = simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=".$ip);
+        return ($xml) ? $xml->geoplugin_countryName : "";
+    }
+}
+
+
