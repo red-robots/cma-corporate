@@ -69,7 +69,7 @@
     <div class="cma-main-body " id="team_cma">
       <div class="container text-center">
         <div class="col-md-8 cma-center">
-          <div class="row  mb-4 fadeIn wow" data-wow-delay="0.5s">
+          <div class="row contactFlexcols fadeIn wow" data-wow-delay="0.5s">
 
             <?php foreach($row4theTeam as $e) {
               if( $m = $e['teamName'] ) {
@@ -89,7 +89,7 @@
                   }
                   $teamInfo = ($altTextTrim) ? $altText : $name;
               ?>
-              <div class="col-md-6 mt-5">
+              <div class="col-md-6 cflexcol">
                 <div class="text-center mb-3">
                   
                   <div class="text-center mb-3 teamPhoto">

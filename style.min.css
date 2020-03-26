@@ -1347,6 +1347,7 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 @media(min-width:820px){.cma-footer .searchCol{margin-bottom:0}
 }.footerSearchForm{width:100%;float:left;color:#333}
 .footerSearchForm .form-group-search{padding:0;width:100%;float:left;margin-bottom:10px}
+.footerSearchForm .form-group-search.searchby{display:none !important}
 .footerSearchForm .custom-search-container form{padding:0;border:0;margin:5px 0 0}
 .footerSearchForm form *{font-size:14px;font-weight:400}
 .footerSearchForm label{display:block;width:100%;font-size:13px;font-weight:500;margin:0}
@@ -1564,3 +1565,5 @@ input[type=submit].submitbtn:hover{padding:0}
 .team-contact-form .form-control.error{border-color:#ea3636;background:#fff9f9}
 .teamform{font-weight:400;margin-top:35px;position:relative;border:1px solid #CCC;padding:20px}
 .teamform label{font-weight:500}
+.contactFlexcols{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.contactFlexcols .col-md-6.cflexcol{-webkit-box-flex:unset;-webkit-flex:unset;-ms-flex:unset;flex:unset;padding-top:20px;padding-bottom:20px}

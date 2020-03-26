@@ -2526,6 +2526,9 @@ div.whiteBg {
         width: 100%;
         float: left;
         margin-bottom: 10px;
+        &.searchby {
+            display: none!important;
+        }
     }
     .custom-search-container {
         form {
@@ -3655,5 +3658,15 @@ input[type=submit].submitbtn {
     padding: 20px;
     label {
         font-weight: 500;
+    }
+}
+
+.contactFlexcols {
+    @include flexgroup-center();
+    @include flexbox-justify(center);
+    .col-md-6.cflexcol {
+        flex: unset;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
