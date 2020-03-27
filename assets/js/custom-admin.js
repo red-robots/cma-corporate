@@ -70,7 +70,8 @@ jQuery(document).ready(function ($) {
 						form[0].reset();
 						$("#response").html(message);
 						$("#response").focus();
-						$("#captchagen span").load(currentURL+'?contact=yes'+ " i#chars",function(){ });
+						$(".teamform").remove();
+						//$("#captchagen span").load(currentURL+'?contact=yes'+ " i#chars",function(){ });
 					} else {
 						$("#response").html(message);
 						if(errorType=='captcha') {

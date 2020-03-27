@@ -432,17 +432,19 @@ function do_sendmail_to_team($a) {
         $message .= '</tbody></table><br>';
         $message .= '<p>This email is sent via <a href="'.$sentvia.'" target="_blank"><i>'.$sentvia.'</i></a> <br>';
         $message .= '<span>User IP: '.$userIP.'</span><br>';
-        $geo = get_website_visitor_info($userIP);
-        if($geo) {
-            $user_country = $geo["geoplugin_countryName"];
-            $user_city = $geo["geoplugin_city"];
-            if($user_city) {
-                $message .= '<span>User City: '.$user_city.'</span><br>';
-            } 
-            if($user_country) {
-                $message .= '<span>User Country: '.$user_country.'</span><br>';
-            }
-        }
+        
+        // $geo = get_website_visitor_info($userIP);
+        // if($geo) {
+        //     $user_country = $geo["geoplugin_countryName"];
+        //     $user_city = $geo["geoplugin_city"];
+        //     if($user_city) {
+        //         $message .= '<span>User City: '.$user_city.'</span><br>';
+        //     } 
+        //     if($user_country) {
+        //         $message .= '<span>User Country: '.$user_country.'</span><br>';
+        //     }
+        // }
+        
         $message .= '</p>';
 
         if( mail($to, $subject, $message, $headers) ) {

@@ -72,7 +72,7 @@ get_header(); ?>
 										</div>
 										<div class="form-group captcha-field">
 											<div class="inptwrap"><label>Captcha:</label><span id="captchagen"><img src="<?php echo $rectangle ?>" alt=""><span><i id="chars"><?php echo $captcaVal ?></i></span></span></div>
-											<div class="inptwrap"><input type="text" name="strcaptcha" id="strcaptcha" class="form-control input-medium required" value=""></div>
+											<div class="inptwrap"><input type="text" name="strcaptcha" id="strcaptcha" class="form-control input-medium required" autocomplete="off" value=""></div>
 										</div>
 									
 										<div class="formbtn form-group-submit">
