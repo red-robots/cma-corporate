@@ -8,6 +8,10 @@
  */
 $is_email = ( isset($_GET['contact']) && $_GET['contact']='yes' ) ? $_GET['contact'] : '';
 $post_id = get_the_ID();
+$captchaChars = permitted_characters();
+shuffle($captchaChars);
+$captcaVal = $captchaChars[0];
+
 get_header(); ?>
 
 	<div id="primary" class="content-area single-team cf">
@@ -15,6 +19,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); 
 				$placeholder = THEMEURI . 'images/photo-coming-soon.png';
+				$rectangle = THEMEURI . 'images/rectangle.png';
 				$photo = get_field("team_photo");
 				$teamPhoto = $photo;
 				$email = get_field("team_email");
@@ -39,11 +44,12 @@ get_header(); ?>
 						</header>
 
 						<?php if ($is_email) { ?>
-
-							<div class="team-contact-form">
+							
+							<?php /* CONTACT FORM */ ?>
+							<div class="team-contact-form cf">
 								<div id="waiting"><div id="wait"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
 								<div id="response"></div>
-								<div class="teamform">
+								<div class="teamform cf">
 									<form action="" method="post" id="emailteamform">
 										<input type="hidden" name="sentvia" value="<?php echo $formpageLink ?>">
 										<input type="hidden" name="action" value="send_email_to_team">
@@ -64,8 +70,12 @@ get_header(); ?>
 											<label>Message:</label>
 											<textarea name="message" id="message" rows="6" class="form-control required"></textarea>
 										</div>
+										<div class="form-group captcha-field">
+											<div class="inptwrap"><label>Captcha:</label><span id="captchagen"><img src="<?php echo $rectangle ?>" alt=""><span><i id="chars"><?php echo $captcaVal ?></i></span></span></div>
+											<div class="inptwrap"><input type="text" name="strcaptcha" id="strcaptcha" class="form-control input-medium required" value=""></div>
+										</div>
 									
-										<div class="formbtn">
+										<div class="formbtn form-group-submit">
 											<input type="submit" value="Submit" class="btnstyle submitbtn">
 											<a href="<?php echo get_permalink(); ?>" class="btnstyle grey">Cancel</a>
 										</div>
@@ -93,8 +103,6 @@ get_header(); ?>
 
 						<?php if (empty($is_email)) { ?>
 			                <?php if ($email) { ?>
-							<div class="info email" style="display:none;"><a href="mailto:<?php echo antispambot($email,1) ?>"><i class="fas fa-envelope"></i><?php echo antispambot($email) ?></a></div>	
-
 							<div class="team-contact-info">
 								<a href="<?php echo $formpageLink  ?>" class="redLink">Contact <?php echo get_the_title(); ?></a>
 							</div>

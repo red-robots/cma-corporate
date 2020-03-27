@@ -1564,7 +1564,19 @@ input[type=submit].submitbtn:hover{padding:0}
 .team-contact-form #waiting .lds-roller div:after{background:#db1c2b}
 .team-contact-form #response .alert{font-weight:600}
 .team-contact-form #response:focus{outline:0}
+.team-contact-form .form-control{position:relative}
 .team-contact-form .form-control.error{border-color:#ea3636;background:#fff9f9}
+.team-contact-form .form-control.input-medium{width:100%}
+@media(min-width:820px){.team-contact-form .form-control.input-medium{width:50%}
+}.team-contact-form .form-group-submit{width:100%;float:left;margin-top:30px}
+.team-contact-form .captcha-field{position:relative;margin-top:30px}
+.team-contact-form .captcha-field label{display:inline-block;margin:0;padding-right:8px;position:relative;top:3px}
+.team-contact-form .captcha-field .inptwrap{display:inline-block;float:left;position:relative;margin-right:12px}
+.team-contact-form .captcha-field input#strcaptcha{width:150px;position:relative;text-transform:uppercase;letter-spacing:2px}
+.team-contact-form .captcha-field #captchagen{display:inline-block;width:110px;height:38px;padding-left:3px;border-radius:3px;position:relative;background-image:-webkit-linear-gradient(210deg,#333486,#d22030);background-image:linear-gradient(-120deg,#333486,#d22030);color:#FFF;text-align:center;font-family:"Lucida Sans Typewriter","Lucida Console",monaco,"Bitstream Vera Sans Mono",monospace}
+.team-contact-form .captcha-field #captchagen img{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:10}
+.team-contact-form .captcha-field #captchagen span{display:inline-block;position:relative;font-style:normal;font-size:17px;letter-spacing:4px;top:6px}
+.team-contact-form .captcha-field #captchagen span i{font-style:normal}
 .teamform{font-weight:400;margin-top:35px;position:relative;border:1px solid #CCC;padding:20px}
 .teamform label{font-weight:500}
 .contactFlexcols{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}

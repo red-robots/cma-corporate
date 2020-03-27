@@ -46,18 +46,22 @@ jQuery(document).ready(function ($) {
 			var errorMessage = '<div class="alert alert-danger">Fill-in the required field(s).</div>';
 			$("#response").html(errorMessage);
 		} else {
+			var captchaVal = $("#captchagen #chars").text();
 			$.ajax({
 				type: "POST",
 				url : myAjax.ajaxurl,
-				data: formdata,
+				data: formdata + '&captchashown='+captchaVal,
 				dataType: "json",
 				beforeSend:function(){
 					$("#waiting").addClass('show');
 					$("#response").html("");
+					$(".form-control").removeClass("error");
 				},
 				success: function(obj) {
 					var success = obj.success;
+					var errorType = obj.error;
 					var message = obj.message;
+
 					if(success) {
 						form.find('.form-control.required').each(function(){
 							$(this).val("");
@@ -66,17 +70,23 @@ jQuery(document).ready(function ($) {
 						form[0].reset();
 						$("#response").html(message);
 						$("#response").focus();
+						$("#captchagen span").load(currentURL+'?contact=yes'+ " i#chars",function(){ });
+					} else {
+						$("#response").html(message);
+						if(errorType=='captcha') {
+							$("input#strcaptcha").addClass("error");
+						}
 					}
 				},
 				complete:function(){
-					$("#waiting").removeClass('show');
+					setTimeout(function(){
+						$("#waiting").removeClass('show');
+					},500);
 				},
 				error: function (xhr, desc, err) {
 					console.log(xhr);
 					console.log(desc);
 					console.log(err);
-	                // console.log('An error occurred.');
-	                // console.log(data);
 	            },
 	        });
 		}

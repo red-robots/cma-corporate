@@ -346,27 +346,47 @@ function send_email_to_team() {
         $emailTo = ($recipient) ? preg_replace('/\s+/','',$recipient) : '';
         $emailTo = (filter_var($emailTo, FILTER_VALIDATE_EMAIL)) ? $emailTo : '';
         $is_sent = '';
+        $is_captcha_ok = '';
         $response['success'] = '';
+        $response['error'] = '';
         $response['message'] = '';
-        $args = array(
-            'sender_name'=>$senderName,
-            'sender_email'=>$senderEmail,
-            'subject'=>$subject,
-            'message'=>$message,
-            'recipient'=>$emailTo,
-            'recipient_id'=>$post_id,
-            'sentvia'=>$sentvia
-        );
 
-        ob_start();
-        echo do_sendmail_to_team($args);
-        $is_sent = ob_get_contents();
-        ob_end_clean();
-        if($is_sent) {
-            $response['success'] = 1;
-            $response['message'] = '<div class="alert alert-success">Thank you! Your email has been sent successfully.</div>';
+        $captchashown = ($_POST['captchashown']) ? $_POST['captchashown'] : '';
+        $strcaptcha = ($_POST['strcaptcha']) ? $_POST['strcaptcha'] : '';
+        if($strcaptcha) {
+            $cstr = preg_replace('/\s+/','',$strcaptcha);
+            $cstr = strtoupper($cstr);
+            if($captchashown==$cstr) {
+                $is_captcha_ok = check_characters_captcha($strcaptcha);
+            }
+        }
+        
+        if($is_captcha_ok) {
+
+            $args = array(
+                'sender_name'=>$senderName,
+                'sender_email'=>$senderEmail,
+                'subject'=>$subject,
+                'message'=>$message,
+                'recipient'=>$emailTo,
+                'recipient_id'=>$post_id,
+                'sentvia'=>$sentvia
+            );
+
+            ob_start();
+            echo do_sendmail_to_team($args);
+            $is_sent = ob_get_contents();
+            ob_end_clean();
+            if($is_sent) {
+                $response['success'] = 1;
+                $response['message'] = '<div class="alert alert-success">Thank you! Your email has been sent successfully.</div>';
+            } else {
+                $response['message'] = '<div class="alert alert-danger">Message failed to send. Please try again.</div>';
+            }
+
         } else {
-            $response['message'] = '<div class="alert alert-danger">Message failed to send. Please try again.</div>';
+            $response['error'] = 'captcha';
+            $response['message'] = '<div class="alert alert-danger">Invalid captcha. Please try again.</div>';
         }
 
         echo json_encode($response);
@@ -479,6 +499,40 @@ function get_user_country_by_ip($ip) {
         $xml = simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=".$ip);
         return ($xml) ? $xml->geoplugin_countryName : "";
     }
+}
+
+function check_characters_captcha($str) {
+    $out = '';
+    if($str) {
+        $str = preg_replace('/\s+/','',$str);
+        $str = strtoupper($str);
+        $permittedchars = permitted_characters();
+        if( in_array($str, $permittedchars) ) {
+            $out = true;
+        }
+    }
+    return $out;
+}
+
+function permitted_characters() {
+    $permittedchars = array('AQZCHB','DVCLKT','SBYCQU','VSGJRN','TYFCDX','MMVHHR','AGSABW','AJRBFP','FEUVNF','ZHBCMS','YTHMWY','LYMXGN','HUSYWR','JYTPKE','EWQZJT','DSTMKR','YVQAMG','VZTNAM','LNNBCJ','BPXYWZ','GMCYES','UKLMES','GDLOVU','WKRLME','SRMTAD','ERTHMC');
+    return $permittedchars;
+}
+
+add_action( 'wp_ajax_nopriv_get_random_captcha_chars', 'get_random_captcha_chars' );
+add_action( 'wp_ajax_get_random_captcha_chars', 'get_random_captcha_chars' );
+function get_random_captcha_chars() {
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $captcha = ($_POST['captcha']) ? $_POST['captcha'] : '';
+        $is_ok = ($captcha) ? check_characters_captcha($captcha) : '';
+        $ok = ($is_ok) ? 'ok':'';
+
+        echo json_encode( array('captcha'=>$ok) );
+
+    } else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
 }
 
 

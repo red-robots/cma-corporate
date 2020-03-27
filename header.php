@@ -10,6 +10,7 @@
 	<?php if( $mapAPI = gmap_api_key() ) { ?><script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $mapAPI ?>"></script><?php } ?>
 	<?php wp_head(); ?>
 	<script src="https://www.youtube.com/iframe_api"></script>
+	<script>var currentURL = '<?php echo get_permalink() ?>';</script>
 <?php if( $customScripts = get_field("header_custom_scripts","option") ) { echo $customScripts; } ?>
 </head>
 <?php

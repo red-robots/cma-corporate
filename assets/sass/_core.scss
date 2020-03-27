@@ -3653,9 +3653,78 @@ input[type=submit].submitbtn {
             outline: none;
         }
     }
+    .form-control {
+        position: relative;
+    }
     .form-control.error {
         border-color: #ea3636;
         background: #fff9f9;
+    }
+    .form-control.input-medium {
+        width: 100%;
+        @include tab {
+            width: 50%;
+        }
+    }
+    .form-group-submit {
+        width: 100%;
+        float: left;
+        margin-top: 30px;
+    }
+    .captcha-field {
+        position: relative;
+        margin-top: 30px;
+        label {
+            display: inline-block;
+            margin: 0 0;
+            padding-right: 8px;
+            position: relative;
+            top: 3px;
+        }
+        .inptwrap {
+            display: inline-block;
+            float: left;
+            position: relative;
+            margin-right: 12px;
+        }
+        input#strcaptcha {
+            width: 150px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        #captchagen {
+            display: inline-block;
+            width: 110px;
+            height: 38px;
+            padding-left: 3px;
+            border-radius: 3px;
+            position: relative;
+            @include multicolorbg();
+            color: #FFF;
+            text-align: center;
+            font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+            }
+            span {
+                display: inline-block;
+                position: relative;
+                font-style: normal;
+                font-size: 17px;
+                letter-spacing: 4px;
+                top: 6px;
+                i {
+                    font-style: normal;
+                }
+            }
+        }
     }
 }
 .teamform {
