@@ -84,10 +84,45 @@
                   $email = get_field("team_email",$id);
                   $showBioLink = (isset($e['showbio']) && $e['showbio']=='yes') ? true : false;
                   $teamFname = ( isset($nameArrs[0]) && $nameArrs[0] ) ? $nameArrs[0]:'';
+                  $teamLname = ( isset($nameArrs[1]) && $nameArrs[1] ) ? $nameArrs[1]:'';
                   $pagelink = get_permalink($id);
                   if($altTextTrim) {
                     $altText = email_obfuscator($altText,true);
-                  }
+                    if (!$showBioLink) {
+
+                    }
+                    /* check if name exist from alt text */
+                    $team_fname = strtolower( preg_replace('/\s+/',' ', $teamFname) ) . ' ' . strtolower( preg_replace('/\s+/',' ', $teamLname) );
+                    $alt_str = strtolower($altTextTrim);
+                    $check_strings = array($team_fname,$email);
+                    $altText = '';
+                    $hasTopInfo = array();
+
+                    /* check firstname */
+                    if (strpos($alt_str, $team_fname) !== false) {
+                      // do nothing...
+                    } else {
+                      $hasTopInfo[] = $nameTrim;
+                      $altText .= '<div class="t-name">'.$nameTrim.'</div>';
+                    }
+
+                    /* check email */
+                    // if($email) {
+                    //   if (strpos($alt_str, $email) !== false) {
+                    //     // do nothing...
+                    //   } else {
+                    //     $hasTopInfo[] = $email;
+                    //     $altText .= '<div class="t-email"><a href="mailto:'.antispambot($email,1).'">'.antispambot($email).'</a></div>';
+                    //   }
+                    // }
+
+                    if($hasTopInfo) {
+                      $altText .= '<div class="alttxtwrap">'.$e['altText'].'</div>';
+                    } else {
+                      $altText = $e['altText'];
+                    }
+
+                  } 
                   $teamInfo = ($altTextTrim) ? $altText : $name;
               ?>
               <div class="col-md-6 cflexcol">
@@ -102,18 +137,20 @@
                   </div>
                   
                   <div class="text-bold teamName"><?php echo $teamInfo ?></div>
-                  
+
                   <?php if ( empty($altTextTrim) ) { ?>
+
                     <?php if ($email) { ?>
-                    <div class="mb-3 teamEmail text-bold">
+                    <div class="teamEmail text-bold">
                       <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email); ?></a>
                     </div>
                     <?php } ?>
+
                   <?php } ?>
 
                   <?php if ($showBioLink) { ?>
                     <?php if ($teamFname) { ?>
-                    <div class="moreInfo text-bold">
+                    <div class="moreInfo text-bold mt-2">
                       <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
                     </div>
                     <?php } ?>

@@ -155,13 +155,16 @@ function email_obfuscator($string,$noFilter=null) {
                     $newString = str_replace($em, $new_mailto, $string);
                 }
             }
-        }
 
-        if($noFilter) {
-            $output = $newString;
+            if($noFilter) {
+                $output = $newString;
+            } else {
+                $output = apply_filters('the_content',$string);
+            }
+
         } else {
-            $output = apply_filters('the_content',$string);
-        }
+            $output = $string;
+        }   
     }
     return $output;
 }

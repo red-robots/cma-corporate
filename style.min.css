@@ -1262,6 +1262,8 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 #team_cma.teampage.cma-main-body .teamName{font-size:.9rem;font-weight:600}
 #team_cma.teampage.cma-main-body .moreinfo a{font-size:13px;font-weight:500;line-height:1;display:inline-block;text-decoration:underline}
 #team_cma.teampage.cma-main-body .jobtitle{font-size:.75rem;font-weight:400}
+body.single-location .teamPhoto{margin-bottom:10px}
+.alttxtwrap{margin-top:8px}
 .content-area.single-team{padding-top:140px;padding-bottom:130px;min-height:35em}
 .team-content .entry-header{margin-bottom:25px}
 .team-content .entry-header .jobtitle{font-weight:500;font-size:1.2em}
