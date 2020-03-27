@@ -432,10 +432,19 @@ function do_sendmail_to_team($a) {
         $message .= '</tbody></table><br>';
         $message .= '<p>This email is sent via <a href="'.$sentvia.'" target="_blank"><i>'.$sentvia.'</i></a> <br>';
         $message .= '<span>User IP: '.$userIP.'</span><br>';
-        if($userCountry) {
-            $message .= '<span>User Country: '.$userCountry.'</span><br>';
+        $geo = get_website_visitor_info($userIP);
+        if($geo) {
+            $user_country = $geo["geoplugin_countryName"];
+            $user_city = $geo["geoplugin_city"];
+            if($user_city) {
+                $message .= '<span>User City: '.$user_city.'</span><br>';
+            } 
+            if($user_country) {
+                $message .= '<span>User Country: '.$user_country.'</span><br>';
+            }
         }
         $message .= '</p>';
+
         if( mail($to, $subject, $message, $headers) ) {
             $isSent = true;
             /* insert to wp_posts */
@@ -501,6 +510,14 @@ function get_user_country_by_ip($ip) {
     }
 }
 
+function get_website_visitor_info($user_ip) {
+    //$user_ip = getenv('REMOTE_ADDR');
+    $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=".$user_ip));
+    $country = $geo["geoplugin_countryName"];
+    $city = $geo["geoplugin_city"];
+    return ($geo) ? $geo : '';
+}
+
 function check_characters_captcha($str) {
     $out = '';
     if($str) {
@@ -518,21 +535,4 @@ function permitted_characters() {
     $permittedchars = array('AQZCHB','DVCLKT','SBYCQU','VSGJRN','TYFCDX','MMVHHR','AGSABW','AJRBFP','FEUVNF','ZHBCMS','YTHMWY','LYMXGN','HUSYWR','JYTPKE','EWQZJT','DSTMKR','YVQAMG','VZTNAM','LNNBCJ','BPXYWZ','GMCYES','UKLMES','GDLOVU','WKRLME','SRMTAD','ERTHMC');
     return $permittedchars;
 }
-
-add_action( 'wp_ajax_nopriv_get_random_captcha_chars', 'get_random_captcha_chars' );
-add_action( 'wp_ajax_get_random_captcha_chars', 'get_random_captcha_chars' );
-function get_random_captcha_chars() {
-    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-        $captcha = ($_POST['captcha']) ? $_POST['captcha'] : '';
-        $is_ok = ($captcha) ? check_characters_captcha($captcha) : '';
-        $ok = ($is_ok) ? 'ok':'';
-
-        echo json_encode( array('captcha'=>$ok) );
-
-    } else {
-        header("Location: ".$_SERVER["HTTP_REFERER"]);
-    }
-    die();
-}
-
 
