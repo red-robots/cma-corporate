@@ -1348,8 +1348,11 @@ body.single-location .teamPhoto{margin-bottom:10px}
 .cma-footer .searchCol{margin-bottom:15px}
 @media(min-width:820px){.cma-footer .searchCol{margin-bottom:0}
 }.footerSearchForm{width:100%;float:left;color:#333}
-.footerSearchForm .form-group-search{padding:0;width:100%;float:left;margin-bottom:10px}
+.footerSearchForm .form-group-search{padding:0;width:100%;float:left;margin-bottom:10px;position:relative}
 .footerSearchForm .form-group-search.searchby{display:none !important}
+.footerSearchForm .form-group-search.inputfield{background:#FFF;overflow:hidden;border-radius:3px}
+.footerSearchForm .form-group-search #footsearchlabel{position:absolute;top:8px;left:5px;font-size:12px;color:#a7a7a7}
+.footerSearchForm .form-group-search input.search-field{background:transparent;position:relative;z-index:10}
 .footerSearchForm .custom-search-container form{padding:0;border:0;margin:5px 0 0}
 .footerSearchForm form *{font-size:14px;font-weight:400}
 .footerSearchForm label{display:block;width:100%;font-size:13px;font-weight:500;margin:0}

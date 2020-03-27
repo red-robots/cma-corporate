@@ -6,6 +6,30 @@
  */
 
 jQuery(document).ready(function ($) {
+
+	/* Footer Search Form */
+	var search_placeholder = $(".footerSearchForm input.search-field").attr("placeholder");
+	$(".footerSearchForm .inputfield").prepend('<label id="footsearchlabel">'+search_placeholder+'</label>');
+	$(".footerSearchForm input.search-field").attr("placeholder","");
+	var footsrchVal = $(".footerSearchForm input.search-field").val();
+	footsrchVal = footsrchVal.replace(/\s/g,'');
+	if(footsrchVal) {
+		$("#footsearchlabel").hide();
+	}
+
+	$(".footerSearchForm input.search-field").on("focus",function(){
+		$("#footsearchlabel").hide();
+	});
+	$(".footerSearchForm input.search-field").on("focusout blur",function(){
+		var val = $(this).val();
+		var str = val.replace(/\s/g,'');
+		if(str) {
+			$("#footsearchlabel").hide();
+		} else {
+			$("#footsearchlabel").show();
+			$(this).val("");
+		}
+	});
 	
 
 	var windowHeight = $(window).scrollTop();

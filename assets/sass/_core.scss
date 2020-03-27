@@ -2534,8 +2534,26 @@ body.single-location {
         width: 100%;
         float: left;
         margin-bottom: 10px;
+        position: relative;
         &.searchby {
             display: none!important;
+        }
+        &.inputfield {
+            background: #FFF;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+        #footsearchlabel {
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            font-size: 12px;
+            color: #a7a7a7;
+        }
+        input.search-field {
+            background: transparent;
+            position: relative;
+            z-index: 10;
         }
     }
     .custom-search-container {
