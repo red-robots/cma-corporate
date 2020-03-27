@@ -82,6 +82,7 @@
                   $photo = get_field("team_photo",$id);
                   $placeholder = THEMEURI . 'images/photo-coming-soon.png';
                   $email = get_field("team_email",$id);
+                  $showBioLink = (isset($e['showbio']) && $e['showbio']=='yes') ? true : false;
                   $teamFname = ( isset($nameArrs[0]) && $nameArrs[0] ) ? $nameArrs[0]:'';
                   $pagelink = get_permalink($id);
                   if($altTextTrim) {
@@ -90,9 +91,9 @@
                   $teamInfo = ($altTextTrim) ? $altText : $name;
               ?>
               <div class="col-md-6 cflexcol">
-                <div class="text-center mb-3">
+                <div class="text-center">
                   
-                  <div class="text-center mb-3 teamPhoto">
+                  <div class="text-center teamPhoto">
                   <?php if ($photo) { ?>
                     <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['title']; ?>" class="img-circle">
                   <?php } else { ?>
@@ -110,10 +111,12 @@
                     <?php } ?>
                   <?php } ?>
 
-                  <?php if ($teamFname) { ?>
-                  <div class="moreInfo text-bold">
-                    <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
-                  </div>
+                  <?php if ($showBioLink) { ?>
+                    <?php if ($teamFname) { ?>
+                    <div class="moreInfo text-bold">
+                      <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
+                    </div>
+                    <?php } ?>
                   <?php } ?>
                   
                 </div>
