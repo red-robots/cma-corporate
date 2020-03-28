@@ -146,7 +146,7 @@
 
                       <?php if ($linktoContactForm) { ?>
                       <div class="moreInfo text-bold mt-2 linktocontactform ">
-                        <a href="<?php echo $teamContactLink; ?>" class="team_cma_link redlink">Contact <?php echo $teamFname; ?></a>
+                        <a href="<?php echo $teamContactLink; ?>" class="team_cma_link redlinkcolor">Contact <?php echo $teamFname; ?></a>
                       </div>
                       <?php } else { ?>
                       <div class="teamEmail text-bold">
