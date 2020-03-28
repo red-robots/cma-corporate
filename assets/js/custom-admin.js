@@ -18,6 +18,50 @@ jQuery(document).ready(function ($) {
 	// });
 
 
+	/* THIS IS TO FIX THE ISSUE OF BEING REDIRECTED TO 404 AFTER SAVING THE OPTIONS CUSTOM FIELDS */
+	/* Request Information URL field */
+	if( $("input#acf-field_5dc248358e034").length > 0 ) {
+		var url_dummy_field = '<input type="text" id="request-info-url" value="">';
+		$(url_dummy_field).insertBefore('input#acf-field_5dc248358e034');
+		var currentVAL = $("input#acf-field_5dc248358e034").val();
+		var cv = currentVAL.replace(/\s/g,'');
+		if( $("input#acf-field_5e7f01711e379").length > 0 ) {
+			var schemeVal = $("input#acf-field_5e7f01711e379").val();
+			if(cv) {
+				var completeURL = schemeVal + "://" + currentVAL.trim();
+				$("input#request-info-url").val(completeURL);
+			}
+		}
+
+	}
+	
+
+	$(document).on("keyup keypress blur focusout","input#request-info-url",function(){
+		var str = $(this).val();
+		var valstr = str.replace(/\s/g,'');
+		if(valstr) {
+			var link  = valstr.toLowerCase();
+			var parse = link.split(":");
+			var schemes = ['http','https'];
+			var link_scheme = parse[0];
+			if($.inArray(link_scheme, schemes) !== -1) {
+				/* URL SCHEME FIELD */
+				var removestr = link_scheme + '://';
+				var cleanedURL = str.replace(removestr,"");
+				if( $("input#acf-field_5dc248358e034").length > 0 ) {
+					$("input#acf-field_5dc248358e034").val(cleanedURL);
+				}
+				if( $("input#acf-field_5e7f01711e379").length > 0 ) {
+					$("input#acf-field_5e7f01711e379").val(link_scheme); 
+				}
+			} else {
+
+			}
+		}
+	});
+	
+
+
 	/* SEND EMAIL TO TEAM */
 	$(document).on("keyup blur","#emailteamform .form-control",function(){
 		var val = $(this).val().replace(/\s/g,'');

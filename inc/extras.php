@@ -295,6 +295,10 @@ function admin_head_action_func(){ ?>
 <script type='text/javascript'>
     var wpAdminURL = '<?php echo get_admin_url(); ?>';
 </script>
+<style type="text/css">
+div.acf-field-text.acf-field-5e7f01711e379,
+body.toplevel_page_acf-options input#acf-field_5dc248358e034{ display: none!important; }
+</style>
 <?php
 }
 
