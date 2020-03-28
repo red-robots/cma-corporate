@@ -1721,12 +1721,18 @@ a.team_cma_link:hover {
     border-bottom: none
 }
 
-#team_cma .moreInfo a.redlink, a.redlink {
+#team_cma .moreInfo a.redlinkcolor, a.redlinkcolor {
     color: $primary!important;
     border-bottom: 1px solid $primary;
     &:hover {
         color: tint($primary,40%)!important;
         border-bottom-color: tint($primary,40%)!important;
+    }
+}
+.grouplinks {
+    a {
+        display: inline-block;
+        margin: 0 7px;
     }
 }
 

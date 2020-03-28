@@ -158,13 +158,30 @@
 
                   <?php } ?>
 
-                  <?php if ($showBioLink) { ?>
+                  <?php if ($altTextTrim) { ?>
 
-                    <?php if ($teamFname) { ?>
-                      <div class="moreInfo text-bold mt-2">
-                        <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
+                    <?php if ($linktoContactForm && $showBioLink==false) { ?>
+                      <div class="moreInfo text-bold mt-2 linktocontactform ">
+                        <a href="<?php echo $teamContactLink; ?>" class="team_cma_link redlinkcolor">Contact <?php echo $teamFname; ?></a>
                       </div>
                     <?php } ?>
+
+                  <?php } ?>
+
+                  <?php if ($showBioLink && $linktoContactForm==false) { ?>
+
+                    <div class="moreInfo text-bold mt-2">
+                      <a href="<?php echo $pagelink ?>" class="team_cma_link redlinkcolor">More About <?php echo $teamFname; ?></a>
+                    </div>
+
+                  <?php } ?>
+
+                  <?php if ($showBioLink && $linktoContactForm) { ?>
+
+                    <div class="moreInfo text-bold mt-2 grouplinks">
+                      <a href="<?php echo $pagelink ?>" class="team_cma_link redlinkcolor">More About <?php echo $teamFname; ?></a>
+                      <a href="<?php echo $teamContactLink; ?>" class="team_cma_link linktocontactform redlinkcolor">Contact <?php echo $teamFname; ?></a>
+                    </div>
 
                   <?php } ?>
                   

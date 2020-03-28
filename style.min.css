@@ -1186,8 +1186,9 @@ h1.n2-ss-item-content{font-family:'Open Sans',sans-serif;font-size:2.25rem}
 .nextend-arrow{margin-right:20px}
 a.team_cma_link{color:#333;border-bottom:1px solid #333}
 a.team_cma_link:hover{color:#db1c2b;text-decoration:none;border-bottom:0}
-#team_cma .moreInfo a.redlink,a.redlink{color:#db1c2b !important;border-bottom:1px solid #db1c2b}
-#team_cma .moreInfo a.redlink:hover,a.redlink:hover{color:#e97780 !important;border-bottom-color:#e97780 !important}
+#team_cma .moreInfo a.redlinkcolor,a.redlinkcolor{color:#db1c2b !important;border-bottom:1px solid #db1c2b}
+#team_cma .moreInfo a.redlinkcolor:hover,a.redlinkcolor:hover{color:#e97780 !important;border-bottom-color:#e97780 !important}
+.grouplinks a{display:inline-block;margin:0 7px}
 .cma-solid-bottom-white{color:#fff;background:0;border:0;font-weight:500;border-bottom:4px solid #000;padding:0 0 3px 0;font-size:18px}
 .cma-solid-bottom-white:hover{color:#000;background:0;border:0;font-weight:500;border-bottom:4px solid #fff;padding:0 0 3px 0;font-size:18px}
 h1.n2-ss-item-content{text-shadow:2px 2px #333}
