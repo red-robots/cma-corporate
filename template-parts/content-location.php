@@ -66,6 +66,7 @@
 
     <!-- 4th row -->
     <?php if( $row4theTeam = get_field('row4theTeam') ) { ?>
+    <div id="teams"></div>
     <div class="cma-main-body " id="team_cma">
       <div class="container text-center">
         <div class="col-md-8 cma-center">
@@ -86,7 +87,7 @@
                   $teamFname = ( isset($nameArrs[0]) && $nameArrs[0] ) ? $nameArrs[0]:'';
                   $teamLname = ( isset($nameArrs[1]) && $nameArrs[1] ) ? $nameArrs[1]:'';
                   $pagelink = get_permalink($id);
-                  $teamContactLink = $pagelink . '?contact=yes';
+                  $teamContactLink = $pagelink . '?contact=yes&ref='.get_the_ID();
                   $linktoContactForm = (isset($e['linktocontactform']) && $e['linktocontactform']=='yes') ? true : false;
                   if($altTextTrim) {
                     $altText = email_obfuscator($altText,true);

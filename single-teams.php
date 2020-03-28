@@ -77,7 +77,20 @@ get_header(); ?>
 									
 										<div class="formbtn form-group-submit">
 											<input type="submit" value="Submit" class="btnstyle submitbtn">
-											<a href="<?php echo get_permalink(); ?>" class="btnstyle grey">Cancel</a>
+											<?php 
+												$ref = ( isset($_GET['ref']) && is_numeric($_GET['ref']) ) ? $_GET['ref'] : '';
+												$ref_url = get_permalink();
+												if($ref) {
+													if( $refpost = get_post($ref) ) {
+														$postType = $refpost->post_type;
+														if($postType=='location') {
+															$ref_url = get_permalink($ref) . '#teams';
+														}
+													}
+												}
+												
+											?>
+											<a href="<?php echo $ref_url; ?>" class="btnstyle grey">Cancel</a>
 										</div>
 									</form>
 								</div>	
