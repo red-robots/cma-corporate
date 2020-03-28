@@ -1468,6 +1468,9 @@ input[type=submit]:hover {
         width: 90%;
         margin: 0 auto
     }
+    .content-area.single-team .team-content p {
+        width: 100%;
+    }
     .social_media_mobile {
         display: block
     }
@@ -2119,9 +2122,12 @@ body.single-location {
 }
 
 .content-area.single-team {
-    padding-top: 140px;
+    padding-top: 70px;
     padding-bottom: 130px;
     min-height: 35em;
+    @include tab {
+        padding-top: 140px;
+    }
 }
 .team-content {
     .entry-header {

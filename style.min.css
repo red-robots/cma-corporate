@@ -1149,6 +1149,7 @@ input[type=submit]:hover{background:0;border:0;font-weight:500;font-smoothing:an
 .mobilemenu{display:none}
 .n2-ss-item-content img{width:120px}
 }@media screen and (max-width:700px){p{width:90%;margin:0 auto}
+.content-area.single-team .team-content p{width:100%}
 .social_media_mobile{display:block}
 .social_media_desktop{display:none}
 .mobilemain{padding:5px 10px 0}
@@ -1268,8 +1269,9 @@ div.whiteBg a.link-white{color:#db1c2b;border-bottom-color:#db1c2b}
 #team_cma.teampage.cma-main-body .jobtitle{font-size:.75rem;font-weight:400}
 body.single-location .teamPhoto{margin-bottom:10px}
 .alttxtwrap{margin-top:8px}
-.content-area.single-team{padding-top:140px;padding-bottom:130px;min-height:35em}
-.team-content .entry-header{margin-bottom:25px}
+.content-area.single-team{padding-top:70px;padding-bottom:130px;min-height:35em}
+@media(min-width:820px){.content-area.single-team{padding-top:140px}
+}.team-content .entry-header{margin-bottom:25px}
 .team-content .entry-header .jobtitle{font-weight:500;font-size:1.2em}
 .team-content h1.entry-title{margin-top:0;margin-bottom:5px;font-weight:600;line-height:1.2}
 .team-content .entry-content p{margin-top:0;margin-bottom:1.5em}
