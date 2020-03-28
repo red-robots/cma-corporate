@@ -1186,6 +1186,8 @@ h1.n2-ss-item-content{font-family:'Open Sans',sans-serif;font-size:2.25rem}
 .nextend-arrow{margin-right:20px}
 a.team_cma_link{color:#333;border-bottom:1px solid #333}
 a.team_cma_link:hover{color:#db1c2b;text-decoration:none;border-bottom:0}
+#team_cma .moreInfo a.redlink,a.redlink{color:#db1c2b !important;border-bottom:1px solid #db1c2b}
+#team_cma .moreInfo a.redlink:hover,a.redlink:hover{color:#e97780 !important;border-bottom-color:#e97780 !important}
 .cma-solid-bottom-white{color:#fff;background:0;border:0;font-weight:500;border-bottom:4px solid #000;padding:0 0 3px 0;font-size:18px}
 .cma-solid-bottom-white:hover{color:#000;background:0;border:0;font-weight:500;border-bottom:4px solid #fff;padding:0 0 3px 0;font-size:18px}
 h1.n2-ss-item-content{text-shadow:2px 2px #333}
@@ -1194,6 +1196,7 @@ h1.n2-ss-item-content{text-shadow:2px 2px #333}
 .site-header{position:fixed;top:0;left:0;z-index:200;width:100%;height:80px;background:#FFF;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 .site-header .wrapper{max-width:1200px;width:100%;padding-left:15px;padding-right:15px}
 body.scrolled .site-header{background-color:#FFF !important;z-index:800;box-shadow:0 -2px 16px -1px rgba(0,0,0,0.15)}
+body.home #content{width:100%;float:left}
 body .font-weight-bold{font-weight:500 !important}
 body.logged-in.admin-bar .site-header{top:32px}
 @media screen and (max-width:782px){body.logged-in.admin-bar .site-header{top:46px}
@@ -1567,7 +1570,7 @@ input[type=submit].submitbtn:hover{padding:0}
 .team-contact-form #waiting .lds-roller div:after{background:#db1c2b}
 .team-contact-form #response .alert{font-weight:600}
 .team-contact-form #response:focus{outline:0}
-.team-contact-form .form-control{position:relative}
+.team-contact-form .form-control{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative}
 .team-contact-form .form-control.error{border-color:#ea3636;background:#fff9f9}
 .team-contact-form .form-control.input-medium{width:100%}
 @media(min-width:820px){.team-contact-form .form-control.input-medium{width:50%}
@@ -1577,6 +1580,7 @@ input[type=submit].submitbtn:hover{padding:0}
 .team-contact-form .captcha-field .inptwrap{display:inline-block;float:left;position:relative;margin-right:12px}
 .team-contact-form .captcha-field input#strcaptcha{width:150px;position:relative;text-transform:uppercase;letter-spacing:2px}
 .team-contact-form .captcha-field #captchagen{display:inline-block;width:110px;height:38px;padding-left:3px;border-radius:3px;position:relative;background-image:-webkit-linear-gradient(210deg,#333486,#d22030);background-image:linear-gradient(-120deg,#333486,#d22030);color:#FFF;text-align:center;font-family:"Lucida Sans Typewriter","Lucida Console",monaco,"Bitstream Vera Sans Mono",monospace}
+.team-contact-form .captcha-field #captchagen:before{content:attr(data-source);display:block;text-align:center;position:relative;font-size:17px;letter-spacing:4px;top:7px;left:1px}
 .team-contact-form .captcha-field #captchagen img{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:10}
 .team-contact-form .captcha-field #captchagen span{display:inline-block;position:relative;font-style:normal;font-size:17px;letter-spacing:4px;top:6px}
 .team-contact-form .captcha-field #captchagen span i{font-style:normal}

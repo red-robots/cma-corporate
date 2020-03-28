@@ -386,7 +386,7 @@ function send_email_to_team() {
 
         } else {
             $response['error'] = 'captcha';
-            $response['message'] = '<div class="alert alert-danger">Invalid captcha. Please try again.</div>';
+            $response['message'] = '<div class="alert alert-danger">Invalid Captcha. Please try again.</div>';
         }
 
         echo json_encode($response);
@@ -534,7 +534,14 @@ function check_characters_captcha($str) {
 }
 
 function permitted_characters() {
-    $permittedchars = array('AQZCHB','DVCLKT','SBYCQU','VSGJRN','TYFCDX','MMVHHR','AGSABW','AJRBFP','FEUVNF','ZHBCMS','YTHMWY','LYMXGN','HUSYWR','JYTPKE','EWQZJT','DSTMKR','YVQAMG','VZTNAM','LNNBCJ','BPXYWZ','GMCYES','UKLMES','GDLOVU','WKRLME','SRMTAD','ERTHMC');
+    $permittedchars = array('AQZCHB','DVCLKT','SBYCQU','VSGJRN','TYFCDX','MMVHHR','AGSABW','AJRBFP','FEUVNF','ZHBCMS','YTHMWY','LYMXGN','HUSYWR','JYTPKE','EWQZJT','DSTMKR','YVQAMG','VZTNAM','LNNBCJ','BPXYWZ','GMCYES','UKLMES','GDLOVU','WKRLME','SRMTAD','URLZDK','PSMALJS','ERTXMC','EZKLVS','SAIAHY','GSWELY','CVQAMY','MNBVCX','QSERTA','ASDJKL');
     return $permittedchars;
 }
 
+function get_captcha_strings() {
+    $captchaChars = permitted_characters();
+    $ccount = count($captchaChars);
+    shuffle($captchaChars);
+    $captcaVal = $captchaChars[0];
+    return $captcaVal;
+}

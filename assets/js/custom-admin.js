@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
 			var errorMessage = '<div class="alert alert-danger">Fill-in the required field(s).</div>';
 			$("#response").html(errorMessage);
 		} else {
-			var captchaVal = $("#captchagen #chars").text();
+			var captchaVal = $("#captchagen").attr("data-source");
 			$.ajax({
 				type: "POST",
 				url : myAjax.ajaxurl,
@@ -71,11 +71,11 @@ jQuery(document).ready(function ($) {
 						$("#response").html(message);
 						$("#response").focus();
 						$(".teamform").remove();
-						//$("#captchagen span").load(currentURL+'?contact=yes'+ " i#chars",function(){ });
+						//$(".captcha-field").load(currentURL+'?contact=yes'+ " .captchaInner",function(){ });
 					} else {
 						$("#response").html(message);
 						if(errorType=='captcha') {
-							$("input#strcaptcha").addClass("error");
+							$("input#strcaptcha").addClass("error").select();
 						}
 					}
 				},

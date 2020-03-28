@@ -86,6 +86,8 @@
                   $teamFname = ( isset($nameArrs[0]) && $nameArrs[0] ) ? $nameArrs[0]:'';
                   $teamLname = ( isset($nameArrs[1]) && $nameArrs[1] ) ? $nameArrs[1]:'';
                   $pagelink = get_permalink($id);
+                  $teamContactLink = $pagelink . '?contact=yes';
+                  $linktoContactForm = (isset($e['linktocontactform']) && $e['linktocontactform']=='yes') ? true : false;
                   if($altTextTrim) {
                     $altText = email_obfuscator($altText,true);
                     if (!$showBioLink) {
@@ -141,19 +143,29 @@
                   <?php if ( empty($altTextTrim) ) { ?>
 
                     <?php if ($email) { ?>
-                    <div class="teamEmail text-bold">
-                      <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email); ?></a>
-                    </div>
+
+                      <?php if ($linktoContactForm) { ?>
+                      <div class="moreInfo text-bold mt-2 linktocontactform ">
+                        <a href="<?php echo $teamContactLink; ?>" class="team_cma_link redlink">Contact <?php echo $teamFname; ?></a>
+                      </div>
+                      <?php } else { ?>
+                      <div class="teamEmail text-bold">
+                        <a href="mailto:<?php echo antispambot($email,1) ?>"><?php echo antispambot($email); ?></a>
+                      </div>
+                      <?php } ?>
+
                     <?php } ?>
 
                   <?php } ?>
 
                   <?php if ($showBioLink) { ?>
+
                     <?php if ($teamFname) { ?>
-                    <div class="moreInfo text-bold mt-2">
-                      <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
-                    </div>
+                      <div class="moreInfo text-bold mt-2">
+                        <a href="<?php echo $pagelink ?>" class="team_cma_link">More About <?php echo $teamFname; ?></a>
+                      </div>
                     <?php } ?>
+
                   <?php } ?>
                   
                 </div>

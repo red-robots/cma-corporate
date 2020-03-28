@@ -1721,6 +1721,15 @@ a.team_cma_link:hover {
     border-bottom: none
 }
 
+#team_cma .moreInfo a.redlink, a.redlink {
+    color: $primary!important;
+    border-bottom: 1px solid $primary;
+    &:hover {
+        color: tint($primary,40%)!important;
+        border-bottom-color: tint($primary,40%)!important;
+    }
+}
+
 .cma-solid-bottom-white {
     color: #fff;
     background: 0 0;
@@ -1779,7 +1788,8 @@ body.scrolled {
     }
 }
 body.home #content {
-
+    width: 100%;
+    float: left;
 }
 // #content {
 //     margin-top: 80px;
@@ -3672,6 +3682,7 @@ input[type=submit].submitbtn {
         }
     }
     .form-control {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         position: relative;
     }
     .form-control.error {
@@ -3722,6 +3733,16 @@ input[type=submit].submitbtn {
             color: #FFF;
             text-align: center;
             font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+            &:before {
+                content:attr(data-source);
+                display: block;
+                text-align: center;
+                position: relative;
+                font-size: 17px;
+                letter-spacing: 4px;
+                top: 7px;
+                left: 1px;
+            }
             img {
                 display: block;
                 width: 100%;
