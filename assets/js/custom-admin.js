@@ -60,6 +60,9 @@ jQuery(document).ready(function ($) {
 					$("input#acf-field_5e7f01711e379").val(link_scheme); 
 				}
 			} else {
+				if( $("input#acf-field_5dc248358e034").length > 0 ) {
+					$("input#acf-field_5dc248358e034").val(str);
+				}
 				if( $("input#acf-field_5e7f01711e379").length > 0 ) {
 					$("input#acf-field_5e7f01711e379").val(""); 
 				}
