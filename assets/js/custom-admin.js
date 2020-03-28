@@ -143,9 +143,9 @@ jQuery(document).ready(function ($) {
 					},500);
 				},
 				error: function (xhr, desc, err) {
-					console.log(xhr);
-					console.log(desc);
-					console.log(err);
+					// console.log(xhr);
+					// console.log(desc);
+					// console.log(err);
 	            },
 	        });
 		}
