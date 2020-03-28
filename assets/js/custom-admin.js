@@ -57,6 +57,13 @@ jQuery(document).ready(function ($) {
 			} else {
 
 			}
+		} else {
+			if( $("input#acf-field_5dc248358e034").length > 0 ) {
+				$("input#acf-field_5dc248358e034").val("");
+			}
+			if( $("input#acf-field_5e7f01711e379").length > 0 ) {
+				$("input#acf-field_5e7f01711e379").val("");
+			}
 		}
 	});
 	
