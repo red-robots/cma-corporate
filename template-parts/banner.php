@@ -7,6 +7,7 @@ if( is_front_page() ) {
 		$video = get_field("video");
 		$video_mp4 = ( isset($video['mp4']) && $video['mp4'] ) ? $video['mp4'] : '';
 		$video_ogg = ( isset($video['ogg']) && $video['ogg'] ) ? $video['ogg'] : '';
+		$video_webm = ( isset($video['webm']) && $video['webm'] ) ? $video['webm'] : '';
 		$overlayType = ( isset($video['overlay_type']) && $video['overlay_type'] ) ? $video['overlay_type'] : '';
 		$imagesvg = '';
 		$imageType = '';
@@ -21,6 +22,9 @@ if( is_front_page() ) {
 			<div class="video-wrapper pageHero">
 				<video id="videoHero" width="800" muted autoplay playsinline loop>
 					<source src="<?php echo $video_mp4 ?>" type="video/mp4">
+					<?php if ($video_webm) { ?>
+					<source src="<?php echo $video_webm ?>" type="video/webm" />
+					<?php } ?>
 					<?php if ($video_ogg) { ?>
 					<source src="<?php echo $video_ogg ?>" type="video/ogg">
 					<?php } ?>

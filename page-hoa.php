@@ -10,22 +10,23 @@
 get_header(); ?>
 
 	<div class="mb-5 top-header-image">
-      <?php if(has_post_thumbnail()): 
+      <?php if(has_post_thumbnail()) {
         $featured_image     = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
         $header_image_text  = get_field('row_1_image_header_text');
         ?>
-      <div class="n2-section-smartslider text-center " >      
-            <div class="header_image_section fadeIn wow" data-wow-delay="0.5s">
-              <div class="featured_image " style="background-image: url('<?php echo $featured_image;  ?>');" >       
-              </div>     
-              <div class="header_image_text fadeIn wow" data-wow-delay="1s">
-                  <h1 class="align-middle " >
-                    <?php echo ($header_image_text) ? $header_image_text : '';  ?>                
-                  </h1>
-              </div>
-            </div>  
-      </div>
-      <?php endif; ?>
+
+        <?php if ($featured_image) { ?>
+        <div class="hero-wrapper m80">
+          <div class="hero-image" style="background-image:url('<?php echo $featured_image; ?>');"></div>
+          <?php if ($header_image_text) { ?>
+          <div class="hero-caption animated fadeIn">
+            <div class="caption"><?php echo $header_image_text ?></div>
+          </div>
+          <?php } ?>
+        </div>
+        <?php } ?>
+
+      <?php } ?>
   </div>
 
     <!-- 1st row -->

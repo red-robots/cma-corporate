@@ -75,4 +75,4 @@ if($hero_type=='video') {
 
 		<?php get_template_part('template-parts/banner'); ?>
 
-		<div id="content" class="site-content ">
+		<div id="content" class="site-content cf">

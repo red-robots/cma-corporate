@@ -1,20 +1,23 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content">
+
     <?php
     $header_image       = get_field('row_1_header_image');
     $header_image_text  = get_field('row_1_header_title');
-    if($header_image) { ?>
-    <div class="n2-section-smartslider text-center mb-5">      
-        <div class="header_image_section fadeIn wow" data-wow-delay="0.5s">
-          <div class="featured_image" style="background-image: url('<?php echo $header_image;  ?>');" >       
-          </div>     
-          <div class="header_image_text fadeIn wow" data-wow-delay="1s">
-            <h1 class="align-middle"><?php echo $header_image_text; ?></h1>
-          </div>
-        </div>  
+    ?>
+
+    <?php if ($header_image) { ?>
+    <div class="hero-wrapper m80">
+      <div class="hero-image" style="background-image:url('<?php echo $header_image; ?>');"></div>
+      <?php if ($header_image_text) { ?>
+      <div class="hero-caption animated fadeIn">
+        <div class="caption"><?php echo $header_image_text ?></div>
+      </div>
+      <?php } ?>
     </div>
     <?php } ?>
 
+   
     <!-- 2nd row -->
     <?php
     $row_2_title    = get_field('row_2_title');

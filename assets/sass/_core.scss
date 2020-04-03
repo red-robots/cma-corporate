@@ -1112,7 +1112,9 @@ input[type=submit]:hover {
     color: #999;
     text-align: center;
     background-color: #f9f9f9;
-    border-top: .05rem solid #e5e5e5
+    border-top: .05rem solid #e5e5e5;
+    width: 100%;
+    float: left;
 }
 
 .cma-footer p:last-child {
@@ -1579,7 +1581,24 @@ h1.n2-ss-item-content {
 
 .n2-section-smartslider {
     position: relative;
-    width: 100%
+    width: 100%;
+    float: left;
+    margin-top: 80px;
+    h1 {
+        width: 100%;
+        padding: 0 10%;
+        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9);
+        font-size: 4.5vw;
+        font-weight: 500;
+        color: #FFF;
+        line-height: 1.2;
+        text-align: center;
+        margin-top: 0;
+        @include tab {
+            font-size: 3rem;
+            padding: 0 30px;
+        }
+    }
 }
 
 .featured_image:after {
@@ -1953,6 +1972,10 @@ body.logged-in.admin-bar {
     @include tab {
         height: 500px;
     }
+    &.m80 {
+        margin-top: 80px!important;
+        margin-bottom: 40px;
+    }
     .hero-image {
         width: 100%;
         height: 100%;
@@ -1978,7 +2001,7 @@ body.logged-in.admin-bar {
             color: #FFF;
             line-height: 1.1;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 0;
             @include xs {
                 font-size: 4.5vw;
                 padding: 0 10%;
@@ -1987,7 +2010,7 @@ body.logged-in.admin-bar {
                 max-width: 1200px;
                 padding-left: 20px;
                 padding-right: 20px;
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
         }
     }
@@ -1998,8 +2021,11 @@ body.page-template-page-generic #content {
 }
 .temp-row1 {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 55px;
+    @include tab {
+        padding-top: 50px;
+    }
     h1.cma-title-red {
         margin: 0 0 20px;
     }
@@ -2542,8 +2568,10 @@ body.single-location {
 .cma-footer {
     .searchCol {
         margin-bottom: 15px;
+        text-align: center;
         @include tab {
             margin-bottom: 0;
+            text-align: left;
         }
     }
 }
@@ -2583,6 +2611,9 @@ body.single-location {
             padding: 0 0;
             border: none;
             margin: 5px 0 0;
+        }
+        div.inputfield input[type="text"] {
+            margin-bottom: 0;
         }
     }
     form * {
@@ -2635,6 +2666,12 @@ body.single-location {
         &:hover {
             background: tint($primary,30%);
         }
+    }
+}
+.footer_locations {
+    text-align: center;
+    @include tab {
+        text-align: left;
     }
 }
 body.single-properties {
@@ -3161,9 +3198,12 @@ body.page-sitemap {
 }
 
 
+
 /* Home Video Hero */
 #masthead.site-header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1000;
 }
 #masthead.site-header .wrapper {
@@ -3171,6 +3211,13 @@ body.page-sitemap {
     width: 95%;
     @include tab {
         width: 90%;
+    }
+}
+body.subpage {
+    .hero-wrapper {
+        margin-top: 80px;
+        width: 100%;
+        float: left;
     }
 }
 body.hasvideo {
@@ -3256,9 +3303,6 @@ body.hasvideo {
     height: auto;
     float: left;
     background-color: #2b2b2b;
-    @include desk {
-        margin-bottom: 40px;
-    }
     #videoHero {
         position: relative;
         min-width: 100%;
@@ -3796,5 +3840,29 @@ input[type=submit].submitbtn {
         flex: unset;
         padding-top: 20px;
         padding-bottom: 20px;
+    }
+}
+#homerow1 {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    @include tab {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+}
+.servicesrow {
+    padding: 2rem 0;
+    @include tab {
+        padding: 3rem;
+    }
+}
+body.admin-bar {
+    #masthead.site-header {
+        top: 46px;
+    }
+    @include tab {
+        #masthead.site-header {
+            top: 32px;
+        }
     }
 }

@@ -13,7 +13,7 @@
 
   
 	
-    <footer class="cma-footer" id="colophon" role="contentinfo">
+    <footer class="cma-footer cf" id="colophon" role="contentinfo">
       <div class="container text-left">
         <div class="row">
           <div class="col-md-7 ftcol1">

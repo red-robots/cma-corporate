@@ -8,7 +8,7 @@
         $row1_btn_text  = get_field('button_name');
         $row1_btn_link  = get_field('button_link');
     ?>
-    <div class="row mb-5 justify-content-center">
+    <div id="homerow1" class="row justify-content-center">
         <div class="col-md-8 text-center fadeIn wow" data-wow-delay="0.7s">
             <h1 class="cma-title-red " ><?php  echo ($row1_title) ? esc_html($row1_title) : ''; ?></h1>
             <div class="cma-paragraph-normal " >
@@ -39,7 +39,7 @@
             <?php } ?>
 
             <div class="container">
-                <div class="row p-5 fadeIn wow" data-wow-delay="1s">
+                <div class="servicesrow row fadeIn wow" data-wow-delay="1s">
 
                     <?php
                         $post_type = 'services';
@@ -273,31 +273,32 @@
 
     <!--  Request Information -->
     <?php
-        $row6_title     = get_field('title6');
-        $row6_text      = get_field('description'); 
-        $final_content =  email_obfuscator($row6_text);
-        $row6_icon      = get_field('logo'); 
-        $row6_small     = get_field('small_captions');   
-        $buttonName6 = get_field("buttonName6");           
-        $buttonLink6 = get_field("buttonLink6");           
-    ?>
-    <section class="pt-5 pb-4 mb-5" id="request_information">
-        <div class="container text-center">
-            <div class="col-md-8 cma-center fadeIn wow" data-wow-delay="0.7s">
-                <h1 class="cma-title-normal">
-                    <?php echo ($row6_title) ? esc_html($row6_title) : ''; ?>
-                </h1>
-                <div class="cma-paragraph-normal">
-                    <?php  echo ($row6_text) ? $final_content : ''; ?>
-                </div>
-                <?php if ($buttonName6 && $buttonLink6) { ?>
-                <div class="btndiv">
-                    <a href="<?php echo $buttonLink6 ?>" class="cma-solid-bottom"><?php echo $buttonName6 ?></a>
-                </div>  
-                <?php } ?>
-            </div>
+    $row6_title     = get_field('title6');
+    $row6_text      = get_field('description'); 
+    $final_content =  email_obfuscator($row6_text);
+    $row6_icon      = get_field('logo'); 
+    $row6_small     = get_field('small_captions');   
+    $buttonName6 = get_field("buttonName6");           
+    $buttonLink6 = get_field("buttonLink6");
+    if($row6_title || $row6_text) { ?>
+    <section id="proposalRow" class="temp-bottom text-center multicolored cf">
+        <div class="wrapper">
+           <?php if ($row6_title) { ?>
+              <h1 class="cma-title-white fadeInUp wow" data-wow-delay="0.5s"><?php echo $row6_title ?></h1>
+            <?php }  ?>
+          
+            <?php if ($row6_text) { ?>
+              <div class="text-white fadeInUp wow" data-wow-delay="0.6s"><?php echo $row6_text ?></div>
+            <?php } ?>
+
+            <?php if ($buttonName6 && $buttonLink6) { ?>
+            <div class="btndiv fadeIn wow" data-wow-delay="0.65s">
+              <a href="<?php echo $buttonLink6 ?>" class="link-white"><?php echo $buttonName6 ?></a>
+            </div>  
+            <?php } ?>
         </div>
     </section>
+    <?php } ?>
 
 
 
