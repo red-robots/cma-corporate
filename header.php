@@ -7,7 +7,12 @@
 	<?php if( is_singular() && pings_open( get_queried_object() )) { ?><link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php }  ?>	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">	
-	<?php if( $mapAPI = gmap_api_key() ) { ?><script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $mapAPI ?>"></script><?php } ?>
+	<?php if( $mapAPI = gmap_api_key() ) { ?>
+	<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $mapAPI ?>"></script>
+	<script> var gmapi = '<?php echo $mapAPI ?>'; </script>
+	<?php } else { ?>
+	<script> var gmapi = ''; </script>
+	<?php } ?>
 	<?php wp_head(); ?>
 	<script src="https://www.youtube.com/iframe_api"></script>
 	<script>var currentURL = '<?php echo get_permalink() ?>';</script>

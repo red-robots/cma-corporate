@@ -1,45 +1,28 @@
 jQuery(document).ready(function ($) {
 
-	// $(window).off('beforeunload');
-
-	// $("body.toplevel_page_acf-options form#post").on("submit",function(e){
-	// 	e.preventDefault();
-	// 	var adminURL = wpAdminURL + 'admin.php?page=acf-options';
-	// 	var successURL = adminURL + '&message=1';
-	// 	var data = $(this).serializeArray();
-	// 	$.post(adminURL, data, function(response){
- //            if(response) {
- //            	window.location.href = successURL;
- //            	//window.history.pushState( null, document.title, successURL );
- //            }
- //        });
- //        return false;
-
-	// });
-
 
 	/* THIS IS TO FIX THE ISSUE OF BEING REDIRECTED TO 404 AFTER SAVING THE OPTIONS CUSTOM FIELDS */
 	/* Request Information URL field */
-	var schemes = ['http','https'];
-	if( $("input#acf-field_5dc248358e034").length > 0 ) {
-		var url_dummy_field = '<input type="text" id="request-info-url" value="">';
-		$(url_dummy_field).insertBefore('input#acf-field_5dc248358e034');
-		var currentVAL = $("input#acf-field_5dc248358e034").val();
-		var cv = currentVAL.replace(/\s/g,'');
-		var completeURL = '';
-		if( $("input#acf-field_5e7f01711e379").length > 0 ) {
-			var schemeVal = $("input#acf-field_5e7f01711e379").val();
-			if(cv) {
-				if( schemeVal && ($.inArray(schemeVal, schemes) !== -1) ) {
-					completeURL = schemeVal + "://" + currentVAL.trim();
-				} else {
-					completeURL = currentVAL.trim();
-				}
-				$("input#request-info-url").val(completeURL);
-			}
-		}
+	// var schemes = ['http','https'];
+	// if( $("input#acf-field_5dc248358e034").length > 0 ) {
+	// 	var url_dummy_field = '<input type="text" id="request-info-url" value="">';
+	// 	$(url_dummy_field).insertBefore('input#acf-field_5dc248358e034');
+	// 	var currentVAL = $("input#acf-field_5dc248358e034").val();
+	// 	var cv = currentVAL.replace(/\s/g,'');
+	// 	var completeURL = '';
+	// 	if( $("input#acf-field_5e7f01711e379").length > 0 ) {
+	// 		var schemeVal = $("input#acf-field_5e7f01711e379").val();
+	// 		if(cv) {
+	// 			if( schemeVal && ($.inArray(schemeVal, schemes) !== -1) ) {
+	// 				completeURL = schemeVal + "://" + currentVAL.trim();
+	// 			} else {
+	// 				completeURL = currentVAL.trim();
+	// 			}
+	// 			$("input#request-info-url").val(completeURL);
+	// 		}
+	// 	}
 
-	}
+	// }
 	
 
 	$(document).on("keyup keypress blur focusout","input#request-info-url",function(){
