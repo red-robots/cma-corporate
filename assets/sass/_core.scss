@@ -1899,25 +1899,38 @@ body.logged-in.admin-bar {
     background: #FFF;
     padding-top: 50px;
     padding-bottom: 50px;
-    .video-iframe {
-        width: 100%;
-    }
     @include desk {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+    .videoWrap {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .video-iframe {
+        width: 100%;
+        float: left;
+        position: relative;
+        background-color: #000;
+        overflow: hidden;
+        img.helper {
+            width: 100%;
+            height: auto;
+            float: left;
+        }
+        div.frame {
+            width: 100.2%;
+            height: 100.2%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+    }
     iframe {
         width: 100%!important;
-        height: 30vh!important;
-        @include tab {
-            height: 50vh!important;
-        }
-        @include mid {
-            height: 60vh!important;
-        }
-        @include desk {
-            height: 70vh!important;
-        }
+        height: 100%!important;
     }
     .videoDescription {
         margin-top: 20px;
@@ -3302,6 +3315,9 @@ body.hasvideo {
     max-height: 93vh;
     height: auto;
     float: left;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #2b2b2b;
     #videoHero {
         position: relative;
@@ -3863,6 +3879,18 @@ body.admin-bar {
     @include tab {
         #masthead.site-header {
             top: 32px;
+        }
+    }
+}
+.graysection {
+    background: #f2f2f2;
+    margin-top: 30px;
+    .row {
+        padding-top: 40px;
+        padding-bottom: 50px;
+        @include tab {
+            padding-top: 60px;
+            padding-bottom: 50px;
         }
     }
 }

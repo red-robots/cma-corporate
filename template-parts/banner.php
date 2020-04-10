@@ -5,21 +5,26 @@ if( is_front_page() ) {
 	if($hero_type=='video') { 
 
 		$video = get_field("video");
+		$video_thumbnail = ( isset($video['video_thumbnail']) && $video['video_thumbnail'] ) ? $video['video_thumbnail'] : '';
 		$video_mp4 = ( isset($video['mp4']) && $video['mp4'] ) ? $video['mp4'] : '';
 		$video_ogg = ( isset($video['ogg']) && $video['ogg'] ) ? $video['ogg'] : '';
 		$video_webm = ( isset($video['webm']) && $video['webm'] ) ? $video['webm'] : '';
 		$overlayType = ( isset($video['overlay_type']) && $video['overlay_type'] ) ? $video['overlay_type'] : '';
 		$imagesvg = '';
 		$imageType = '';
+		$imageBg = "";
 		if($overlayType=='svg') {
 			$imagesvg = ( isset($video['overlay_image_svg']) && $video['overlay_image_svg'] ) ? $video['overlay_image_svg']:'';
 		} else {
 			$imageType = ( isset($video['overlay_image_png']) && $video['overlay_image_png'] ) ? $video['overlay_image_png']:'';
 		}
+		if($video_thumbnail) {
+			$imageBg = ' style="background-image:url('.$video_thumbnail['url'].')"';
+		}
 
 
 		if($video_mp4) { ?>
-			<div class="video-wrapper pageHero">
+			<div class="video-wrapper pageHero"<?php echo $imageBg ?>>
 				<video id="videoHero" width="800" muted autoplay playsinline loop>
 					<source src="<?php echo $video_mp4 ?>" type="video/mp4">
 					<?php if ($video_webm) { ?>
