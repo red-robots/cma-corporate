@@ -3894,3 +3894,118 @@ body.admin-bar {
         }
     }
 }
+.zEWidget-launcher.zEWidget-launcher--active {
+    z-index: 9999991!important;
+}
+
+/* Homepage Popup */
+body.modal-open {
+    overflow: hidden;
+}
+.homepopup {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 999999;
+    overflow: auto;
+    @include flexgroup-center();
+    .popupcontent {
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: #FFF;
+        box-shadow: 0 0 7px rgba(0,0,0,0.5);
+        @include tab {
+            position: relative;
+        }
+    }
+    .inner {
+        @include flexgroup();
+        &.hasimage {
+            .imagecol {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 50%;
+                display: none;
+                @include tab {
+                    display: block;
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .textcol {
+                width: 100%;
+                @include tab {
+                    width: 50%;
+                }
+            }
+        }
+    }
+    .textcol {
+        @include flexgroup-center();
+        .inside {
+            padding: 7% 8% 12%;
+            @include tab {
+                padding: 20% 10%;
+            }
+        }
+    }
+    .popclose {
+        font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+        font-size: 22px;
+        line-height: 20px;
+        color: #929292;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 6px;
+        right: 5px;
+        z-index: 10;
+        text-align: center;
+        span {
+            position: relative;
+            top: 3px;
+        }
+        &:hover {
+            color: #cecece;
+        }
+    }
+    .poptitle {
+        font-size: 1.3em;
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0 0 0.8em;
+        @include tab {
+            font-size: 2em;
+        }
+    }
+    .poptext {
+        font-size: 13px;
+        line-height: 1.5;
+        p {
+            margin: 0 0 1em;
+            font-size: 1.1em;
+            font-weight: 500;
+            @include tab {
+                font-size: 1.25em;
+            }
+        }
+        a {
+            color: #db1c2b;
+            &:hover {
+                color: #f56e78;
+            }
+        }
+    }
+}

@@ -567,5 +567,17 @@ function gmap_distance_calculator($lat1, $lon1, $lat2, $lon2, $unit='N') {
       }
 }
 
+function has_homepage_popup() {
+    $popup_title = get_field("popup_title","option");
+    $popup_text = get_field("popup_text","option");
+    $popupContent = ($popup_text) ? strip_tags($popup_text) : '';
+    if($popupContent) {
+        $popupContent = preg_replace('/\s+/','',$popupContent);
+        $popupContent = str_replace("&nbsp;",'',$popupContent);
+    }
+    $show_popup = ( isset($_COOKIE['closehomepopup']) && $_COOKIE['closehomepopup'] ) ? false : true;
+    return ($popupContent && $show_popup) ? true : false;
+}
+
 
 

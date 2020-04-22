@@ -201,5 +201,25 @@ jQuery(document).ready(function ($) {
 		$(this).next('.xtext').slideToggle();
 	});
 
+	/* Set Cookie reference: 
+	https://medium.com/@manivannan_data/create-update-and-delete-cookies-using-jquery-5235b110d384 */
+	
+	/* Read cookie */
+	//Cookies.get('closehomepopup');
+
+	/* Delete cookie */
+	//Cookies.remove('closehomepopup');
+
+	$(".popclose").on("click",function(e){
+		e.preventDefault();
+		Cookies.set('closehomepopup',1);
+		$("body").removeClass("modal-open");
+		$(".homepopup").addClass("fadeOut");
+		$(".popupcontent").removeClass("fadeIn").addClass("fadeOut");
+		setTimeout(function(){
+			$(".homepopup").remove();
+		},500);
+	});
+
 
 });// END #####################################    END

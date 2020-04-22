@@ -25,8 +25,18 @@ if($hero_type=='video') {
 	$video = get_field("video");
 	$custom_class = (isset($video['mp4']) && $video['mp4']) ? 'hasvideo' : '';
 }  
+$popup_title = get_field("popup_title","option");
+$popup_text = get_field("popup_text","option");
+if( has_homepage_popup() ) {
+	$custom_class .= ' modal-open';
+}
 ?>
 <body <?php body_class($custom_class); ?>>
+
+	<?php if ( is_front_page() ) { ?>
+	<?php get_template_part('template-parts/homepage-popup'); ?>
+	<?php } ?>
+
 	<div id="page" class="site cf">
 		<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
@@ -59,9 +69,6 @@ if($hero_type=='video') {
 		 				</div>
 
 		 				
-
-
-
 		 			</div><!-- wrapper -->
 	 				<div class="mobilemenu">		 					
 	 					<?php 

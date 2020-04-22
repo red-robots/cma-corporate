@@ -34,6 +34,13 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'bellaworks-jscookie', 
+			get_template_directory_uri() . '/assets/js/vendors/cookie.js', 
+			array('jquery'), '', 
+			true 
+		);
+
+	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
 			array('jquery'), '20120206', 
