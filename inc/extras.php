@@ -568,6 +568,7 @@ function gmap_distance_calculator($lat1, $lon1, $lat2, $lon2, $unit='N') {
 }
 
 function has_homepage_popup() {
+    $enable_popup = get_field("enable_popup","option");
     $popup_title = get_field("popup_title","option");
     $popup_text = get_field("popup_text","option");
     $popupContent = ($popup_text) ? strip_tags($popup_text) : '';
@@ -576,7 +577,8 @@ function has_homepage_popup() {
         $popupContent = str_replace("&nbsp;",'',$popupContent);
     }
     $show_popup = ( isset($_COOKIE['closehomepopup']) && $_COOKIE['closehomepopup'] ) ? false : true;
-    return ($popupContent && $show_popup) ? true : false;
+    $enable_popup = ($enable_popup && $enable_popup=='on') ? true : false;
+    return ($popupContent && $show_popup && $enable_popup) ? true : false;
 }
 
 

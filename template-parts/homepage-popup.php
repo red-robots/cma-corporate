@@ -16,7 +16,7 @@ if( $display_popup ) { ?>
 		<a href="#" class="popclose"><span>x</span></a>
 		<div class="inner <?php echo ($popup_image ) ? 'hasimage':'noimage';?>">
 			<?php if ($popup_image) { ?>
-			<div class="imagecol" style="background-image:url('<?php echo $popup_image['url']?>')">
+			<div class="imagecol" style="background-image:url('<?php echo $popup_image['sizes']['large']?>')">
 				<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
 			</div>	
 			<?php } ?>
