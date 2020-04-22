@@ -3926,6 +3926,7 @@ body.modal-open {
             position: relative;
         }
     }
+    
     .inner {
         @include flexgroup();
         &.hasimage {
