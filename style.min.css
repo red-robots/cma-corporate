@@ -1610,7 +1610,7 @@ input[type=submit].submitbtn:hover{padding:0}
 }.zEWidget-launcher.zEWidget-launcher--active{z-index:9999991 !important}
 body.modal-open{overflow:hidden}
 .homepopup{width:100%;height:100%;padding:30px;position:fixed;top:0;left:0;background:rgba(0,0,0,0.45);z-index:999999;overflow:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.homepopup .popupcontent{max-width:800px;width:100%;margin:0 auto;position:fixed;bottom:0;left:0;background:#FFF;box-shadow:0 0 7px rgba(0,0,0,0.5)}
+.homepopup .popupcontent{max-width:900px;width:100%;margin:0 auto;position:fixed;bottom:0;left:0;background:#FFF;box-shadow:0 0 7px rgba(0,0,0,0.5)}
 @media(min-width:800px){.homepopup .popupcontent{position:relative}
 }.homepopup .inner{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .homepopup .inner.hasimage .imagecol{background-size:cover;background-position:center;background-repeat:no-repeat;width:50%;display:none}
