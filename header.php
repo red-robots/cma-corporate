@@ -27,7 +27,9 @@ if($hero_type=='video') {
 }  
 $popup_title = get_field("popup_title","option");
 $popup_text = get_field("popup_text","option");
-if( has_homepage_popup() ) {
+
+// 5-18-2020 added "&& is front page" so .modal-open isn't added to oter pages preventing scrolling.
+if( has_homepage_popup() && is_front_page() ) {
 	$custom_class .= ' modal-open';
 }
 ?>
