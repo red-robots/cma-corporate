@@ -3911,11 +3911,20 @@ body.modal-open {
     left: 0;
     background: rgba(0,0,0,.45);
     z-index: 999999;
-    overflow: auto;
-    @include flexgroup-center();
-    .popupcontent {
+    overflow: hidden;
+    .popupOuter {
+        overflow: auto;
         max-width: 900px;
         width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        //@include flexgroup-center();
+    }
+    .popupcontent {
+        max-width: 100%;
+        width: 100%;
+        // height: 100%;
         margin: 0 auto;
         position: fixed;
         bottom: 0;
@@ -3924,6 +3933,13 @@ body.modal-open {
         box-shadow: 0 0 7px rgba(0,0,0,0.5);
         @include tab {
             position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    &.adjustHeight .popupcontent {
+        @include tab {
+            height: 100%;
         }
     }
     
@@ -3953,6 +3969,7 @@ body.modal-open {
         }
     }
     .textcol {
+        background: #FFF;
         @include flexgroup-center();
         .inside {
             padding: 7% 8% 12%;
@@ -3965,6 +3982,7 @@ body.modal-open {
         font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
         font-size: 22px;
         line-height: 20px;
+        // background: #FFF;
         color: #929292;
         display: inline-block;
         width: 30px;
@@ -3974,12 +3992,32 @@ body.modal-open {
         right: 5px;
         z-index: 10;
         text-align: center;
+        &.fixed {
+            position: fixed;
+        }
         span {
             position: relative;
             top: 3px;
         }
         &:hover {
             color: #cecece;
+        }
+    }
+    #popclose2 {
+        display: none;
+    }
+    &.adjustHeight #popclose2 {
+        display: block;
+        position: fixed;
+        top: 28px;
+        left: 0;
+        width: 100%;
+        z-index: 200;
+        div {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
         }
     }
     .poptitle {
@@ -4010,3 +4048,4 @@ body.modal-open {
         }
     }
 }
+

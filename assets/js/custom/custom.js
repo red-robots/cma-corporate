@@ -207,19 +207,62 @@ jQuery(document).ready(function ($) {
 	/* Read cookie */
 	//Cookies.get('closehomepopup');
 
-	/* Delete cookie */
+	/* Delete Cookies 
+	Uncomment these function to display Homepage pop-up
+	*/
 	//Cookies.remove('closehomepopup');
+	//Cookies.remove('lastviewed');
 
 	$(".popclose").on("click",function(e){
 		e.preventDefault();
+		closeHomePopUp();
+	});
+
+	/* Close Home popup when click outside of popup content */
+	$(document).on('click','.homepopup',function (e) {
+		var container = $(".popupcontent");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+	        closeHomePopUp();
+	    }
+	});
+
+	/* Adjust Popup Content Height when screen height is small. 
+	This fixed safari issue when scrolled up and down. */
+	adjust_popup_height();
+	$(window).on('resize',function(){
+		adjust_popup_height();
+	});
+
+	function adjust_popup_height() {
+		if( $(".homepopup").length > 0 ) {
+			var popupOuterHeight = $(".homepopup .popupOuter").height();
+			var popupcontentHeight = $(".homepopup .inner").height();
+			if(popupcontentHeight>=popupOuterHeight) {
+				$(".homepopup").addClass('adjustHeight');
+				$(".homepopup .popclose").appendTo("#popclose2 div");
+			} else {
+				$(".homepopup").removeClass('adjustHeight');
+				$("#popclose2 .popclose").appendTo(".popupcontent");
+			}
+		}
+	}
+
+	function closeHomePopUp() {
+		var d = new Date();
+		var mo = d.getMonth() + 1;
+		var month = (mo.toString().length < 2 ? "0"+mo.toString() : mo);
+		var day = (d.getDate().toString().length < 2 ? "0"+d.getDate().toString() :d.getDate());
+		var year = d.getFullYear();
+		var dateNow = year+"/"+month+"/"+day;
 		Cookies.set('closehomepopup',1);
+		Cookies.set('lastviewed',dateNow);
 		$("body").removeClass("modal-open");
 		$(".homepopup").addClass("fadeOut");
 		$(".popupcontent").removeClass("fadeIn").addClass("fadeOut");
 		setTimeout(function(){
 			$(".homepopup").remove();
 		},500);
-	});
+	}
 
 
 });// END #####################################    END
