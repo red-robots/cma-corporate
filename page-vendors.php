@@ -53,6 +53,68 @@ get_header(); ?>
     </div>
     <?php } ?>
 
+  <!-- Partner Vendor -->
+  <?php
+    $row_4_title    = get_field('row_4_title');
+    $row_4_text     = get_field('row_4_text');
+    $row_4_services   = get_field('row_4_services');
+  ?>
+
+  <?php if ($row_4_title || $row_4_text || $row_4_services) { ?>
+  <div class="cma-bg-red">
+    <div class=" cma-bg-red ">
+
+      <?php if ($row_4_title) { ?>
+      <div class="justify-content-center fadeIn wow" data-wow-delay="0.6s">
+        <div class="col-md-8 mb-4 mt-4" style="margin: 0 auto">
+          <h1 class="text-center"><?php echo $row_4_title ?></h1>
+        </div>
+      </div>
+      <?php } ?>
+      
+      <div class="container">
+        <div class="contentInner cf">
+        
+          <?php if ($row_4_text) { ?>
+          <div class="col-md-10 cma-center text-center fadeIn wow" data-wow-delay=".8s">
+              <?php echo $row_4_text ?>
+          </div>
+          <?php } ?>
+        
+          <?php if($row_4_services) { ?> 
+          <div class="row_images  mt-4 col-md-10 " style="margin: 0 auto;">
+            <div class="row">
+             <?php $x = 0; foreach($row_4_services as $service) { ?>
+              <?php
+                $x++;
+                $service_icon   = $service['service_image'];
+                $service_title  = $service['service_title'];
+              ?>
+              <div class="col-md-3 mb-5 col-6 fadeInUp wow" data-wow-delay="<?php echo ($x / 5) . 's'; ?>">
+                <div class="text-center">
+                  <?php if($service_icon): ?>
+                      <img src="<?php echo $service_icon['url']; ?>" alt="" class="img-circle">
+                    <?php endif; ?>
+                  <div class="mt-2">
+                    <span class="font-weight-bold service-title"><?php echo ($service_title) ? $service_title : ''; ?></span>
+                  </div>
+                </div>
+              </div> <!-- col-md-3 -->
+              <?php } ?>
+            </div>
+          </div> <!-- row -->
+          <?php } ?>
+
+        </div> 
+      </div> <!-- container -->
+      
+      <?php /* Partner Vendors posts */ ?>
+      <?php get_template_part("template-parts/vendors-partner"); ?>
+
+    </div>
+  </div>
+  <?php } ?>
+
 
   <!-- Preferred Vendor -->
   <?php
@@ -66,7 +128,7 @@ get_header(); ?>
       <?php if ($row_2_title) { ?>
       <div class="justify-content-center">
         <div class="mb-2 mt-4 col-md-7" style="margin: 0 auto;" >
-          <div class="fadeIn wow" data-wow-delay=".9s">
+          <div class="fadeIn wow" data-wow-delay=".8s">
             <h1  class="text-center"><?php echo $row_2_title; ?></h1>
           </div>
         </div>
@@ -85,69 +147,6 @@ get_header(); ?>
 
       <?php /* Preferred Vendors posts */ ?>
       <?php get_template_part("template-parts/vendors-preferred"); ?>
-
-    </div>
-  </div>
-  <?php } ?>
-
-
-  <!-- Partner Vendor -->
-  <?php
-  	$row_4_title 		= get_field('row_4_title');
-  	$row_4_text 		= get_field('row_4_text');
-  	$row_4_services 	= get_field('row_4_services');
-  ?>
-
-  <?php if ($row_4_title || $row_4_text || $row_4_services) { ?>
-  <div class="cma-bg-red">
-    <div class=" cma-bg-red ">
-
-      <?php if ($row_4_title) { ?>
-      <div class="justify-content-center fadeIn wow" data-wow-delay="0.7s">
-        <div class="col-md-8 mb-4 mt-4" style="margin: 0 auto">
-        	<h1 class="text-center"><?php echo $row_4_title ?></h1>
-        </div>
-      </div>
-      <?php } ?>
-      
-      <div class="container">
-        <div class="contentInner cf">
-        
-          <?php if ($row_4_text) { ?>
-          <div class="col-md-10 cma-center text-center fadeIn wow" data-wow-delay=".8s">
-              <?php echo $row_4_text ?>
-          </div>
-          <?php } ?>
-        
-          <?php if($row_4_services) { ?> 
-          <div class="row_images  mt-4 col-md-10 " style="margin: 0 auto;">
-            <div class="row">
-					   <?php $x = 0; foreach($row_4_services as $service) { ?>
-  						<?php
-  							$x++;
-  							$service_icon 	= $service['service_image'];
-  							$service_title 	= $service['service_title'];
-  						?>
-              <div class="col-md-3 mb-5 col-6 fadeInUp wow" data-wow-delay="<?php echo ($x / 5) . 's'; ?>">
-                <div class="text-center">
-                	<?php if($service_icon): ?>
-                  		<img src="<?php echo $service_icon['url']; ?>" alt="" class="img-circle">
-                  	<?php endif; ?>
-                  <div class="mt-2">
-                    <span class="font-weight-bold service-title"><?php echo ($service_title) ? $service_title : ''; ?></span>
-                  </div>
-                </div>
-              </div> <!-- col-md-3 -->
-		          <?php } ?>
-            </div>
-          </div> <!-- row -->
-          <?php } ?>
-
-        </div> 
-      </div> <!-- container -->
-      
-      <?php /* Partner Vendors posts */ ?>
-      <?php get_template_part("template-parts/vendors-partner"); ?>
 
     </div>
   </div>
