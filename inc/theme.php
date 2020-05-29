@@ -11,7 +11,6 @@
 // Add Google Map API
 function gmap_api_key() {
   return get_field("gmapAPI","option");
-  //return 'AIzaSyBW8ieE1YvFCvk792K2rPfErHL6ALcb9lU';
 }
 function my_acf_google_map_api( $api ){	
 	$api['key'] = gmap_api_key();
