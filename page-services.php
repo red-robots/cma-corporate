@@ -111,43 +111,36 @@ get_header(); ?>
   <div class="container text-center">
     <div class="row justify-content-center">
       
-      <div class="col-md-10 cma-center pt-5">          
-        <div class="cma-paragraph-normal fadeInUp wow" data-wow-delay="0.5s">
-          <?php echo ($row_3_text) ? $row_3_text : '';  ?> 
-        </div>
+      <div class="col-md-10 cma-center pt-5">  
+        <?php if ($row_3_text) { ?>
+        <div class="cma-paragraph-normal fadeInUp wow" data-wow-delay="0.5s"><?php echo $row_3_text ?></div>
+        <?php } ?>        
         <div class="row pt-4 ">
-		<?php if($row_3_offers): $x = 0; ?>
-			<?php foreach($row_3_offers as $offers): ?>
-				<?php
-					$x++;
-					$offer_icon 	= $offers['offer_image'];
-					$offer_title 	= $offers['offer_title'];
-					$offer_text 	= $offers['offer_text'];
-				?>
-		          <div class="col-sm-4 fadeInUp wow" data-wow-delay="<?php echo ($x / 5) . 's'; ?>">
-		            <div class="cma-icon-holder">
-		            	<?php if($offer_icon): ?>
-		              		<img src="<?php echo $offer_icon['url']; ?>" alt="">
-		          		<?php endif; ?>
-		            </div>
-		            <div class="cma-sub-title ">
-		              <?php echo ($offer_title) ? $offer_title : ''; ?>
-		            </div>
-		            <p class="cma-paragraph-normal">
-		              <?php echo ($offer_text) ? $offer_text : ''; ?>
-		            </p>
-		          </div>
-          	<?php endforeach; ?>
-      	<?php endif; ?>
+  		    <?php if($row_3_offers) { $x = 0; ?>
+  			    <?php foreach($row_3_offers as $offers) { 
+    					$offer_icon 	= $offers['offer_image'];
+    					$offer_title 	= $offers['offer_title'];
+    					$offer_text 	= $offers['offer_text'];
+              $col_ID = ($offer_title) ? sanitize_title($offer_title) : 'svcol-'.$x;
+    				  ?>
+  	          <div id="<?php echo $col_ID ?>" class="col-sm-4 fadeIn wow" data-wow-delay="<?php echo ($x / 10) . 's'; ?>">
+  	            <div class="cma-icon-holder">
+  	            	<?php if($offer_icon): ?>
+  	              		<img src="<?php echo $offer_icon['url']; ?>" alt="">
+  	          		<?php endif; ?>
+  	            </div>
+                <?php if ($offer_title) { ?>
+                <div class="cma-sub-title "><?php echo $offer_title ?></div>
+                <?php } ?>
 
-		
-
+                <?php if ($offer_text){ ?>
+                <p class="cma-paragraph-normal"><?php echo $offer_text ?></p>
+                <?php } ?>
+  	          </div>
+          	<?php $x++; } ?>
+        	<?php } ?>
+        </div>
       </div>
-
-        
-
-      </div>
-
 
 
     </div>

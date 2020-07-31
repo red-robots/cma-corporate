@@ -42,6 +42,9 @@
                 <div class="servicesrow row fadeIn wow" data-wow-delay="1s">
 
                     <?php
+                        $service_page_id = 60;
+                        $services_slugs = array();
+                        $services_offers    = get_field('row_3_offers',$service_page_id);
                         $post_type = 'services';
                         $args = array(
                             'posts_per_page'   => -1,
@@ -51,14 +54,35 @@
                             'post_status'      => 'publish',
                             //'paged'            => $paged
                         );
-                        $posts = new WP_Query($args);
 
+                        if($services_offers) {
+                            foreach($services_offers as $s) {
+                                $svc_title = ($s['offer_title'] && preg_replace('/\s+/', '', $s['offer_title'])) ? preg_replace('/\s+/', ' ', $s['offer_title']):'';
+                                $svc_ID = ($svc_title) ? sanitize_title($svc_title) : '';
+                                if($svc_ID) {
+                                    $services_slugs[] = $svc_ID;
+                                }
+                            }
+                        }
+
+                        
+
+                        $posts = new WP_Query($args);
                         if ( $posts->have_posts() ) {
 
-                            while ( $posts->have_posts() ) : $posts->the_post(); ?>
-
+                            while ( $posts->have_posts() ) : $posts->the_post(); 
+                                $s_title = preg_replace('/\s+/', ' ', get_the_title());
+                                $s_ID = sanitize_title( $s_title );
+                                $service_link = '';
+                                if($services_slugs) {
+                                    if( in_array($s_ID, $services_slugs) ) {
+                                        $service_link = '<a href="'.get_permalink($service_page_id).'#'.$s_ID.'" class="svclink"><span>'.get_the_title().'</span></a>';
+                                    }
+                                }
+                                ?>
                                 <div class="col-md-3 col-6 mb-5">
-                                    <div class="text-center">
+                                    <div class="home-svc-icon text-center <?php echo ($service_link) ? 'has-anchor':'no-anchor' ?>">
+                                        <?php echo $service_link ?>
                                         <?php if( get_field('services_thumbnail_image') ): ?>
                                             <?php $image = get_field('services_thumbnail_image'); ?>
                                             <?php if( $image ): ?>
@@ -66,7 +90,7 @@
                                             <?php endif; ?>
                                         <?php endif; ?>
                                         <div class="mt-2">
-                                            <span class="font-weight-bold service-title"><?php the_title(); ?></span>
+                                            <span class="font-weight-bold service-title"><?php echo get_the_title(); ?></span>
                                         </div>
                                     </div>
                                 </div> <!-- col-md-3 -->                                             

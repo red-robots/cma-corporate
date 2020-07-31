@@ -665,7 +665,7 @@ nav.mobilemenu ul.sub li a:hover {
         top: 0;
         left: 0;
         .mobilemain {
-            padding-top: 80px!important;
+            padding-top: 120px!important;
         }
     }
 }
@@ -795,7 +795,12 @@ pre {
 h1.logo {
     margin-top: 20px
 }
-
+.logo img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+    transition: all ease .3s;
+}
 p {
     font-size: 20px;
     color: #444;
@@ -3282,10 +3287,13 @@ body.hasvideo {
     body.subpage {
         .mobilemenu {
             @media screen and (max-width: $mwidth) {
-                margin-top: 80px!important;
+                // margin-top: 80px!important;
+                &.show {
+                    padding-top: 120px!important;
+                }
                 &:before,&:after {
                     position: fixed;
-                    top: 80px;
+                    top: 0;
                     left: 0;
                     width: 100%;
                     height: 200%;
@@ -3300,6 +3308,7 @@ body.hasvideo {
                 }
                 .mobilemain {
                     padding-top: 0!important;
+
                 }
             }
         }
@@ -3871,6 +3880,35 @@ input[type=submit].submitbtn {
     @include tab {
         padding: 3rem;
     }
+    .home-svc-icon {
+        position: relative;
+        a.svclink {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            span {
+                display: block;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                text-indent: -999em;
+            }
+        }
+        img {
+            cursor: auto;
+            transition: all ease .3s;;
+        }
+        &.has-anchor img {
+            cursor: pointer;
+        }
+        &.has-anchor:hover img {
+            transform: scale(1.08);
+        }
+    }
 }
 body.admin-bar {
     #masthead.site-header {
@@ -4046,6 +4084,60 @@ body.modal-open {
                 color: #f56e78;
             }
         }
+    }
+}
+
+body.scrolled .desktop-logo,
+body.subpage .desktop-logo,
+.mobile-logo {display: none;}
+
+body.scrolled .mobile-logo,
+body.subpage .mobile-logo {
+    display: inline-block; 
+    max-width: 95px;
+    position: relative;
+    top: -10px;
+}
+@media screen and (max-width:480px) {
+    .desktop-logo {
+        display: none;
+    }
+    .logo img.mobile-logo {
+        display: inline-block;
+        max-width: 90px;
+        width: 90px;
+        position: relative;
+        top: -4px;
+    }
+    #masthead.site-header {
+        background-color: #FFF !important;
+        z-index: 800;
+        box-shadow: 0 -2px 16px -1px rgba(0, 0, 0, 0.15);
+    }
+    body .burger {
+        .burger_label {
+            color: #db1c2b!important;
+        }
+        span, span:before,span:after {
+            background: #db1c2b!important;
+        }
+    }
+    body.openMenu #masthead .burger {
+        .burger_label {
+            color: #FFF!important;
+        }
+        span {
+            background: transparent!important;
+        }
+        span:before,span:after {
+            background: #FFF!important;
+        }
+    }
+    .video-wrapper {
+        margin-top: 80px;
+    }
+    body.subpage .hero-wrapper {
+        margin-bottom: 30px;
     }
 }
 

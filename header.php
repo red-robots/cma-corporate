@@ -51,13 +51,15 @@ if( has_homepage_popup() && is_front_page() ) {
 		 				<?php if(is_home()) { ?>
 		 					<h1 class="logo">
 		 						<a href="<?php bloginfo('url'); ?>">
-		 							<img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png" alt="<?php bloginfo('name'); ?>">
 		 						</a>
 		 					</h1>
 		 				<?php } else { ?>
 		 					<div class="logo">
 		 						<a href="<?php bloginfo('url'); ?>">
-		 							<img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png" alt="<?php bloginfo('name'); ?>">
 		 						</a>
 		 					</div>
 		 				<?php } ?>
