@@ -73,7 +73,7 @@
                             while ( $posts->have_posts() ) : $posts->the_post(); 
                                 $s_title = preg_replace('/\s+/', ' ', get_the_title());
                                 $s_ID = sanitize_title( $s_title );
-                                $service_link = '';
+                                $service_link = '<a href="'.get_permalink($service_page_id).'" class="svclink"><span>'.get_the_title().'</span></a>';
                                 if($services_slugs) {
                                     if( in_array($s_ID, $services_slugs) ) {
                                         $service_link = '<a href="'.get_permalink($service_page_id).'#'.$s_ID.'" class="svclink"><span>'.get_the_title().'</span></a>';
