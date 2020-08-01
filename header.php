@@ -19,6 +19,7 @@
 <?php if( $customScripts = get_field("header_custom_scripts","option") ) { echo $customScripts; } ?>
 </head>
 <?php
+$currentDateTime = date('Ymd');
 $hero_type = get_field("hero_type");
 $custom_class = '';
 if($hero_type=='video') {
@@ -33,7 +34,7 @@ if( has_homepage_popup() && is_front_page() ) {
 	$custom_class .= ' modal-open';
 }
 ?>
-<body <?php body_class($custom_class); ?>>
+<body <?php body_class($custom_class); ?> data-time="<?php echo date('Y/m/d'); ?>">
 
 	<?php if ( is_front_page() ) { ?>
 	<?php get_template_part('template-parts/homepage-popup'); ?>
@@ -51,15 +52,15 @@ if( has_homepage_popup() && is_front_page() ) {
 		 				<?php if(is_home()) { ?>
 		 					<h1 class="logo">
 		 						<a href="<?php bloginfo('url'); ?>">
-		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
-		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png?v=<?php echo $currentDateTime ?>" alt="<?php bloginfo('name'); ?>">
+		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png?v=<?php echo $currentDateTime ?>" alt="<?php bloginfo('name'); ?>">
 		 						</a>
 		 					</h1>
 		 				<?php } else { ?>
 		 					<div class="logo">
 		 						<a href="<?php bloginfo('url'); ?>">
-		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>">
-		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png" alt="<?php bloginfo('name'); ?>">
+		 							<img class="desktop-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png?v=<?php echo $currentDateTime ?>" alt="<?php bloginfo('name'); ?>">
+		 							<img class="mobile-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-mobile.png?v=<?php echo $currentDateTime ?>" alt="<?php bloginfo('name'); ?>">
 		 						</a>
 		 					</div>
 		 				<?php } ?>

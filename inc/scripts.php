@@ -5,8 +5,10 @@
 function bellaworks_scripts() {
 	wp_register_style( 'cma_bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.1.3', false);
     wp_enqueue_style( 'cma_bootstrap');
+
+    wp_enqueue_style( 'bellaworks-style', get_template_directory_uri() . '/style.min.css' );
     
-	wp_enqueue_style( 'bellaworks-style', get_stylesheet_uri() );
+	//wp_enqueue_style( 'bellaworks-style', get_stylesheet_uri() );
 
 	//wp_register_style( 'cma_style', get_template_directory_uri() . '/css/cma.css', array(), '', false);
     //wp_enqueue_style( 'cma_style');

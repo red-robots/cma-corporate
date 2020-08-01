@@ -248,12 +248,13 @@ jQuery(document).ready(function ($) {
 	}
 
 	function closeHomePopUp() {
-		var d = new Date();
-		var mo = d.getMonth() + 1;
-		var month = (mo.toString().length < 2 ? "0"+mo.toString() : mo);
-		var day = (d.getDate().toString().length < 2 ? "0"+d.getDate().toString() :d.getDate());
-		var year = d.getFullYear();
-		var dateNow = year+"/"+month+"/"+day;
+		// var d = new Date();
+		// var mo = d.getMonth() + 1;
+		// var month = (mo.toString().length < 2 ? "0"+mo.toString() : mo);
+		// var day = (d.getDate().toString().length < 2 ? "0"+d.getDate().toString() :d.getDate());
+		// var year = d.getFullYear();
+		// var dateNow = year+"/"+month+"/"+day;
+		var dateNow = $("body").attr("data-time");
 		Cookies.set('closehomepopup',1);
 		Cookies.set('lastviewed',dateNow);
 		$("body").removeClass("modal-open");
@@ -264,5 +265,6 @@ jQuery(document).ready(function ($) {
 		},500);
 	}
 
+	
 
 });// END #####################################    END
