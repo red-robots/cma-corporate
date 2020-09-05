@@ -354,9 +354,12 @@ get_header(); ?>
         </div>
         <?php } ?>
         
-        <?php if ($row_7_button_text && $row_7_button_link) { ?>
+        <?php if ($row_7_button_text && $row_7_button_link) { 
+          $row7 = parse_external_url($row_7_button_link);
+          $row7_target = ( isset($row7['target']) && $row7['target'] ) ? $row7['target'] : '_self';
+        ?>
         <div class="btndiv fadeIn wow animated" data-wow-delay="0.8s" >
-          <a href="<?php echo $row_7_button_link; ?>" class="link-white"><?php echo $row_7_button_text; ?></a>
+          <a href="<?php echo $row7['url']; ?>" target="<?php echo $row7_target; ?>" class="link-white"><?php echo $row_7_button_text; ?></a>
         </div>
         <?php } ?>
       </div>
